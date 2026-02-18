@@ -7,6 +7,28 @@
   <meta name="description" content="Premium network infrastructure: Wi-Fi, switching, cameras, VoIP, and structured cabling for small businesses in the Finger Lakes." />
   <meta name="theme-color" content="#070A12" />
 
+  <!-- Favicon / social preview (add these files later) -->
+  <link rel="icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <meta property="og:title" content="Slade Networks — Network Infrastructure for the Finger Lakes">
+  <meta property="og:description" content="Wi-Fi, switching, cameras, VoIP, and structured cabling for small businesses across the Finger Lakes.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="/og.png">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- LocalBusiness schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Slade Networks",
+    "areaServed": "Finger Lakes, NY",
+    "email": "andrew@sladenetworks.com",
+    "url": "https://sladenetworks.com",
+    "description": "Wi-Fi, switching, cameras, VoIP, and structured cabling for small businesses across the Finger Lakes."
+  }
+  </script>
+
   <style>
     :root{
       --bg0:#050811;
@@ -30,6 +52,14 @@
 
     *{box-sizing:border-box}
     html,body{height:100%}
+
+    /* Premium scroll + anchor offset under sticky header */
+    html{scroll-behavior:smooth}
+    section{scroll-margin-top:84px}
+    @media (prefers-reduced-motion: reduce){
+      html{scroll-behavior:auto}
+    }
+
     body{
       margin:0;
       font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text",
@@ -45,12 +75,34 @@
 
     a{color:inherit; text-decoration:none}
     .wrap{max-width:var(--max); margin:0 auto; padding:0 22px}
+
+    /* Skip link for keyboard users */
+    .skip{
+      position:absolute; left:-999px; top:12px;
+      background:rgba(255,255,255,.08);
+      border:1px solid var(--stroke2);
+      padding:10px 12px; border-radius:12px;
+      color:var(--text);
+    }
+    .skip:focus{left:12px; z-index:9999}
+
+    /* Better focus ring */
+    :focus-visible{
+      outline:none;
+      box-shadow:0 0 0 4px rgba(59,130,246,.22);
+      border-color:rgba(96,165,250,.55);
+    }
+
     .topbar{
       position:sticky; top:0; z-index:50;
-      backdrop-filter:saturate(160%) blur(14px);
-      background:rgba(7,10,18,.65);
+      backdrop-filter:saturate(140%) blur(10px);
+      background:rgba(7,10,18,.72);
       border-bottom:1px solid var(--stroke);
     }
+    @supports not (backdrop-filter: blur(1px)){
+      .topbar{ background: rgba(7,10,18,.92); }
+    }
+
     .nav{
       display:flex; align-items:center; justify-content:space-between;
       height:64px;
@@ -327,6 +379,10 @@
       line-height: 1.45;
       margin: 10px 0 0;
     }
+
+    /* Honeypot hidden field */
+    .hp{ position:absolute; left:-9999px; width:1px; height:1px; overflow:hidden; }
+
     .footer{
       padding:34px 0 44px;
       border-top:1px solid var(--stroke);
@@ -366,6 +422,8 @@
 </head>
 
 <body>
+  <a class="skip" href="#top">Skip to content</a>
+
   <div class="topbar">
     <div class="wrap">
       <div class="nav">
@@ -673,7 +731,7 @@
             <form class="form" id="contactForm">
               <div>
                 <label for="name">Name</label>
-                <input id="name" name="name" autocomplete="name" placeholder="Your name" />
+                <input id="name" name="name" autocomplete="name" placeholder="Your name" required />
               </div>
               <div>
                 <label for="company">Company (optional)</label>
@@ -681,11 +739,17 @@
               </div>
               <div>
                 <label for="email">Email</label>
-                <input id="email" name="email" autocomplete="email" placeholder="you@company.com" />
+                <input id="email" name="email" type="email" autocomplete="email" placeholder="you@company.com" required />
               </div>
               <div>
                 <label for="message">What do you need?</label>
-                <textarea id="message" name="message" placeholder="Wi-Fi coverage issues, new office buildout, cameras, VoIP, cabling, etc. Include location and timeline."></textarea>
+                <textarea id="message" name="message" placeholder="Wi-Fi coverage issues, new office buildout, cameras, VoIP, cabling, etc. Include location and timeline." required></textarea>
+              </div>
+
+              <!-- Honeypot -->
+              <div class="hp" aria-hidden="true">
+                <label for="website">Website</label>
+                <input id="website" name="website" tabindex="-1" autocomplete="off" />
               </div>
 
               <div style="display:flex; gap:10px; flex-wrap:wrap;">
@@ -739,6 +803,9 @@
             </div>
             <div>© <span id="year"></span> Slade Networks. All rights reserved.</div>
             <div style="margin-top:6px">Network Infrastructure • Finger Lakes, NY</div>
+            <div style="margin-top:10px; max-width:70ch;">
+              UniFi® is a trademark of Ubiquiti Inc. Slade Networks is not affiliated with or endorsed by Ubiquiti.
+            </div>
           </div>
           <div class="footLinks">
             <a href="#services">Services</a>
@@ -759,19 +826,29 @@
     const form = document.getElementById("contactForm");
     form.addEventListener("submit", (e) => {
       e.preventDefault();
+
+      // Honeypot: if filled, silently do nothing
+      const hp = (document.getElementById("website")?.value || "").trim();
+      if (hp) return;
+
       const name = (document.getElementById("name").value || "").trim();
       const company = (document.getElementById("company").value || "").trim();
       const email = (document.getElementById("email").value || "").trim();
       const msg = (document.getElementById("message").value || "").trim();
 
+      if (!name || !email || !msg) {
+        alert("Please include your name, email, and a short description of what you need.");
+        return;
+      }
+
       const subject = encodeURIComponent("Slade Networks Project Request");
       const lines = [
-        `Name: ${name || "-"}`,
+        `Name: ${name}`,
         `Company: ${company || "-"}`,
-        `Email: ${email || "-"}`,
+        `Email: ${email}`,
         "",
         "Project details:",
-        msg || "-"
+        msg
       ];
       const body = encodeURIComponent(lines.join("\n"));
       window.location.href = `mailto:andrew@sladenetworks.com?subject=${subject}&body=${body}`;
