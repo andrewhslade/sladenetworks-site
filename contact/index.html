@@ -72,6 +72,7 @@
       align-items:center;
       justify-content:center;
       gap:10px;
+      cursor:pointer;
     }
     .btn.primary{
       background:var(--accent);
@@ -171,22 +172,18 @@
     }
     .list li{margin:6px 0}
 
-    .pill{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      padding:7px 10px;
-      border-radius:999px;
-      border:1px solid var(--stroke);
-      background:rgba(255,255,255,.88);
-      color:var(--muted);
-      font-size:13px;
+    .notice{
+      margin-top:12px;
+      padding:12px 14px;
+      border-radius:14px;
+      border:1px solid rgba(34,197,94,.25);
+      background:rgba(34,197,94,.08);
+      color:rgba(15,18,26,.82);
+      display:none;
+      font-size:13.5px;
+      line-height:1.5;
     }
-    .dot{
-      width:7px;height:7px;border-radius:50%;
-      background:rgba(37,99,235,.95);
-      box-shadow:0 0 0 6px rgba(37,99,235,.10);
-    }
+    .notice.show{display:block}
 
     .footer{
       margin-top:64px;
@@ -225,7 +222,7 @@
         </div>
 
         <div class="cta">
-          <a class="btn" href="mailto:info@sladenetworks.com?subject=Slade%20Networks%20Quote%20Request">info@sladenetworks.com</a>
+          <a class="btn" href="mailto:info@sladenetworks.com?subject=Slade%20Networks%20Consultation">info@sladenetworks.com</a>
           <a class="btn primary" href="mailto:support@sladenetworks.com?subject=Support%20Request%20-%20Slade%20Networks">Support</a>
         </div>
       </div>
@@ -235,20 +232,32 @@
   <main>
     <section class="hero">
       <div class="wrap">
-        <span class="pill"><span class="dot" aria-hidden="true"></span> Finger Lakes and surrounding areas in upstate NY</span>
         <h1>Contact</h1>
-        <p class="sub">
-          Share a few details about the project. A reply will follow with next steps and a clear plan.
-        </p>
+        <p class="sub">Share a few details and we will get back to you as soon as possible.</p>
 
         <div class="grid">
           <div class="card">
-            <h2>Request a quote</h2>
-            <p>Use this form to generate an email draft. No data is stored on the website.</p>
+            <h2>Request a free consultation</h2>
+            <p>Send the details below. This goes directly to email.</p>
 
-            <form id="contactForm">
+            <!--
+              IMPORTANT:
+              1) Create a Formspree form and replace the action URL below.
+                 Example: https://formspree.io/f/xxxxabcd
+              2) In Formspree, set the destination email to info@sladenetworks.com.
+            -->
+            <form id="contactForm" action="https://formspree.io/f/maqdblqe" method="POST">
+              <!-- Formspree helpers -->
+              <input type="hidden" name="_subject" value="New Consultation Request — Slade Networks" />
+              <input type="hidden" name="_next" value="./?sent=1" />
+
+              <!-- Honeypot (spam trap) -->
+              <div style="position:absolute; left:-9999px; width:1px; height:1px; overflow:hidden;" aria-hidden="true">
+                <label for="website">Website</label>
+                <input id="website" name="website" tabindex="-1" autocomplete="off" />
+              </div>
+
               <div class="fields">
-
                 <div class="row2">
                   <div>
                     <label for="name">Name</label>
@@ -263,20 +272,20 @@
                 <div class="row2">
                   <div>
                     <label for="who">Home or business</label>
-                    <select id="who" name="who">
+                    <select id="who" name="home_or_business">
                       <option value="Home">Home</option>
                       <option value="Business">Business</option>
                     </select>
                   </div>
                   <div>
                     <label for="location">Town / area</label>
-                    <input id="location" name="location" autocomplete="address-level2" placeholder="Example: Penn Yan" />
+                    <input id="location" name="town_area" autocomplete="address-level2" placeholder="Example: Penn Yan" />
                   </div>
                 </div>
 
                 <div>
                   <label for="service">What help is needed?</label>
-                  <select id="service" name="service">
+                  <select id="service" name="service_needed">
                     <option value="Wi-Fi">Wi-Fi (coverage / redesign / new install)</option>
                     <option value="Cameras">Cameras + NVR</option>
                     <option value="Cabling">Structured cabling</option>
@@ -295,22 +304,21 @@
 
                 <div>
                   <label for="message">Project details</label>
-                  <textarea id="message" name="message" placeholder="Briefly describe what’s going on. If it’s Wi-Fi: building size/floors. If it’s cameras: how many and where. If it’s a new install: what equipment is already on site."></textarea>
-                </div>
-
-                <!-- Honeypot -->
-                <div style="position:absolute; left:-9999px; width:1px; height:1px; overflow:hidden;" aria-hidden="true">
-                  <label for="website">Website</label>
-                  <input id="website" name="website" tabindex="-1" autocomplete="off" />
+                  <textarea id="message" name="project_details" placeholder="Briefly describe what’s going on and what the goal is."></textarea>
                 </div>
 
                 <div style="display:flex; gap:10px; flex-wrap:wrap;">
-                  <button class="btn primary" type="submit">Generate email</button>
-                  <a class="btn" href="mailto:info@sladenetworks.com?subject=Slade%20Networks%20Quote%20Request">Email instead</a>
+                  <button class="btn primary" type="submit">Send request</button>
+                  <a class="btn" href="mailto:info@sladenetworks.com?subject=Slade%20Networks%20Consultation">Email instead</a>
+                </div>
+
+                <div id="sentNotice" class="notice" role="status" aria-live="polite">
+                  Sent. If a confirmation email does not arrive, send a message to info@sladenetworks.com.
                 </div>
 
                 <p class="fine">
-                  This form creates an email draft in the browser and opens your email app.
+                  For new client questions, email <a href="mailto:info@sladenetworks.com" style="text-decoration:underline; text-decoration-color:rgba(15,18,26,.25);">info@sladenetworks.com</a>.
+                  For existing clients and troubleshooting, email <a href="mailto:support@sladenetworks.com" style="text-decoration:underline; text-decoration-color:rgba(15,18,26,.25);">support@sladenetworks.com</a>.
                 </p>
               </div>
             </form>
@@ -319,7 +327,8 @@
           <div class="card">
             <h2>Quick info</h2>
             <p>
-              For new projects, email <a href="mailto:info@sladenetworks.com" style="text-decoration:underline; text-decoration-color:rgba(15,18,26,.25);">info@sladenetworks.com</a>.
+              For new client questions and consultations, email
+              <a href="mailto:info@sladenetworks.com" style="text-decoration:underline; text-decoration-color:rgba(15,18,26,.25);">info@sladenetworks.com</a>.
               For existing clients and troubleshooting, email
               <a href="mailto:support@sladenetworks.com" style="text-decoration:underline; text-decoration-color:rgba(15,18,26,.25);">support@sladenetworks.com</a>.
             </p>
@@ -329,19 +338,6 @@
               <li>Homes and small businesses</li>
               <li>Wi-Fi, cameras, cabling, racks, and support</li>
               <li>Optional ongoing remote support available</li>
-            </ul>
-
-            <div style="height:12px"></div>
-
-            <h2>What to include</h2>
-            <p>These details help provide accurate pricing and next steps.</p>
-
-            <ul class="list">
-              <li>Town/location</li>
-              <li>What isn’t working (or what’s being built)</li>
-              <li>Rough size of the space</li>
-              <li>Timeline</li>
-              <li>Best way to reach you</li>
             </ul>
           </div>
         </div>
@@ -361,42 +357,18 @@
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
 
+    // Show a success notice after redirect (?sent=1)
+    const params = new URLSearchParams(window.location.search);
+    if (params.get("sent") === "1") {
+      const notice = document.getElementById("sentNotice");
+      if (notice) notice.classList.add("show");
+    }
+
+    // Extra spam trap: if honeypot is filled, block submit.
     const form = document.getElementById("contactForm");
     form.addEventListener("submit", (e) => {
-      e.preventDefault();
-
-      // Honeypot
       const hp = (document.getElementById("website")?.value || "").trim();
-      if (hp) return;
-
-      const name = (document.getElementById("name").value || "").trim();
-      const email = (document.getElementById("email").value || "").trim();
-      const who = (document.getElementById("who").value || "").trim();
-      const location = (document.getElementById("location").value || "").trim();
-      const service = (document.getElementById("service").value || "").trim();
-      const timeline = (document.getElementById("timeline").value || "").trim();
-      const msg = (document.getElementById("message").value || "").trim();
-
-      if (!name || !email) {
-        alert("Please include your name and email.");
-        return;
-      }
-
-      const subject = encodeURIComponent("Slade Networks Quote Request");
-      const lines = [
-        `Name: ${name}`,
-        `Email: ${email}`,
-        `Home/Business: ${who || "-"}`,
-        `Town/Area: ${location || "-"}`,
-        `Service needed: ${service || "-"}`,
-        `Timeline: ${timeline || "-"}`,
-        "",
-        "Project details:",
-        msg || "-"
-      ];
-
-      const body = encodeURIComponent(lines.join("\n"));
-      window.location.href = `mailto:info@sladenetworks.com?subject=${subject}&body=${body}`;
+      if (hp) e.preventDefault();
     });
   </script>
 </body>
