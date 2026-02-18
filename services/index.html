@@ -4,562 +4,458 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Services — Slade Networks</title>
-  <meta name="description" content="UniFi-first installs: structured cabling, gateways, switching, Wi-Fi, cameras, storage, UPS/PDU, VoIP, LTE/5G, displays, and rack work across the Finger Lakes." />
-  <meta name="theme-color" content="#F7F8FB" />
-
-  <link rel="icon" href="../favicon.ico">
-  <link rel="apple-touch-icon" href="../apple-touch-icon.png">
-
-  <meta property="og:title" content="Services — Slade Networks">
-  <meta property="og:description" content="UniFi-first installs: structured cabling, gateways, switching, Wi-Fi, cameras, storage, UPS/PDU, VoIP, LTE/5G, displays, and rack work across the Finger Lakes.">
-  <meta property="og:type" content="website">
-  <meta property="og:image" content="../og.png">
-  <meta name="twitter:card" content="summary_large_image">
+  <meta name="description" content="Wi-Fi, cameras, switching, cabling, racks, and network support for homes and small businesses. Serving the Finger Lakes and surrounding areas in upstate NY." />
+  <meta name="theme-color" content="#FFFFFF" />
 
   <style>
     :root{
-      --bg0:#F6F7FB;
-      --bg1:#FFFFFF;
-
-      --ink:rgba(5,8,16,.92);
-      --muted:rgba(5,8,16,.68);
-      --muted2:rgba(5,8,16,.52);
-
-      --stroke:rgba(9,16,32,.10);
-      --stroke2:rgba(9,16,32,.14);
-
-      --glass: rgba(255,255,255,.62);
-      --glass2: rgba(255,255,255,.46);
-
+      --bg:#FFFFFF;
+      --ink:rgba(15,18,26,.92);
+      --muted:rgba(15,18,26,.65);
+      --stroke:rgba(15,18,26,.10);
+      --glass:rgba(255,255,255,.82);
       --accent:#2563EB;
-      --accent2:#60A5FA;
-
       --radius:18px;
-      --shadow: 0 20px 60px rgba(12,18,34,.10);
-      --shadow2: 0 10px 30px rgba(12,18,34,.08);
-
-      --max: 1120px;
+      --shadow:0 14px 40px rgba(15,18,26,.08);
+      --max:1100px;
     }
 
     *{box-sizing:border-box}
     html,body{height:100%}
-    html{scroll-behavior:smooth}
-    @media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto} }
-
     body{
       margin:0;
-      font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","SF Pro Text","Segoe UI",Roboto,Inter,Helvetica,Arial,sans-serif;
+      font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",Roboto,Inter,Helvetica,Arial,sans-serif;
+      background:var(--bg);
       color:var(--ink);
-      background:
-        radial-gradient(900px 460px at 70% -10%, rgba(37,99,235,.14), transparent 60%),
-        radial-gradient(800px 420px at 12% 10%, rgba(96,165,250,.10), transparent 55%),
-        linear-gradient(180deg, var(--bg0), var(--bg1));
       letter-spacing:-0.01em;
     }
 
-    a{color:inherit; text-decoration:none}
-    .wrap{max-width:var(--max); margin:0 auto; padding:0 22px}
+    a{text-decoration:none;color:inherit}
+    .wrap{max-width:var(--max);margin:0 auto;padding:0 22px}
 
-    /* Skip link */
-    .skip{
-      position:absolute; left:-999px; top:12px;
-      background:rgba(255,255,255,.9);
-      border:1px solid var(--stroke2);
-      padding:10px 12px; border-radius:12px;
-      color:var(--ink);
-      box-shadow: var(--shadow2);
-    }
-    .skip:focus{left:12px; z-index:9999}
-
-    :focus-visible{
-      outline:none;
-      box-shadow:0 0 0 4px rgba(37,99,235,.18);
-      border-color: rgba(37,99,235,.35);
-    }
-
+    /* Top Navigation */
     .topbar{
-      position:sticky; top:0; z-index:50;
-      backdrop-filter:saturate(160%) blur(12px);
-      background: rgba(246,247,251,.72);
+      position:sticky;
+      top:0;
+      backdrop-filter:blur(12px) saturate(140%);
+      background:rgba(255,255,255,.75);
       border-bottom:1px solid var(--stroke);
-    }
-    @supports not (backdrop-filter: blur(1px)){
-      .topbar{ background: rgba(246,247,251,.92); }
+      z-index:50;
     }
 
     .nav{
-      display:flex; align-items:center; justify-content:space-between;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
       height:64px;
     }
+
     .brand{
-      display:flex; gap:10px; align-items:center;
-      font-weight:650;
-      letter-spacing:-0.02em;
+      display:flex;
+      align-items:center;
+      gap:10px;
+      font-weight:600;
     }
+
     .logo{
-      width:26px; height:26px; border-radius:9px;
-      background:
-        radial-gradient(14px 14px at 30% 30%, rgba(255,255,255,.85), transparent 60%),
-        linear-gradient(135deg, rgba(37,99,235,.95), rgba(96,165,250,.80));
-      box-shadow: 0 10px 24px rgba(37,99,235,.18);
-      border:1px solid rgba(37,99,235,.22);
+      width:26px;
+      height:26px;
+      border-radius:8px;
+      background:linear-gradient(135deg,#2563EB,#60A5FA);
+      box-shadow:0 6px 18px rgba(37,99,235,.25);
     }
 
     .navlinks{
-      display:flex; align-items:center; gap:12px;
-      color:var(--muted);
+      display:flex;
+      gap:18px;
       font-size:14px;
-    }
-    .navlinks a{
-      padding:8px 10px;
-      border-radius:10px;
-      border:1px solid transparent;
-    }
-    .navlinks a:hover{
-      background: rgba(255,255,255,.55);
-      border-color: var(--stroke);
-      color: var(--ink);
-    }
-    .navlinks a.active{
-      color: var(--ink);
-      background: rgba(255,255,255,.62);
-      border-color: var(--stroke);
+      color:var(--muted);
     }
 
-    .cta{display:flex; gap:10px; align-items:center}
+    .navlinks a:hover{color:var(--ink)}
+
+    .cta{display:flex;gap:10px}
+
     .btn{
-      display:inline-flex; align-items:center; justify-content:center;
-      gap:10px;
-      height:40px;
-      padding:0 14px;
+      padding:10px 16px;
       border-radius:12px;
-      border:1px solid var(--stroke2);
-      background: rgba(255,255,255,.55);
-      color:var(--ink);
+      border:1px solid var(--stroke);
+      background:var(--glass);
+      box-shadow:var(--shadow);
       font-size:14px;
       font-weight:600;
-      box-shadow: 0 10px 20px rgba(12,18,34,.06);
     }
-    .btn:hover{filter:brightness(1.02)}
+
     .btn.primary{
-      background: linear-gradient(135deg, var(--accent), var(--accent2));
-      border-color: rgba(37,99,235,.18);
+      background:var(--accent);
       color:white;
-      box-shadow: 0 14px 34px rgba(37,99,235,.18);
-    }
-    .btn.small{height:36px; border-radius:11px}
-
-    .pill{
-      display:inline-flex; align-items:center; gap:8px;
-      padding:7px 10px;
-      border:1px solid var(--stroke);
-      border-radius:999px;
-      background: rgba(255,255,255,.55);
-      color: var(--muted);
-      font-size:13px;
-      backdrop-filter: blur(10px);
-    }
-    .dot{
-      width:7px; height:7px; border-radius:50%;
-      background: rgba(37,99,235,.95);
-      box-shadow: 0 0 0 6px rgba(37,99,235,.10);
+      border-color:var(--accent);
     }
 
-    .hero{padding:64px 0 22px}
+    /* Hero */
+    .hero{padding:70px 0 26px}
     h1{
-      margin:14px 0 10px;
-      font-size:44px;
-      line-height:1.06;
+      font-size:42px;
+      line-height:1.1;
+      margin:0 0 14px;
       letter-spacing:-0.04em;
     }
+
     .sub{
-      color:var(--muted);
       font-size:16.5px;
-      line-height:1.55;
-      max-width: 75ch;
-      margin:0;
-    }
-    .heroActions{
-      margin-top:18px;
-      display:flex; gap:12px; flex-wrap:wrap;
+      color:var(--muted);
+      line-height:1.6;
+      max-width:78ch;
+      margin:0 0 22px;
     }
 
-    .section{padding:26px 0 46px}
+    /* Sections */
+    .section{padding:18px 0 54px}
     .sectionHead{
-      display:flex; align-items:flex-end; justify-content:space-between; gap:14px;
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-end;
+      gap:14px;
       margin-bottom:16px;
     }
-    .h2{font-size:22px; letter-spacing:-0.02em; margin:0}
-    .lead{margin:0; color:var(--muted); font-size:14.5px; max-width:70ch; line-height:1.55}
+    .h2{
+      margin:0;
+      font-size:20px;
+      letter-spacing:-0.02em;
+    }
+    .lead{
+      margin:6px 0 0;
+      color:var(--muted);
+      font-size:14.5px;
+      max-width:78ch;
+      line-height:1.55;
+    }
 
-    /* Glass cards */
+    /* Cards */
     .grid{
       display:grid;
-      grid-template-columns: repeat(12, 1fr);
-      gap:14px;
+      grid-template-columns:repeat(12, 1fr);
+      gap:18px;
+      margin-top:16px;
     }
+
     .card{
-      grid-column: span 6;
-      border-radius: var(--radius);
-      background: linear-gradient(180deg, var(--glass), var(--glass2));
-      border: 1px solid var(--stroke);
-      box-shadow: var(--shadow2);
-      padding:18px;
-      position:relative;
-      overflow:hidden;
-      backdrop-filter: blur(14px) saturate(140%);
-      min-height: 180px;
-    }
-    .card::after{
-      content:"";
-      position:absolute; right:-90px; top:-90px;
-      width:220px; height:220px;
-      background: radial-gradient(circle at 30% 30%, rgba(37,99,235,.16), transparent 58%);
-      transform: rotate(12deg);
-      pointer-events:none;
+      grid-column:span 6;
+      background:var(--glass);
+      border:1px solid var(--stroke);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      padding:20px;
     }
 
     .cardTitle{
-      display:flex; align-items:center; justify-content:space-between; gap:10px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:10px;
       margin-bottom:8px;
     }
+
     .cardTitle h3{
       margin:0;
-      font-size:16px;
+      font-size:17px;
       letter-spacing:-0.02em;
     }
+
     .tag{
       font-size:12px;
-      color: rgba(5,8,16,.78);
-      border: 1px solid var(--stroke);
-      background: rgba(255,255,255,.55);
+      color:var(--muted);
+      border:1px solid var(--stroke);
+      background:rgba(255,255,255,.88);
       padding:5px 9px;
-      border-radius: 999px;
+      border-radius:999px;
       white-space:nowrap;
     }
+
     .card p{
       margin:0;
-      color: var(--muted);
-      font-size:13.8px;
-      line-height:1.55;
-      max-width: 80ch;
+      color:var(--muted);
+      font-size:14px;
+      line-height:1.6;
     }
+
     .bullets{
       margin:12px 0 0;
       padding-left:18px;
       color:var(--muted);
-      font-size:13.2px;
-      line-height:1.55;
+      font-size:13.5px;
+      line-height:1.6;
     }
     .bullets li{margin:6px 0}
 
-    .band{
+    .callout{
       margin-top:18px;
-      border-radius: var(--radius);
+      background:var(--glass);
       border:1px solid var(--stroke);
-      background: rgba(255,255,255,.55);
-      box-shadow: var(--shadow2);
-      padding:16px 18px;
-      backdrop-filter: blur(14px) saturate(140%);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      padding:18px 20px;
     }
-    .bandGrid{
-      display:grid;
-      grid-template-columns: 1.2fr .8fr;
-      gap:14px;
-      align-items:center;
-    }
-    .bandTitle{
+    .callout h3{
       margin:0 0 6px;
-      font-size:14.5px;
+      font-size:16px;
       letter-spacing:-0.02em;
     }
-    .bandText{margin:0; color:var(--muted); font-size:13.5px; line-height:1.55}
+    .callout p{
+      margin:0;
+      color:var(--muted);
+      font-size:14px;
+      line-height:1.6;
+      max-width:85ch;
+    }
+    .calloutActions{
+      margin-top:12px;
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+    }
 
     .footer{
-      padding:34px 0 44px;
+      margin-top:64px;
+      padding:40px 0;
       border-top:1px solid var(--stroke);
-      color: var(--muted2);
-      font-size: 13px;
-    }
-    .footerGrid{
-      display:grid;
-      grid-template-columns: 1.2fr .8fr;
-      gap:14px;
-      align-items:start;
-    }
-    .footLinks{display:flex; gap:10px; flex-wrap:wrap; justify-content:flex-end}
-    .footLinks a{
-      padding:8px 10px;
-      border-radius:12px;
-      border:1px solid transparent;
-      color: var(--muted);
-    }
-    .footLinks a:hover{
-      border-color: var(--stroke);
-      background: rgba(255,255,255,.55);
-      color: var(--ink);
+      font-size:13px;
+      color:var(--muted);
     }
 
-    .hideSm{display:inline}
-    .showSm{display:none}
-
-    @media (max-width: 980px){
-      h1{font-size:38px}
-      .card{grid-column: span 12}
-      .bandGrid{grid-template-columns: 1fr}
+    @media(max-width:980px){
+      .card{grid-column:span 12}
     }
-    @media (max-width: 620px){
+    @media(max-width:700px){
+      h1{font-size:34px}
       .navlinks{display:none}
-      .hideSm{display:none}
-      .showSm{display:inline}
-      .footerGrid{grid-template-columns:1fr}
-      .footLinks{justify-content:flex-start}
     }
   </style>
 </head>
 
 <body>
-  <a class="skip" href="#top">Skip to content</a>
 
-  <div class="topbar">
-    <div class="wrap">
-      <div class="nav">
-        <a class="brand" href="../" aria-label="Slade Networks Home">
-          <span class="logo" aria-hidden="true"></span>
-          <span>Slade Networks</span>
-        </a>
+<div class="topbar">
+  <div class="wrap">
+    <div class="nav">
+      <a class="brand" href="../">
+        <div class="logo"></div>
+        <span>Slade Networks</span>
+      </a>
 
-        <div class="navlinks" aria-label="Site navigation">
-          <a href="../">Home</a>
-          <a class="active" href="./">Services</a>
-          <a href="../process/">Process</a>
-          <a href="../faq/">FAQ</a>
-          <a href="../contact/">Contact</a>
-        </div>
+      <div class="navlinks">
+        <a href="../">Home</a>
+        <a href="./" style="color:var(--ink);">Services</a>
+        <a href="../process/">Process</a>
+        <a href="../faq/">FAQ</a>
+        <a href="../contact/">Contact</a>
+      </div>
 
-        <div class="cta">
-          <a class="btn small" href="../contact/">Get a quote</a>
-          <a class="btn primary small" href="mailto:andrew@sladenetworks.com?subject=Slade%20Networks%20Services%20Inquiry">Email</a>
-        </div>
+      <div class="cta">
+        <a class="btn" href="../contact/">Get a quote</a>
+        <a class="btn primary" href="mailto:info@sladenetworks.com?subject=Slade%20Networks%20Services%20Inquiry">Email</a>
       </div>
     </div>
   </div>
+</div>
 
-  <main id="top">
-    <section class="hero">
-      <div class="wrap">
-        <span class="pill"><span class="dot" aria-hidden="true"></span> UniFi-first • Install + configure • Finger Lakes</span>
-        <h1>Services</h1>
-        <p class="sub">
-          Clean, supportable UniFi deployments—from cabling and racks to gateways, switching, Wi-Fi, cameras, and ongoing operations.
-          Everything is documented so you’re not stuck with mystery configs later.
+<main>
+  <section class="hero">
+    <div class="wrap">
+      <h1>Services</h1>
+      <p class="sub">
+        Network installation and support for homes and small businesses. Strong Wi-Fi, easy camera access,
+        clean cabling, and organized racks. Serving the Finger Lakes and surrounding areas in upstate NY.
+      </p>
+
+      <div class="cta">
+        <a class="btn primary" href="../contact/">Request a quote</a>
+        <a class="btn" href="mailto:info@sladenetworks.com?subject=Project%20Inquiry">info@sladenetworks.com</a>
+        <a class="btn" href="mailto:support@sladenetworks.com?subject=Support%20Request%20-%20Slade%20Networks">support@sladenetworks.com</a>
+      </div>
+
+      <div class="callout">
+        <h3>Why UniFi is used</h3>
+        <p>
+          UniFi keeps networking, Wi-Fi, cameras, and device management in one system. That usually means fewer apps,
+          simpler management, and easier remote support when needed.
         </p>
+      </div>
 
-        <div class="heroActions">
-          <a class="btn primary" href="../contact/">Request pricing</a>
-          <a class="btn" href="mailto:andrew@sladenetworks.com?subject=Service%20Request%20-%20Slade%20Networks">andrew@sladenetworks.com</a>
-        </div>
+    </div>
+  </section>
 
-        <div class="band" style="margin-top:22px">
-          <div class="bandGrid">
-            <div>
-              <p class="bandTitle">What you can expect</p>
-              <p class="bandText">Labeling, rack discipline, VLAN plan, safe admin access, and a clean handoff: diagram + IP plan + inventory.</p>
-            </div>
-            <div style="display:flex; gap:10px; flex-wrap:wrap; justify-content:flex-end;">
-              <a class="btn" href="../process/">See the process</a>
-              <a class="btn" href="../faq/">Read FAQ</a>
-            </div>
-          </div>
+  <section class="section">
+    <div class="wrap">
+
+      <div class="sectionHead">
+        <div>
+          <h2 class="h2">Installation + setup</h2>
+          <p class="lead">Clear scope, clean work, and a setup that stays reliable over time.</p>
         </div>
       </div>
-    </section>
 
-    <section class="section" aria-label="Service list">
-      <div class="wrap">
-        <div class="sectionHead">
-          <div>
-            <h2 class="h2">Installation + configuration</h2>
-            <p class="lead">Core infrastructure work with a focus on reliability, maintainability, and clean physical execution.</p>
+      <div class="grid">
+
+        <article class="card">
+          <div class="cardTitle">
+            <h3>Structured cabling</h3>
+            <span class="tag">Cat6 + Fiber</span>
           </div>
-        </div>
+          <p>New runs, drops, patching, and labeling for clean, serviceable installs.</p>
+          <ul class="bullets">
+            <li>Cat6 runs, wall jacks, patch panels, and labeling</li>
+            <li>Fiber runs when needed (planned and routed cleanly)</li>
+            <li>Cable organization and cleanup</li>
+          </ul>
+        </article>
 
-        <div class="grid">
-          <article class="card">
-            <div class="cardTitle">
-              <h3>Structured cabling</h3>
-              <span class="tag">Cat6 + Fiber</span>
-            </div>
-            <p>New runs, drops, patching, labeling, and verification—built for serviceability and future expansion.</p>
-            <ul class="bullets">
-              <li>Cat6 drops, keystones, patch panels, and tidy pathways</li>
-              <li>Fiber runs (as needed) and clean termination planning</li>
-              <li>Basic certification/testing results when applicable</li>
-            </ul>
-          </article>
-
-          <article class="card">
-            <div class="cardTitle">
-              <h3>Racks + rack mounting</h3>
-              <span class="tag">Buildout</span>
-            </div>
-            <p>Professional rack layouts that look intentional and stay maintainable when changes happen.</p>
-            <ul class="bullets">
-              <li>Rack selection guidance, layout, and mounting</li>
-              <li>Cable management, labeling, and patching standards</li>
-              <li>Grounding/bonding best practices where appropriate</li>
-            </ul>
-          </article>
-
-          <article class="card">
-            <div class="cardTitle">
-              <h3>Cloud gateways + switching</h3>
-              <span class="tag">Core network</span>
-            </div>
-            <p>UniFi gateways and switches installed and configured with sane defaults and documented intent.</p>
-            <ul class="bullets">
-              <li>WAN edge setup, NAT/firewall baseline, secure admin access</li>
-              <li>VLANs, trunks, port profiles, PoE budgeting</li>
-              <li>ISP coordination for static IP (you keep account ownership)</li>
-            </ul>
-          </article>
-
-          <article class="card">
-            <div class="cardTitle">
-              <h3>Business Wi-Fi</h3>
-              <span class="tag">Coverage + roaming</span>
-            </div>
-            <p>Coverage planning and AP placement tuned for real-world use (not just speed tests in one spot).</p>
-            <ul class="bullets">
-              <li>SSID/VLAN design (guest, staff, IoT) and isolation</li>
-              <li>Channel/power planning + roaming tuning</li>
-              <li>Post-install verification and baseline performance checks</li>
-            </ul>
-          </article>
-
-          <article class="card">
-            <div class="cardTitle">
-              <h3>Camera security</h3>
-              <span class="tag">Protect + NVR</span>
-            </div>
-            <p>Camera placement that makes sense, with storage sized for retention and secure remote viewing.</p>
-            <ul class="bullets">
-              <li>Coverage review + camera layout planning</li>
-              <li>NVR sizing and retention targets</li>
-              <li>Secure remote access configuration and admin handoff</li>
-            </ul>
-          </article>
-
-          <article class="card">
-            <div class="cardTitle">
-              <h3>Network storage</h3>
-              <span class="tag">NAS</span>
-            </div>
-            <p>Central storage for files and backups with clear ownership, access controls, and sane baseline hardening.</p>
-            <ul class="bullets">
-              <li>Initial deployment + share design</li>
-              <li>Permissions and least-privilege access approach</li>
-              <li>Backup direction + operational recommendations</li>
-            </ul>
-          </article>
-
-          <article class="card">
-            <div class="cardTitle">
-              <h3>UPS + PDUs</h3>
-              <span class="tag">Power</span>
-            </div>
-            <p>Power protection and distribution that avoids “mystery outages” and keeps critical gear stable.</p>
-            <ul class="bullets">
-              <li>UPS sizing guidance and install</li>
-              <li>PDU selection + clean distribution</li>
-              <li>Labeling, load awareness, and shutdown planning guidance</li>
-            </ul>
-          </article>
-
-          <article class="card">
-            <div class="cardTitle">
-              <h3>Managed VoIP</h3>
-              <span class="tag">UniFi Talk</span>
-            </div>
-            <p>Business calling configured cleanly, with network considerations handled upfront.</p>
-            <ul class="bullets">
-              <li>Number porting coordination and cutover planning</li>
-              <li>Voice VLAN / QoS baseline and stability checks</li>
-              <li>Auto-attendant, ring groups, voicemail setup</li>
-            </ul>
-          </article>
-
-          <article class="card">
-            <div class="cardTitle">
-              <h3>LTE/5G modems</h3>
-              <span class="tag">Failover</span>
-            </div>
-            <p>Cellular backup connectivity configured for predictable behavior during ISP events.</p>
-            <ul class="bullets">
-              <li>Failover policy configuration and testing</li>
-              <li>Placement considerations for signal quality</li>
-              <li>Operational notes on data plans and limitations</li>
-            </ul>
-          </article>
-
-          <article class="card">
-            <div class="cardTitle">
-              <h3>Display casts</h3>
-              <span class="tag">UniFi Connect</span>
-            </div>
-            <p>Simple digital signage / casting deployments with stable networking and straightforward management.</p>
-            <ul class="bullets">
-              <li>Device install + enrollment</li>
-              <li>Network segmentation where appropriate</li>
-              <li>Basic operational handoff</li>
-            </ul>
-          </article>
-        </div>
-
-        <div class="band">
-          <div class="bandGrid">
-            <div>
-              <p class="bandTitle">Scope clarity matters</p>
-              <p class="bandText">For each project, you’ll get a written scope: equipment list, install plan, timeline, and what “done” means. No surprise add-ons.</p>
-            </div>
-            <div style="display:flex; gap:10px; flex-wrap:wrap; justify-content:flex-end;">
-              <a class="btn primary" href="../contact/">Get a quote</a>
-              <a class="btn" href="mailto:andrew@sladenetworks.com?subject=Services%20Question%20-%20Slade%20Networks">Ask a question</a>
-            </div>
+        <article class="card">
+          <div class="cardTitle">
+            <h3>Racks and rack mounting</h3>
+            <span class="tag">Organization</span>
           </div>
-        </div>
+          <p>Equipment mounted properly with tidy patching and room to expand later.</p>
+          <ul class="bullets">
+            <li>Rack selection and layout planning</li>
+            <li>Clean mounting, patching, and cable management</li>
+            <li>Labeling so anyone can understand it later</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <div class="cardTitle">
+            <h3>Gateways and switching</h3>
+            <span class="tag">Core network</span>
+          </div>
+          <p>Stable network setup with clean wiring and a configuration that’s easy to support.</p>
+          <ul class="bullets">
+            <li>Gateway install and secure remote access setup (optional)</li>
+            <li>Switch install, PoE planning, and port configuration</li>
+            <li>Coordination with ISP for basic setup or static IP</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <div class="cardTitle">
+            <h3>Wi-Fi</h3>
+            <span class="tag">Coverage</span>
+          </div>
+          <p>Access point placement and setup so coverage works throughout the space.</p>
+          <ul class="bullets">
+            <li>Placement planning based on the layout</li>
+            <li>Setup and tuning for stable performance</li>
+            <li>Guest Wi-Fi option for homes or businesses</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <div class="cardTitle">
+            <h3>Camera security</h3>
+            <span class="tag">Cameras + NVR</span>
+          </div>
+          <p>Camera installs with simple, secure viewing from phone or desktop.</p>
+          <ul class="bullets">
+            <li>Camera placement review and install</li>
+            <li>NVR setup and storage planning</li>
+            <li>Remote viewing configured securely</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <div class="cardTitle">
+            <h3>Network storage</h3>
+            <span class="tag">Files + backups</span>
+          </div>
+          <p>Central storage for files and backups with simple, controlled access.</p>
+          <ul class="bullets">
+            <li>Storage setup and basic share organization</li>
+            <li>User access setup (who can access what)</li>
+            <li>Backup guidance and best practices</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <div class="cardTitle">
+            <h3>UPSs and PDUs</h3>
+            <span class="tag">Power</span>
+          </div>
+          <p>Power protection and clean power distribution for critical gear.</p>
+          <ul class="bullets">
+            <li>UPS sizing help and installation</li>
+            <li>PDU planning for clean power layout</li>
+            <li>Labeling and load awareness</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <div class="cardTitle">
+            <h3>Managed VoIP</h3>
+            <span class="tag">UniFi Talk</span>
+          </div>
+          <p>Business calling setup with simple routing and clean cutover planning.</p>
+          <ul class="bullets">
+            <li>Number porting coordination</li>
+            <li>Extensions, ring groups, voicemail</li>
+            <li>Testing for call quality and reliability</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <div class="cardTitle">
+            <h3>LTE/5G backup internet</h3>
+            <span class="tag">Failover</span>
+          </div>
+          <p>Backup internet options for when the primary ISP goes down.</p>
+          <ul class="bullets">
+            <li>Modem install and signal placement guidance</li>
+            <li>Failover setup and testing</li>
+            <li>Notes on plan limits and expectations</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <div class="cardTitle">
+            <h3>Display casting</h3>
+            <span class="tag">UniFi Connect</span>
+          </div>
+          <p>Simple signage/casting setups that stay stable and easy to manage.</p>
+          <ul class="bullets">
+            <li>Device setup and enrollment</li>
+            <li>Basic configuration and management handoff</li>
+            <li>Optional segmentation where needed</li>
+          </ul>
+        </article>
 
       </div>
-    </section>
 
-    <section class="footer">
-      <div class="wrap">
-        <div class="footerGrid">
-          <div>
-            <div class="brand" style="margin-bottom:8px">
-              <span class="logo" aria-hidden="true"></span>
-              <span>Slade Networks</span>
-            </div>
-            <div>© <span id="year"></span> Slade Networks. All rights reserved.</div>
-            <div style="margin-top:6px">Network Infrastructure • Finger Lakes, NY</div>
-            <div style="margin-top:10px; max-width:78ch;">
-              UniFi® is a trademark of Ubiquiti Inc. Slade Networks is not affiliated with or endorsed by Ubiquiti.
-            </div>
-          </div>
-          <div class="footLinks">
-            <a href="../">Home</a>
-            <a href="./">Services</a>
-            <a href="../process/">Process</a>
-            <a href="../faq/">FAQ</a>
-            <a href="../contact/">Contact</a>
-          </div>
+      <div class="callout">
+        <h3>Optional ongoing support</h3>
+        <p>
+          For clients who want it, ongoing support is available. This can include remote monitoring, updates,
+          and faster troubleshooting when something goes wrong.
+        </p>
+        <div class="calloutActions">
+          <a class="btn primary" href="../contact/">Ask about support</a>
+          <a class="btn" href="mailto:support@sladenetworks.com?subject=Support%20Question%20-%20Slade%20Networks">Email support</a>
         </div>
       </div>
-    </section>
-  </main>
 
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
+    </div>
+  </section>
+
+  <section class="footer">
+    <div class="wrap">
+      © <span id="year"></span> Slade Networks — Finger Lakes and surrounding areas in upstate NY.
+      <br><br>
+      UniFi® is a trademark of Ubiquiti Inc. Slade Networks is not affiliated with or endorsed by Ubiquiti.
+    </div>
+  </section>
+</main>
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
 </body>
 </html>
