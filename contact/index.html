@@ -1,0 +1,403 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Contact — Slade Networks</title>
+  <meta name="description" content="Contact Slade Networks for Wi-Fi, cameras, cabling, racks, and network support for homes and small businesses in the Finger Lakes and surrounding areas in upstate NY." />
+  <meta name="theme-color" content="#FFFFFF" />
+
+  <style>
+    :root{
+      --bg:#FFFFFF;
+      --ink:rgba(15,18,26,.92);
+      --muted:rgba(15,18,26,.65);
+      --muted2:rgba(15,18,26,.52);
+      --stroke:rgba(15,18,26,.10);
+      --glass:rgba(255,255,255,.82);
+      --accent:#2563EB;
+      --radius:18px;
+      --shadow:0 14px 40px rgba(15,18,26,.08);
+      --max:1100px;
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",Roboto,Inter,Helvetica,Arial,sans-serif;
+      background:var(--bg);
+      color:var(--ink);
+      letter-spacing:-0.01em;
+    }
+
+    a{text-decoration:none;color:inherit}
+    .wrap{max-width:var(--max);margin:0 auto;padding:0 22px}
+
+    .topbar{
+      position:sticky; top:0;
+      backdrop-filter:blur(12px) saturate(140%);
+      background:rgba(255,255,255,.75);
+      border-bottom:1px solid var(--stroke);
+      z-index:50;
+    }
+
+    .nav{
+      display:flex; justify-content:space-between; align-items:center;
+      height:64px;
+    }
+    .brand{display:flex; align-items:center; gap:10px; font-weight:600;}
+    .logo{
+      width:26px; height:26px; border-radius:8px;
+      background:linear-gradient(135deg,#2563EB,#60A5FA);
+      box-shadow:0 6px 18px rgba(37,99,235,.25);
+    }
+    .navlinks{
+      display:flex; gap:18px;
+      font-size:14px; color:var(--muted);
+    }
+    .navlinks a:hover{color:var(--ink)}
+    .navlinks a.active{color:var(--ink)}
+    .cta{display:flex; gap:10px}
+
+    .btn{
+      padding:10px 16px;
+      border-radius:12px;
+      border:1px solid var(--stroke);
+      background:var(--glass);
+      box-shadow:var(--shadow);
+      font-size:14px;
+      font-weight:600;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+    }
+    .btn.primary{
+      background:var(--accent);
+      color:white;
+      border-color:var(--accent);
+    }
+
+    .hero{padding:70px 0 22px}
+    h1{
+      font-size:42px; line-height:1.1;
+      margin:0 0 12px;
+      letter-spacing:-0.04em;
+    }
+    .sub{
+      font-size:16.5px;
+      color:var(--muted);
+      line-height:1.6;
+      max-width:80ch;
+      margin:0;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap:18px;
+      margin-top:22px;
+      align-items:start;
+    }
+
+    .card{
+      background:var(--glass);
+      border:1px solid var(--stroke);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      padding:20px;
+    }
+
+    .card h2{
+      margin:0 0 8px;
+      font-size:18px;
+      letter-spacing:-0.02em;
+    }
+    .card p{
+      margin:0;
+      color:var(--muted);
+      font-size:14px;
+      line-height:1.6;
+    }
+
+    form{margin-top:14px}
+    .fields{display:grid; gap:10px}
+
+    label{
+      display:block;
+      font-size:12px;
+      color:var(--muted2);
+      margin:0 0 6px;
+    }
+
+    input, textarea, select{
+      width:100%;
+      border-radius:14px;
+      border:1px solid var(--stroke);
+      background:rgba(255,255,255,.92);
+      color:var(--ink);
+      padding:12px 12px;
+      font-size:14px;
+      outline:none;
+      font-family:inherit;
+    }
+    textarea{min-height:130px; resize:vertical}
+
+    input:focus, textarea:focus, select:focus{
+      border-color: rgba(37,99,235,.35);
+      box-shadow: 0 0 0 4px rgba(37,99,235,.16);
+    }
+
+    .row2{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:10px;
+    }
+
+    .fine{
+      margin-top:10px;
+      color:var(--muted2);
+      font-size:12.5px;
+      line-height:1.5;
+    }
+
+    .list{
+      margin:12px 0 0;
+      padding-left:18px;
+      color:var(--muted);
+      font-size:13.5px;
+      line-height:1.6;
+    }
+    .list li{margin:6px 0}
+
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:7px 10px;
+      border-radius:999px;
+      border:1px solid var(--stroke);
+      background:rgba(255,255,255,.88);
+      color:var(--muted);
+      font-size:13px;
+    }
+    .dot{
+      width:7px;height:7px;border-radius:50%;
+      background:rgba(37,99,235,.95);
+      box-shadow:0 0 0 6px rgba(37,99,235,.10);
+    }
+
+    .footer{
+      margin-top:64px;
+      padding:40px 0;
+      border-top:1px solid var(--stroke);
+      font-size:13px;
+      color:var(--muted);
+    }
+
+    @media(max-width:980px){
+      .grid{grid-template-columns:1fr}
+    }
+    @media(max-width:700px){
+      h1{font-size:34px}
+      .navlinks{display:none}
+      .row2{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+
+<body>
+  <div class="topbar">
+    <div class="wrap">
+      <div class="nav">
+        <a class="brand" href="../">
+          <div class="logo"></div>
+          <span>Slade Networks</span>
+        </a>
+
+        <div class="navlinks">
+          <a href="../">Home</a>
+          <a href="../services/">Services</a>
+          <a href="../process/">Process</a>
+          <a href="../faq/">FAQ</a>
+          <a class="active" href="./">Contact</a>
+        </div>
+
+        <div class="cta">
+          <a class="btn" href="mailto:info@sladenetworks.com?subject=Slade%20Networks%20Quote%20Request">info@sladenetworks.com</a>
+          <a class="btn primary" href="mailto:support@sladenetworks.com?subject=Support%20Request%20-%20Slade%20Networks">Support</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <main>
+    <section class="hero">
+      <div class="wrap">
+        <span class="pill"><span class="dot" aria-hidden="true"></span> Finger Lakes and surrounding areas in upstate NY</span>
+        <h1>Contact</h1>
+        <p class="sub">
+          Share a few details about the project. A reply will follow with next steps and a clear plan.
+        </p>
+
+        <div class="grid">
+          <div class="card">
+            <h2>Request a quote</h2>
+            <p>Use this form to generate an email draft. No data is stored on the website.</p>
+
+            <form id="contactForm">
+              <div class="fields">
+
+                <div class="row2">
+                  <div>
+                    <label for="name">Name</label>
+                    <input id="name" name="name" autocomplete="name" placeholder="Your name" required />
+                  </div>
+                  <div>
+                    <label for="email">Email</label>
+                    <input id="email" name="email" type="email" autocomplete="email" placeholder="you@email.com" required />
+                  </div>
+                </div>
+
+                <div class="row2">
+                  <div>
+                    <label for="who">Home or business</label>
+                    <select id="who" name="who">
+                      <option value="Home">Home</option>
+                      <option value="Business">Business</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label for="location">Town / area</label>
+                    <input id="location" name="location" autocomplete="address-level2" placeholder="Example: Penn Yan" />
+                  </div>
+                </div>
+
+                <div>
+                  <label for="service">What help is needed?</label>
+                  <select id="service" name="service">
+                    <option value="Wi-Fi">Wi-Fi (coverage / redesign / new install)</option>
+                    <option value="Cameras">Cameras + NVR</option>
+                    <option value="Cabling">Structured cabling</option>
+                    <option value="Rack">Rack build / cleanup</option>
+                    <option value="Gateway/Switching">Gateway / switching</option>
+                    <option value="VoIP">VoIP (UniFi Talk)</option>
+                    <option value="LTE/5G">LTE/5G backup internet</option>
+                    <option value="Other">Other</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label for="timeline">Timeline</label>
+                  <input id="timeline" name="timeline" placeholder="Example: this month / next month / flexible" />
+                </div>
+
+                <div>
+                  <label for="message">Project details</label>
+                  <textarea id="message" name="message" placeholder="Briefly describe what’s going on. If it’s Wi-Fi: building size/floors. If it’s cameras: how many and where. If it’s a new install: what equipment is already on site."></textarea>
+                </div>
+
+                <!-- Honeypot -->
+                <div style="position:absolute; left:-9999px; width:1px; height:1px; overflow:hidden;" aria-hidden="true">
+                  <label for="website">Website</label>
+                  <input id="website" name="website" tabindex="-1" autocomplete="off" />
+                </div>
+
+                <div style="display:flex; gap:10px; flex-wrap:wrap;">
+                  <button class="btn primary" type="submit">Generate email</button>
+                  <a class="btn" href="mailto:info@sladenetworks.com?subject=Slade%20Networks%20Quote%20Request">Email instead</a>
+                </div>
+
+                <p class="fine">
+                  This form creates an email draft in the browser and opens your email app.
+                </p>
+              </div>
+            </form>
+          </div>
+
+          <div class="card">
+            <h2>Quick info</h2>
+            <p>
+              For new projects, email <a href="mailto:info@sladenetworks.com" style="text-decoration:underline; text-decoration-color:rgba(15,18,26,.25);">info@sladenetworks.com</a>.
+              For existing clients and troubleshooting, email
+              <a href="mailto:support@sladenetworks.com" style="text-decoration:underline; text-decoration-color:rgba(15,18,26,.25);">support@sladenetworks.com</a>.
+            </p>
+
+            <ul class="list">
+              <li>Service area: Finger Lakes and surrounding areas in upstate NY</li>
+              <li>Homes and small businesses</li>
+              <li>Wi-Fi, cameras, cabling, racks, and support</li>
+              <li>Optional ongoing remote support available</li>
+            </ul>
+
+            <div style="height:12px"></div>
+
+            <h2>What to include</h2>
+            <p>These details help provide accurate pricing and next steps.</p>
+
+            <ul class="list">
+              <li>Town/location</li>
+              <li>What isn’t working (or what’s being built)</li>
+              <li>Rough size of the space</li>
+              <li>Timeline</li>
+              <li>Best way to reach you</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="footer">
+      <div class="wrap">
+        © <span id="year"></span> Slade Networks — Finger Lakes and surrounding areas in upstate NY.
+        <br><br>
+        UniFi® is a trademark of Ubiquiti Inc. Slade Networks is not affiliated with or endorsed by Ubiquiti.
+      </div>
+    </section>
+  </main>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    const form = document.getElementById("contactForm");
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+
+      // Honeypot
+      const hp = (document.getElementById("website")?.value || "").trim();
+      if (hp) return;
+
+      const name = (document.getElementById("name").value || "").trim();
+      const email = (document.getElementById("email").value || "").trim();
+      const who = (document.getElementById("who").value || "").trim();
+      const location = (document.getElementById("location").value || "").trim();
+      const service = (document.getElementById("service").value || "").trim();
+      const timeline = (document.getElementById("timeline").value || "").trim();
+      const msg = (document.getElementById("message").value || "").trim();
+
+      if (!name || !email) {
+        alert("Please include your name and email.");
+        return;
+      }
+
+      const subject = encodeURIComponent("Slade Networks Quote Request");
+      const lines = [
+        `Name: ${name}`,
+        `Email: ${email}`,
+        `Home/Business: ${who || "-"}`,
+        `Town/Area: ${location || "-"}`,
+        `Service needed: ${service || "-"}`,
+        `Timeline: ${timeline || "-"}`,
+        "",
+        "Project details:",
+        msg || "-"
+      ];
+
+      const body = encodeURIComponent(lines.join("\n"));
+      window.location.href = `mailto:info@sladenetworks.com?subject=${subject}&body=${body}`;
+    });
+  </script>
+</body>
+</html>
