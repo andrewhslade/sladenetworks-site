@@ -3,459 +3,239 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Slade Networks — Finger Lakes UniFi Network Installation</title>
-  <meta name="description" content="UniFi network installs for small businesses: Wi-Fi, switching, cameras, cabling, racks, and ongoing support. Serving the Finger Lakes and areas within ~50 miles of Keuka Park, NY." />
+  <title>Slade Networks — Network Installation in the Finger Lakes</title>
+  <meta name="description" content="Wi-Fi, cameras, switching, cabling, racks, and network support for homes and small businesses. Serving the Finger Lakes and surrounding areas in upstate NY." />
   <meta name="theme-color" content="#FFFFFF" />
-
-  <link rel="icon" href="./favicon.ico">
-  <link rel="apple-touch-icon" href="./apple-touch-icon.png">
-
-  <meta property="og:title" content="Slade Networks — Network Installation for the Finger Lakes">
-  <meta property="og:description" content="UniFi installs for small businesses: Wi-Fi, switching, cameras, cabling, racks, and support. Serving the Finger Lakes + within ~50 miles of Keuka Park, NY.">
-  <meta property="og:type" content="website">
-  <meta property="og:image" content="./og.png">
-  <meta name="twitter:card" content="summary_large_image">
 
   <style>
     :root{
       --bg:#FFFFFF;
-
-      --ink:rgba(10,14,22,.92);
-      --muted:rgba(10,14,22,.66);
-      --muted2:rgba(10,14,22,.52);
-
-      --stroke:rgba(12,18,34,.12);
-      --stroke2:rgba(12,18,34,.16);
-
-      /* “Glass” without gradients */
-      --glass: rgba(255,255,255,.78);
-
+      --ink:rgba(15,18,26,.92);
+      --muted:rgba(15,18,26,.65);
+      --stroke:rgba(15,18,26,.10);
+      --glass:rgba(255,255,255,.82);
       --accent:#2563EB;
-
       --radius:18px;
-      --shadow: 0 18px 50px rgba(12,18,34,.10);
-      --shadow2: 0 10px 26px rgba(12,18,34,.08);
-
-      --max: 1120px;
+      --shadow:0 14px 40px rgba(15,18,26,.08);
+      --max:1100px;
     }
 
     *{box-sizing:border-box}
     html,body{height:100%}
-    html{scroll-behavior:smooth}
-    @media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto} }
-
     body{
       margin:0;
-      font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","SF Pro Text","Segoe UI",Roboto,Inter,Helvetica,Arial,sans-serif;
+      font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",Roboto,Inter,Helvetica,Arial,sans-serif;
+      background:var(--bg);
       color:var(--ink);
-      background: var(--bg);
       letter-spacing:-0.01em;
     }
 
-    a{color:inherit; text-decoration:none}
-    .wrap{max-width:var(--max); margin:0 auto; padding:0 22px}
+    a{text-decoration:none;color:inherit}
+    .wrap{max-width:var(--max);margin:0 auto;padding:0 22px}
 
-    .skip{
-      position:absolute; left:-999px; top:12px;
-      background: var(--glass);
-      border:1px solid var(--stroke2);
-      padding:10px 12px; border-radius:12px;
-      color:var(--ink);
-      box-shadow: var(--shadow2);
-      backdrop-filter: blur(12px) saturate(140%);
-    }
-    .skip:focus{left:12px; z-index:9999}
-
-    :focus-visible{
-      outline:none;
-      box-shadow:0 0 0 4px rgba(37,99,235,.18);
-      border-color: rgba(37,99,235,.35);
-    }
-
+    /* Top Navigation */
     .topbar{
-      position:sticky; top:0; z-index:50;
-      backdrop-filter:saturate(160%) blur(12px);
-      background: rgba(255,255,255,.72);
+      position:sticky;
+      top:0;
+      backdrop-filter:blur(12px) saturate(140%);
+      background:rgba(255,255,255,.75);
       border-bottom:1px solid var(--stroke);
-    }
-    @supports not (backdrop-filter: blur(1px)){
-      .topbar{ background: rgba(255,255,255,.92); }
+      z-index:50;
     }
 
     .nav{
-      display:flex; align-items:center; justify-content:space-between;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
       height:64px;
     }
+
     .brand{
-      display:flex; gap:10px; align-items:center;
-      font-weight:650;
-      letter-spacing:-0.02em;
+      display:flex;
+      align-items:center;
+      gap:10px;
+      font-weight:600;
     }
+
     .logo{
-      width:26px; height:26px; border-radius:9px;
-      background: linear-gradient(135deg, rgba(37,99,235,.95), rgba(96,165,250,.85));
-      box-shadow: 0 10px 24px rgba(37,99,235,.18);
-      border:1px solid rgba(37,99,235,.22);
+      width:26px;
+      height:26px;
+      border-radius:8px;
+      background:linear-gradient(135deg,#2563EB,#60A5FA);
+      box-shadow:0 6px 18px rgba(37,99,235,.25);
     }
 
     .navlinks{
-      display:flex; align-items:center; gap:12px;
-      color:var(--muted);
+      display:flex;
+      gap:18px;
       font-size:14px;
-    }
-    .navlinks a{
-      padding:8px 10px;
-      border-radius:10px;
-      border:1px solid transparent;
-    }
-    .navlinks a:hover{
-      background: rgba(255,255,255,.72);
-      border-color: var(--stroke);
-      color: var(--ink);
-    }
-    .navlinks a.active{
-      color: var(--ink);
-      background: rgba(255,255,255,.78);
-      border-color: var(--stroke);
+      color:var(--muted);
     }
 
-    .cta{display:flex; gap:10px; align-items:center}
+    .navlinks a:hover{color:var(--ink)}
+
+    .cta{display:flex;gap:10px}
+
     .btn{
-      display:inline-flex; align-items:center; justify-content:center;
-      gap:10px;
-      height:40px;
-      padding:0 14px;
+      padding:10px 16px;
       border-radius:12px;
-      border:1px solid var(--stroke2);
-      background: rgba(255,255,255,.78);
-      color:var(--ink);
+      border:1px solid var(--stroke);
+      background:var(--glass);
+      box-shadow:var(--shadow);
       font-size:14px;
       font-weight:600;
-      box-shadow: var(--shadow2);
-      backdrop-filter: blur(12px) saturate(140%);
     }
-    .btn:hover{filter:brightness(1.02)}
+
     .btn.primary{
-      background: var(--accent);
-      border-color: rgba(37,99,235,.20);
+      background:var(--accent);
       color:white;
-      box-shadow: 0 14px 34px rgba(37,99,235,.18);
-    }
-    .btn.small{height:36px; border-radius:11px}
-
-    .pill{
-      display:inline-flex; align-items:center; gap:8px;
-      padding:7px 10px;
-      border:1px solid var(--stroke);
-      border-radius:999px;
-      background: rgba(255,255,255,.78);
-      color: var(--muted);
-      font-size:13px;
-      backdrop-filter: blur(12px) saturate(140%);
-      box-shadow: var(--shadow2);
-    }
-    .dot{
-      width:7px; height:7px; border-radius:50%;
-      background: rgba(37,99,235,.95);
-      box-shadow: 0 0 0 6px rgba(37,99,235,.10);
+      border-color:var(--accent);
     }
 
-    .hero{padding:72px 0 26px}
+    /* Hero */
+    .hero{padding:80px 0 40px}
     h1{
-      margin:14px 0 10px;
       font-size:46px;
-      line-height:1.06;
+      line-height:1.1;
+      margin:0 0 14px;
       letter-spacing:-0.04em;
     }
+
     .sub{
+      font-size:17px;
       color:var(--muted);
-      font-size:16.5px;
       line-height:1.6;
-      max-width: 78ch;
-      margin:0;
-    }
-    .heroActions{
-      margin-top:18px;
-      display:flex; gap:12px; flex-wrap:wrap;
+      max-width:75ch;
+      margin:0 0 24px;
     }
 
-    .band{
-      margin-top:22px;
-      border-radius: var(--radius);
+    /* Glass Card */
+    .card{
+      background:var(--glass);
       border:1px solid var(--stroke);
-      background: rgba(255,255,255,.78);
-      box-shadow: var(--shadow2);
-      padding:16px 18px;
-      backdrop-filter: blur(14px) saturate(140%);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      padding:20px;
     }
-    .bandGrid{
-      display:grid;
-      grid-template-columns: 1.2fr .8fr;
-      gap:14px;
-      align-items:center;
-    }
-    .bandTitle{
-      margin:0 0 6px;
-      font-size:14.5px;
-      letter-spacing:-0.02em;
-    }
-    .bandText{margin:0; color:var(--muted); font-size:13.5px; line-height:1.55}
-
-    .section{padding:18px 0 54px}
-    .sectionHead{
-      display:flex; align-items:flex-end; justify-content:space-between; gap:14px;
-      margin-bottom:16px;
-    }
-    .h2{font-size:22px; letter-spacing:-0.02em; margin:0}
-    .lead{margin:0; color:var(--muted); font-size:14.5px; max-width:70ch; line-height:1.55}
 
     .grid{
       display:grid;
-      grid-template-columns: repeat(12, 1fr);
-      gap:14px;
+      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+      gap:18px;
+      margin-top:30px;
     }
-    .card{
-      grid-column: span 4;
-      border-radius: var(--radius);
-      background: rgba(255,255,255,.78);
-      border: 1px solid var(--stroke);
-      box-shadow: var(--shadow2);
-      padding:18px;
-      backdrop-filter: blur(14px) saturate(140%);
-      min-height: 160px;
+
+    .card h3{
+      margin:0 0 6px;
+      font-size:18px;
     }
-    .cardTitle{
-      display:flex; align-items:center; justify-content:space-between; gap:10px;
-      margin-bottom:8px;
-    }
-    .cardTitle h3{
-      margin:0;
-      font-size:16px;
-      letter-spacing:-0.02em;
-    }
-    .tag{
-      font-size:12px;
-      color: rgba(10,14,22,.78);
-      border: 1px solid var(--stroke);
-      background: rgba(255,255,255,.78);
-      padding:5px 9px;
-      border-radius: 999px;
-      white-space:nowrap;
-    }
+
     .card p{
       margin:0;
-      color: var(--muted);
-      font-size:13.8px;
-      line-height:1.55;
-    }
-    .bullets{
-      margin:12px 0 0;
-      padding-left:18px;
+      font-size:14px;
       color:var(--muted);
-      font-size:13.2px;
-      line-height:1.55;
+      line-height:1.6;
     }
-    .bullets li{margin:6px 0}
 
     .footer{
-      padding:34px 0 44px;
+      margin-top:70px;
+      padding:40px 0;
       border-top:1px solid var(--stroke);
-      color: var(--muted2);
-      font-size: 13px;
-    }
-    .footerGrid{
-      display:grid;
-      grid-template-columns: 1.2fr .8fr;
-      gap:14px;
-      align-items:start;
-    }
-    .footLinks{display:flex; gap:10px; flex-wrap:wrap; justify-content:flex-end}
-    .footLinks a{
-      padding:8px 10px;
-      border-radius:12px;
-      border:1px solid transparent;
-      color: var(--muted);
-    }
-    .footLinks a:hover{
-      border-color: var(--stroke);
-      background: rgba(255,255,255,.78);
-      color: var(--ink);
+      font-size:13px;
+      color:var(--muted);
     }
 
-    .hideSm{display:inline}
-    .showSm{display:none}
-
-    @media (max-width: 980px){
-      h1{font-size:40px}
-      .card{grid-column: span 12}
-      .bandGrid{grid-template-columns: 1fr}
-    }
-    @media (max-width: 620px){
+    @media(max-width:700px){
+      h1{font-size:34px}
       .navlinks{display:none}
-      .hideSm{display:none}
-      .showSm{display:inline}
-      .footerGrid{grid-template-columns:1fr}
-      .footLinks{justify-content:flex-start}
     }
   </style>
 </head>
 
 <body>
-  <a class="skip" href="#top">Skip to content</a>
 
-  <div class="topbar">
-    <div class="wrap">
-      <div class="nav">
-        <a class="brand" href="./" aria-label="Slade Networks Home">
-          <span class="logo" aria-hidden="true"></span>
-          <span>Slade Networks</span>
-        </a>
+<div class="topbar">
+  <div class="wrap">
+    <div class="nav">
+      <a class="brand" href="./">
+        <div class="logo"></div>
+        <span>Slade Networks</span>
+      </a>
 
-        <div class="navlinks" aria-label="Site navigation">
-          <a class="active" href="./">Home</a>
-          <a href="./services/">Services</a>
-          <a href="./process/">Process</a>
-          <a href="./faq/">FAQ</a>
-          <a href="./contact/">Contact</a>
-        </div>
+      <div class="navlinks">
+        <a href="./">Home</a>
+        <a href="./services/">Services</a>
+        <a href="./process/">Process</a>
+        <a href="./faq/">FAQ</a>
+        <a href="./contact/">Contact</a>
+      </div>
 
-        <div class="cta">
-          <a class="btn small" href="./contact/">Get a quote</a>
-          <a class="btn primary small" href="mailto:info@sladenetworks.com?subject=Slade%20Networks%20Quote%20Request">Email</a>
-        </div>
+      <div class="cta">
+        <a class="btn" href="./contact/">Get a quote</a>
+        <a class="btn primary" href="mailto:info@sladenetworks.com?subject=Slade%20Networks%20Inquiry">Email</a>
       </div>
     </div>
   </div>
+</div>
 
-  <main id="top">
-    <section class="hero">
-      <div class="wrap">
-        <span class="pill"><span class="dot" aria-hidden="true"></span> UniFi installs • Finger Lakes • Local, on-site</span>
+<main>
+  <section class="hero">
+    <div class="wrap">
+      <h1>Reliable Wi-Fi, cameras, and network systems — installed the right way.</h1>
 
-        <h1>Business networks done right.</h1>
+      <p class="sub">
+        Network installation and support for homes and small businesses.  
+        Strong Wi-Fi coverage, easy camera access, clean rack work, and systems built to stay stable.  
+        Serving the Finger Lakes and surrounding areas in upstate NY.
+      </p>
 
-        <p class="sub">
-          I install and configure UniFi networks for small businesses—Wi-Fi, switching, cameras, cabling, and clean rack work.
-          You get a stable setup, clear documentation, and a straightforward handoff.
-        </p>
+      <div class="cta">
+        <a class="btn primary" href="./services/">View services</a>
+        <a class="btn" href="mailto:info@sladenetworks.com?subject=Project%20Inquiry">info@sladenetworks.com</a>
+      </div>
 
-        <div class="heroActions">
-          <a class="btn primary" href="./contact/">Request a quote</a>
-          <a class="btn" href="./services/">See services</a>
-          <a class="btn" href="mailto:info@sladenetworks.com?subject=Slade%20Networks%20Inquiry">info@sladenetworks.com</a>
+      <div class="grid">
+        <div class="card">
+          <h3>Stronger Wi-Fi</h3>
+          <p>Proper access point placement and setup so coverage works throughout the space — not just near the router.</p>
         </div>
 
-        <div class="band">
-          <div class="bandGrid">
-            <div>
-              <p class="bandTitle">Service area</p>
-              <p class="bandText">Finger Lakes and nearby towns within about 50 miles of Keuka Park, NY.</p>
-            </div>
-            <div style="display:flex; gap:10px; flex-wrap:wrap; justify-content:flex-end;">
-              <a class="btn" href="./services/">What I install</a>
-              <a class="btn" href="mailto:support@sladenetworks.com?subject=Support%20Request%20-%20Slade%20Networks">Support</a>
-            </div>
-          </div>
+        <div class="card">
+          <h3>Simple camera access</h3>
+          <p>Clear camera layout and secure remote viewing from phone or desktop.</p>
+        </div>
+
+        <div class="card">
+          <h3>Clean installs</h3>
+          <p>Neat cable runs, labeled hardware, and organized racks that stay manageable over time.</p>
+        </div>
+
+        <div class="card">
+          <h3>Reliable system design</h3>
+          <p>UniFi equipment is used because it keeps networking, Wi-Fi, cameras, and storage in one system. That means simpler management and easier remote support if needed.</p>
+        </div>
+
+        <div class="card">
+          <h3>Optional ongoing support</h3>
+          <p>Remote monitoring and updates are available for clients who want continued oversight and faster response when issues arise.</p>
         </div>
 
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section class="section" aria-label="Highlights">
-      <div class="wrap">
-        <div class="sectionHead">
-          <div>
-            <h2 class="h2">What you’ll get</h2>
-            <p class="lead">Simple expectations. Clean work. Clear ownership.</p>
-          </div>
-          <a class="btn" href="./process/">How it works</a>
-        </div>
+  <section class="footer">
+    <div class="wrap">
+      © <span id="year"></span> Slade Networks — Finger Lakes and surrounding areas in upstate NY.
+      <br><br>
+      UniFi® is a trademark of Ubiquiti Inc. Slade Networks is not affiliated with or endorsed by Ubiquiti.
+    </div>
+  </section>
+</main>
 
-        <div class="grid">
-          <article class="card">
-            <div class="cardTitle">
-              <h3>Clean installs</h3>
-              <span class="tag">Physical</span>
-            </div>
-            <p>Neat cable runs, labeled drops, tidy racks, and hardware mounted the right way.</p>
-            <ul class="bullets">
-              <li>Labeling and consistent patching</li>
-              <li>Rack discipline and airflow awareness</li>
-              <li>Before/after cleanup when needed</li>
-            </ul>
-          </article>
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
 
-          <article class="card">
-            <div class="cardTitle">
-              <h3>Stable performance</h3>
-              <span class="tag">Network</span>
-            </div>
-            <p>Wi-Fi placement and settings tuned for real use, with sensible switching and VLAN design.</p>
-            <ul class="bullets">
-              <li>Guest/staff/IoT separation where it matters</li>
-              <li>Channel/power planning</li>
-              <li>Baseline checks after install</li>
-            </ul>
-          </article>
-
-          <article class="card">
-            <div class="cardTitle">
-              <h3>Documentation</h3>
-              <span class="tag">Handoff</span>
-            </div>
-            <p>You’ll know what you have and how it’s set up.</p>
-            <ul class="bullets">
-              <li>Simple network diagram + IP/VLAN notes</li>
-              <li>Device inventory (models/serials/locations)</li>
-              <li>Admin ownership stays with you</li>
-            </ul>
-          </article>
-        </div>
-
-        <div class="band" style="margin-top:18px">
-          <div class="bandGrid">
-            <div>
-              <p class="bandTitle">UniFi-only installs</p>
-              <p class="bandText">I standardize on UniFi so your setup is consistent, supportable, and easy to manage.</p>
-            </div>
-            <div style="display:flex; gap:10px; flex-wrap:wrap; justify-content:flex-end;">
-              <a class="btn primary" href="./services/">View services</a>
-              <a class="btn" href="mailto:info@sladenetworks.com?subject=Project%20Details%20-%20Slade%20Networks">Email details</a>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <section class="footer">
-      <div class="wrap">
-        <div class="footerGrid">
-          <div>
-            <div class="brand" style="margin-bottom:8px">
-              <span class="logo" aria-hidden="true"></span>
-              <span>Slade Networks</span>
-            </div>
-            <div>© <span id="year"></span> Slade Networks. All rights reserved.</div>
-            <div style="margin-top:6px">Finger Lakes, NY • Service radius ~50 miles from Keuka Park</div>
-            <div style="margin-top:10px; max-width:78ch;">
-              UniFi® is a trademark of Ubiquiti Inc. Slade Networks is not affiliated with or endorsed by Ubiquiti.
-            </div>
-          </div>
-          <div class="footLinks">
-            <a href="./">Home</a>
-            <a href="./services/">Services</a>
-            <a href="./process/">Process</a>
-            <a href="./faq/">FAQ</a>
-            <a href="./contact/">Contact</a>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
 </body>
 </html>
