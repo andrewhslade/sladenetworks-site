@@ -310,7 +310,7 @@ input:focus, textarea:focus, select:focus{
 }
 .notice.show{display:block}
 
-/* Home page additions (safe, shared) */
+/* Home page additions (horizontal scroll + CTA) */
 .eyebrow{
   display:inline-flex;
   align-items:center;
@@ -338,9 +338,7 @@ input:focus, textarea:focus, select:focus{
   margin-top:18px;
 }
 
-.section{
-  padding:44px 0;
-}
+.section{padding:44px 0}
 .sectionTitle{
   margin:0 0 8px;
   font-size:22px;
@@ -422,9 +420,7 @@ input:focus, textarea:focus, select:focus{
   line-height:1.55;
 }
 
-.ctaSection{
-  padding:54px 0 64px;
-}
+.ctaSection{padding:54px 0 64px}
 .ctaInner{
   background:rgba(255,255,255,.88);
   border:1px solid var(--stroke);
