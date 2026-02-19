@@ -78,6 +78,7 @@ a{text-decoration:none;color:inherit}
   justify-content:center;
   gap:10px;
   cursor:pointer;
+  white-space:nowrap;
 }
 .btn.primary{
   background:var(--accent);
@@ -92,13 +93,6 @@ h1{
   line-height:1.1;
   margin:0 0 12px;
   letter-spacing:-0.04em;
-}
-.sub{
-  font-size:16.5px;
-  color:var(--muted);
-  line-height:1.6;
-  max-width:85ch;
-  margin:0;
 }
 
 /* Common cards + grids */
@@ -310,7 +304,7 @@ input:focus, textarea:focus, select:focus{
 }
 .notice.show{display:block}
 
-/* Home page additions (horizontal scroll + CTA) */
+/* Home page additions (Apple-style carousel + CTA) */
 .eyebrow{
   display:inline-flex;
   align-items:center;
@@ -352,14 +346,25 @@ input:focus, textarea:focus, select:focus{
   max-width:92ch;
 }
 
-.scrollWrapper{position:relative}
+/* Apple-style horizontal carousel */
+.scrollWrapper{
+  position:relative;
+  margin-left: calc(50% - (var(--max) / 2));
+  margin-right: calc(50% - (var(--max) / 2));
+}
 .productScroll{
   display:flex;
-  gap:14px;
+  gap:16px;
+
+  padding: 6px 22px 14px;
+
   overflow-x:auto;
-  padding:2px 0 10px;
-  scroll-snap-type:x mandatory;
-  -webkit-overflow-scrolling:touch;
+  overscroll-behavior-x: contain;
+  -webkit-overflow-scrolling: touch;
+
+  scroll-snap-type: x mandatory;
+  scroll-padding-left: 22px;
+  scroll-padding-right: 22px;
 }
 .productScroll::-webkit-scrollbar{height:8px}
 .productScroll::-webkit-scrollbar-thumb{
@@ -367,12 +372,14 @@ input:focus, textarea:focus, select:focus{
   border-radius:999px;
 }
 .tile{
-  flex:0 0 360px;
-  scroll-snap-align:start;
+  flex: 0 0 clamp(280px, 70vw, 520px);
+  scroll-snap-align: center;
+  scroll-snap-stop: always;
+
   background:rgba(255,255,255,.88);
   border:1px solid var(--stroke);
-  border-radius:var(--radius);
-  box-shadow:var(--shadow);
+  border-radius: 22px;
+  box-shadow: var(--shadow);
   padding:18px;
 }
 .tile h3{
@@ -386,12 +393,21 @@ input:focus, textarea:focus, select:focus{
   font-size:13.5px;
   line-height:1.55;
 }
-.tile img{
-  width:100%;
+.tile .media{
   margin-top:14px;
-  border-radius:16px;
+  border-radius:18px;
   border:1px solid var(--stroke);
   background:#fff;
+  overflow:hidden;
+  height: 260px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.tile img{
+  width:100%;
+  height:100%;
+  object-fit:contain;
   display:block;
 }
 
@@ -461,5 +477,5 @@ input:focus, textarea:focus, select:focus{
   h1{font-size:34px}
   .navlinks{display:none}
   .row2{grid-template-columns:1fr}
-  .tile{flex:0 0 300px}
+  .productScroll{ padding-left:16px; padding-right:16px; }
 }
