@@ -1,0 +1,359 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>FAQ — Slade Networks</title>
+  <meta name="description" content="Answers to common questions about Wi-Fi, cameras, cabling, and network installs for homes and small businesses in the Finger Lakes and surrounding areas in upstate NY." />
+  <meta name="theme-color" content="#FFFFFF" />
+
+  <style>
+    :root{
+      --bg:#FFFFFF;
+      --ink:rgba(15,18,26,.92);
+      --muted:rgba(15,18,26,.65);
+      --muted2:rgba(15,18,26,.52);
+      --stroke:rgba(15,18,26,.10);
+      --glass:rgba(255,255,255,.82);
+      --accent:#2563EB;
+      --radius:18px;
+      --shadow:0 14px 40px rgba(15,18,26,.08);
+      --max:1100px;
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",Roboto,Inter,Helvetica,Arial,sans-serif;
+      background:var(--bg);
+      color:var(--ink);
+      letter-spacing:-0.01em;
+    }
+
+    a{text-decoration:none;color:inherit}
+    .wrap{max-width:var(--max);margin:0 auto;padding:0 22px}
+
+    .topbar{
+      position:sticky; top:0;
+      backdrop-filter:blur(12px) saturate(140%);
+      background:rgba(255,255,255,.75);
+      border-bottom:1px solid var(--stroke);
+      z-index:50;
+    }
+
+    .nav{
+      display:flex; justify-content:space-between; align-items:center;
+      height:64px;
+    }
+    .brand{display:flex; align-items:center; gap:10px; font-weight:600;}
+    .logo{
+      width:26px; height:26px; border-radius:8px;
+      background:linear-gradient(135deg,#2563EB,#60A5FA);
+      box-shadow:0 6px 18px rgba(37,99,235,.25);
+    }
+    .navlinks{
+      display:flex; gap:18px;
+      font-size:14px; color:var(--muted);
+    }
+    .navlinks a:hover{color:var(--ink)}
+    .navlinks a.active{color:var(--ink)}
+    .cta{display:flex; gap:10px}
+
+    .btn{
+      padding:10px 16px;
+      border-radius:12px;
+      border:1px solid var(--stroke);
+      background:var(--glass);
+      box-shadow:var(--shadow);
+      font-size:14px;
+      font-weight:600;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+    }
+    .btn.primary{
+      background:var(--accent);
+      color:white;
+      border-color:var(--accent);
+    }
+
+    .hero{padding:70px 0 24px}
+    h1{
+      font-size:42px; line-height:1.1;
+      margin:0 0 12px;
+      letter-spacing:-0.04em;
+    }
+    .sub{
+      font-size:16.5px;
+      color:var(--muted);
+      line-height:1.6;
+      max-width:85ch;
+      margin:0;
+    }
+
+    .section{padding:10px 0 54px}
+
+    .faq{
+      margin-top:20px;
+      display:grid;
+      gap:12px;
+    }
+
+    details{
+      background:var(--glass);
+      border:1px solid var(--stroke);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      padding:16px 18px;
+    }
+
+    summary{
+      cursor:pointer;
+      list-style:none;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:14px;
+      font-weight:650;
+      font-size:15px;
+      letter-spacing:-0.01em;
+    }
+    summary::-webkit-details-marker{display:none}
+
+    .chev{
+      width:30px; height:30px;
+      border-radius:10px;
+      border:1px solid var(--stroke);
+      background:rgba(255,255,255,.88);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      flex:0 0 auto;
+      color:rgba(15,18,26,.72);
+      font-size:16px;
+      line-height:1;
+      transform: translateY(-1px);
+    }
+    details[open] .chev{transform: rotate(180deg) translateY(1px)}
+
+    .answer{
+      margin-top:10px;
+      color:var(--muted);
+      font-size:14px;
+      line-height:1.65;
+      max-width:92ch;
+    }
+
+    .callout{
+      margin-top:18px;
+      background:var(--glass);
+      border:1px solid var(--stroke);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      padding:18px 20px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:14px;
+      flex-wrap:wrap;
+    }
+    .callout h2{
+      margin:0;
+      font-size:16px;
+      letter-spacing:-0.02em;
+    }
+    .callout p{
+      margin:6px 0 0;
+      color:var(--muted);
+      font-size:14px;
+      line-height:1.6;
+      max-width:70ch;
+    }
+
+    .footer{
+      margin-top:64px;
+      padding:40px 0;
+      border-top:1px solid var(--stroke);
+      font-size:13px;
+      color:var(--muted);
+    }
+
+    @media(max-width:700px){
+      h1{font-size:34px}
+      .navlinks{display:none}
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="topbar">
+  <div class="wrap">
+    <div class="nav">
+      <a class="brand" href="../">
+        <div class="logo"></div>
+        <span>Slade Networks</span>
+      </a>
+
+      <div class="navlinks">
+        <a href="../">Home</a>
+        <a href="../services/">Services</a>
+        <a href="../process/">Process</a>
+        <a class="active" href="./">FAQ</a>
+        <a href="../contact/">Contact</a>
+      </div>
+
+      <div class="cta">
+        <a class="btn" href="../contact/">Free consultation</a>
+        <a class="btn primary" href="mailto:info@sladenetworks.com?subject=Slade%20Networks%20Question">Email</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<main>
+  <section class="hero">
+    <div class="wrap">
+      <h1>FAQ</h1>
+      <p class="sub">
+        Answers to common questions about installs, support, and how projects work.
+      </p>
+
+      <div class="callout">
+        <div>
+          <h2>Have a question that isn’t listed?</h2>
+          <p>Email info@sladenetworks.com and a reply will follow as soon as possible.</p>
+        </div>
+        <div style="display:flex; gap:10px; flex-wrap:wrap;">
+          <a class="btn primary" href="../contact/">Request a consultation</a>
+          <a class="btn" href="mailto:info@sladenetworks.com?subject=Slade%20Networks%20Question">info@sladenetworks.com</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="faq">
+
+        <details>
+          <summary>
+            Do services cover homes and small businesses?
+            <span class="chev" aria-hidden="true">⌄</span>
+          </summary>
+          <div class="answer">
+            Yes. Installs and support are available for homes and small businesses. The goal is the same either way: reliable Wi-Fi, easy camera access, and a clean, supportable setup.
+          </div>
+        </details>
+
+        <details>
+          <summary>
+            What areas are served?
+            <span class="chev" aria-hidden="true">⌄</span>
+          </summary>
+          <div class="answer">
+            The Finger Lakes and surrounding areas in upstate NY. If a project is a little outside the area, it can still be discussed.
+          </div>
+        </details>
+
+        <details>
+          <summary>
+            What happens during the free consultation?
+            <span class="chev" aria-hidden="true">⌄</span>
+          </summary>
+          <div class="answer">
+            The space is reviewed and goals are discussed. For Wi-Fi and cameras, the space can be mapped for planning and coverage modeling. After that, a simple plan is presented with recommended equipment and placement.
+          </div>
+        </details>
+
+        <details>
+          <summary>
+            Do customers need to buy equipment ahead of time?
+            <span class="chev" aria-hidden="true">⌄</span>
+          </summary>
+          <div class="answer">
+            No. Equipment can be recommended and sourced as part of the project. If equipment is already on site, it can be evaluated and used when it makes sense.
+          </div>
+        </details>
+
+        <details>
+          <summary>
+            Can an existing setup be fixed, or only new installs?
+            <span class="chev" aria-hidden="true">⌄</span>
+          </summary>
+          <div class="answer">
+            Both. Some projects are new installs and some are upgrades or cleanups. If Wi-Fi coverage is poor, cameras are unreliable, or the rack is a mess, the first step is to identify what’s causing the problem and then make a clear plan to fix it.
+          </div>
+        </details>
+
+        <details>
+          <summary>
+            Why is UniFi used?
+            <span class="chev" aria-hidden="true">⌄</span>
+          </summary>
+          <div class="answer">
+            UniFi keeps networking, Wi-Fi, cameras, and management in one system. That usually means simpler management, fewer separate apps, and easier remote support when needed.
+          </div>
+        </details>
+
+        <details>
+          <summary>
+            Will the customer keep access and ownership?
+            <span class="chev" aria-hidden="true">⌄</span>
+          </summary>
+          <div class="answer">
+            Yes. Admin access is provided to the customer and the setup is explained during handoff. Nothing is “locked away.”
+          </div>
+        </details>
+
+        <details>
+          <summary>
+            Is ongoing support required?
+            <span class="chev" aria-hidden="true">⌄</span>
+          </summary>
+          <div class="answer">
+            No. Many projects are one-time installs. Ongoing remote administration is optional for clients who want monitoring, updates, and faster troubleshooting.
+          </div>
+        </details>
+
+        <details>
+          <summary>
+            How long does a typical project take?
+            <span class="chev" aria-hidden="true">⌄</span>
+          </summary>
+          <div class="answer">
+            It depends on the size of the space and what is being installed. Some jobs are a single visit and others take multiple days. After the consultation, a clear timeline is provided before work begins.
+          </div>
+        </details>
+
+        <details>
+          <summary>
+            How does support work for existing clients?
+            <span class="chev" aria-hidden="true">⌄</span>
+          </summary>
+          <div class="answer">
+            Existing clients can email support@sladenetworks.com for troubleshooting or changes. If remote support is enabled, many issues can be handled quickly without an on-site visit.
+          </div>
+        </details>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="footer">
+    <div class="wrap">
+      © <span id="year"></span> Slade Networks — Finger Lakes and surrounding areas in upstate NY.
+      <br><br>
+      UniFi® is a trademark of Ubiquiti Inc. Slade Networks is not affiliated with or endorsed by Ubiquiti.
+    </div>
+  </section>
+</main>
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
