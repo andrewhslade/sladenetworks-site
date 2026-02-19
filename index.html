@@ -9,7 +9,18 @@
 
   <!-- Page-specific overrides -->
   <style>
-    /* Carousel: remove “bubble” tile chrome and only show photos */
+    /* ----- CAROUSEL FIXES ----- */
+
+    /* Prevent vertical scrolling in the carousel region */
+    .scrollWrapper{
+      overflow-x: auto !important;
+      overflow-y: hidden !important;
+    }
+    .productScroll{
+      overflow-y: hidden !important;
+    }
+
+    /* Remove tile chrome/labels so it's just photos */
     .productScroll .tile{
       background: transparent !important;
       border: none !important;
@@ -20,22 +31,39 @@
     .productScroll .tile p{
       display:none !important;
     }
+
+    /* Make the media frame a true square and clip the image */
     .productScroll .tile .media{
       background: transparent !important;
       border: none !important;
       box-shadow: none !important;
       padding: 0 !important;
-      overflow: visible !important;
-    }
-    .productScroll .tile .media img{
-      width: 100%;
-      height: 360px;            /* keeps the carousel consistent */
-      object-fit: cover;        /* fills nicely without weird letterboxing */
-      border-radius: 18px;      /* rounded corners on the photo */
+
+      /* KEY: square frame + full rounding */
+      aspect-ratio: 1 / 1;
+      width: min(560px, 78vw);     /* adjust max tile size; keeps nice on desktop */
+      border-radius: 18px;
+      overflow: hidden;            /* KEY: ensures all corners clip correctly */
       display:block;
     }
 
-    /* Service area: a cleaner, more intentional card */
+    /* Fill the square frame cleanly */
+    .productScroll .tile .media img{
+      width: 100%;
+      height: 100%;
+      object-fit: cover;           /* crops to square (your 3024x3024 will be perfect) */
+      display:block;
+      border-radius: 0;            /* radius is handled by the frame for consistent clipping */
+    }
+
+    @media (max-width: 700px){
+      .productScroll .tile .media{
+        width: 82vw;               /* slightly larger on mobile */
+        border-radius: 16px;
+      }
+    }
+
+    /* ----- SERVICE AREA CARD (kept from prior improvement) ----- */
     .serviceAreaCard{
       padding: 26px 26px !important;
     }
@@ -55,10 +83,6 @@
       font-size: 14px;
       opacity: .72;
       line-height: 1.5;
-    }
-
-    @media (max-width: 700px){
-      .productScroll .tile .media img{ height: 280px; }
     }
   </style>
 </head>
@@ -93,11 +117,7 @@
 
     <section class="hero">
       <div class="wrap">
-
-        <h1>
-          Deploying UniFi Full-Stack Networking in the Finger Lakes
-        </h1>
-
+        <h1>Deploying UniFi Full-Stack Networking in the Finger Lakes</h1>
         <p class="subtext">
           Modern IT infrastructure installation, configuration, and administration for homes and businesses.
         </p>
@@ -106,7 +126,6 @@
           <a class="btn primary" href="/contact/">Request a free consultation</a>
           <a class="btn" href="/services/">View services</a>
         </div>
-
       </div>
     </section>
 
@@ -186,9 +205,7 @@
       <div class="wrap">
 
         <h2 class="sectionTitle">Service Area</h2>
-        <p class="sectionIntro">
-          Local installs across the Finger Lakes and nearby towns.
-        </p>
+        <p class="sectionIntro">Local installs across the Finger Lakes and nearby towns.</p>
 
         <div class="infoCard serviceAreaCard">
           <h3 class="serviceAreaTitle">Finger Lakes coverage</h3>
