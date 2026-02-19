@@ -3,239 +3,176 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Slade Networks — Network Installation in the Finger Lakes</title>
-  <meta name="description" content="Wi-Fi, cameras, switching, cabling, racks, and network support for homes and small businesses. Serving the Finger Lakes and surrounding areas in upstate NY." />
+  <title>Slade Networks — UniFi Networking in the Finger Lakes</title>
+  <meta name="description" content="Network installation and support for homes and small businesses. Strong Wi-Fi coverage, easy camera access, clean rack work, and systems built to stay stable. Serving the Finger Lakes and surrounding areas in upstate NY." />
   <meta name="theme-color" content="#FFFFFF" />
 
+  <!-- Shared site CSS -->
+  <link rel="stylesheet" href="./assets/styles.css">
+
+  <!-- Small home-page-only styles -->
   <style>
-    :root{
-      --bg:#FFFFFF;
-      --ink:rgba(15,18,26,.92);
-      --muted:rgba(15,18,26,.65);
-      --stroke:rgba(15,18,26,.10);
-      --glass:rgba(255,255,255,.82);
-      --accent:#2563EB;
-      --radius:18px;
-      --shadow:0 14px 40px rgba(15,18,26,.08);
-      --max:1100px;
-    }
-
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0;
-      font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",Roboto,Inter,Helvetica,Arial,sans-serif;
-      background:var(--bg);
-      color:var(--ink);
-      letter-spacing:-0.01em;
-    }
-
-    a{text-decoration:none;color:inherit}
-    .wrap{max-width:var(--max);margin:0 auto;padding:0 22px}
-
-    /* Top Navigation */
-    .topbar{
-      position:sticky;
-      top:0;
-      backdrop-filter:blur(12px) saturate(140%);
-      background:rgba(255,255,255,.75);
-      border-bottom:1px solid var(--stroke);
-      z-index:50;
-    }
-
-    .nav{
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      height:64px;
-    }
-
-    .brand{
-      display:flex;
+    .eyebrow{
+      display:inline-flex;
       align-items:center;
       gap:10px;
-      font-weight:600;
-    }
-
-    .logo{
-      width:26px;
-      height:26px;
-      border-radius:8px;
-      background:linear-gradient(135deg,#2563EB,#60A5FA);
-      box-shadow:0 6px 18px rgba(37,99,235,.25);
-    }
-
-    .navlinks{
-      display:flex;
-      gap:18px;
-      font-size:14px;
-      color:var(--muted);
-    }
-
-    .navlinks a:hover{color:var(--ink)}
-
-    .cta{display:flex;gap:10px}
-
-    .btn{
-      padding:10px 16px;
-      border-radius:12px;
+      padding:8px 12px;
+      border-radius:999px;
       border:1px solid var(--stroke);
-      background:var(--glass);
-      box-shadow:var(--shadow);
-      font-size:14px;
-      font-weight:600;
-    }
-
-    .btn.primary{
-      background:var(--accent);
-      color:white;
-      border-color:var(--accent);
-    }
-
-    /* Hero */
-    .hero{padding:80px 0 40px}
-    h1{
-      font-size:46px;
-      line-height:1.1;
-      margin:0 0 14px;
-      letter-spacing:-0.04em;
-    }
-
-    .sub{
-      font-size:17px;
+      background:rgba(255,255,255,.88);
       color:var(--muted);
-      line-height:1.6;
-      max-width:75ch;
-      margin:0 0 24px;
-    }
-
-    /* Glass Card */
-    .card{
-      background:var(--glass);
-      border:1px solid var(--stroke);
-      border-radius:var(--radius);
-      box-shadow:var(--shadow);
-      padding:20px;
-    }
-
-    .grid{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-      gap:18px;
-      margin-top:30px;
-    }
-
-    .card h3{
-      margin:0 0 6px;
-      font-size:18px;
-    }
-
-    .card p{
-      margin:0;
-      font-size:14px;
-      color:var(--muted);
-      line-height:1.6;
-    }
-
-    .footer{
-      margin-top:70px;
-      padding:40px 0;
-      border-top:1px solid var(--stroke);
       font-size:13px;
-      color:var(--muted);
+      line-height:1;
+      margin-bottom:14px;
+    }
+    .eyedot{
+      width:8px;height:8px;border-radius:50%;
+      background:rgba(37,99,235,.95);
+      box-shadow:0 0 0 6px rgba(37,99,235,.10);
+      flex:0 0 auto;
     }
 
-    @media(max-width:700px){
-      h1{font-size:34px}
-      .navlinks{display:none}
+    .heroGrid{
+      display:grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap:18px;
+      align-items:start;
+      margin-top:18px;
+    }
+
+    .chips{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top:18px;
+    }
+    .chip{
+      display:inline-flex;
+      align-items:center;
+      padding:8px 12px;
+      border-radius:999px;
+      border:1px solid var(--stroke);
+      background:rgba(255,255,255,.88);
+      color:rgba(15,18,26,.72);
+      font-size:13px;
+      font-weight:600;
+      line-height:1;
+    }
+
+    .image{
+      width:100%;
+      display:block;
+      border-radius:18px;
+      border:1px solid var(--stroke);
+      box-shadow:var(--shadow);
+      background:#fff;
+    }
+
+    .mini{
+      margin-top:12px;
+      color:var(--muted);
+      font-size:13.5px;
+      line-height:1.6;
+    }
+
+    @media(max-width:980px){
+      .heroGrid{grid-template-columns:1fr}
     }
   </style>
 </head>
 
 <body>
+  <div class="topbar">
+    <div class="wrap">
+      <div class="nav">
+        <a class="brand" href="./" aria-label="Slade Networks Home">
+          <div class="logo" aria-hidden="true"></div>
+          <span>Slade Networks</span>
+        </a>
 
-<div class="topbar">
-  <div class="wrap">
-    <div class="nav">
-      <a class="brand" href="./">
-        <div class="logo"></div>
-        <span>Slade Networks</span>
-      </a>
+        <div class="navlinks" aria-label="Site navigation">
+          <a class="active" href="./">Home</a>
+          <a href="./services/">Services</a>
+          <a href="./process/">Process</a>
+          <a href="./faq/">FAQ</a>
+          <a href="./contact/">Contact</a>
+        </div>
 
-      <div class="navlinks">
-        <a href="./">Home</a>
-        <a href="./services/">Services</a>
-        <a href="./process/">Process</a>
-        <a href="./faq/">FAQ</a>
-        <a href="./contact/">Contact</a>
-      </div>
-
-      <div class="cta">
-        <a class="btn" href="./contact/">Get a quote</a>
-        <a class="btn primary" href="mailto:info@sladenetworks.com?subject=Slade%20Networks%20Inquiry">Email</a>
+        <div class="cta">
+          <a class="btn" href="./contact/">Free consultation</a>
+          <a class="btn primary" href="mailto:info@sladenetworks.com?subject=Slade%20Networks%20Consultation">Email</a>
+        </div>
       </div>
     </div>
   </div>
-</div>
 
-<main>
-  <section class="hero">
-    <div class="wrap">
-      <h1>Reliable Wi-Fi, cameras, and network systems — installed the right way.</h1>
+  <main>
+    <section class="hero">
+      <div class="wrap">
+        <div class="eyebrow">
+          <span class="eyedot" aria-hidden="true"></span>
+          <span>Deploying UniFi Full-Stack Networking in the Finger Lakes</span>
+        </div>
 
-      <p class="sub">
-        Network installation and support for homes and small businesses.  
-        Strong Wi-Fi coverage, easy camera access, clean rack work, and systems built to stay stable.  
-        Serving the Finger Lakes and surrounding areas in upstate NY.
-      </p>
+        <h1>Clean installs. Stable systems. Simple to manage.</h1>
+        <p class="sub">
+          Network installation and support for homes and small businesses. Strong Wi-Fi coverage, easy camera access,
+          clean rack work, and systems built to stay stable. Serving the Finger Lakes and surrounding areas in upstate NY.
+        </p>
 
-      <div class="cta">
-        <a class="btn primary" href="./services/">View services</a>
-        <a class="btn" href="mailto:info@sladenetworks.com?subject=Project%20Inquiry">info@sladenetworks.com</a>
+        <div class="cta" style="margin-top:18px; flex-wrap:wrap;">
+          <a class="btn primary" href="./contact/">Request a free consultation</a>
+          <a class="btn" href="./services/">View services</a>
+          <a class="btn" href="mailto:info@sladenetworks.com?subject=Slade%20Networks%20Consultation">info@sladenetworks.com</a>
+        </div>
+
+        <div class="heroGrid">
+          <div class="card">
+            <h2>What’s included</h2>
+            <p>Everything is designed to be easy to use and easy to support later.</p>
+
+            <div class="chips" aria-label="Service focus areas">
+              <span class="chip">Network</span>
+              <span class="chip">Cameras</span>
+              <span class="chip">VoIP</span>
+              <span class="chip">Connect (digital signage)</span>
+              <span class="chip">UniFi Site Manager (single pane of glass)</span>
+              <span class="chip">Continued management + administration</span>
+            </div>
+
+            <p class="mini">
+              Continued management is optional—available for clients who want monitoring, updates, and faster troubleshooting.
+            </p>
+          </div>
+
+          <div class="card">
+            <h2>Example hardware</h2>
+            <p>Sample image added to verify the site image pipeline.</p>
+
+            <div style="margin-top:14px;">
+              <img class="image" src="./assets/images/usw-24-1.png" alt="UniFi USW-24 switch product image">
+            </div>
+
+            <p class="mini">
+              Note: This image is displayed from <code>./assets/images/usw-24-1.png</code>.
+            </p>
+          </div>
+        </div>
+
       </div>
+    </section>
 
-      <div class="grid">
-        <div class="card">
-          <h3>Stronger Wi-Fi</h3>
-          <p>Proper access point placement and setup so coverage works throughout the space — not just near the router.</p>
-        </div>
-
-        <div class="card">
-          <h3>Simple camera access</h3>
-          <p>Clear camera layout and secure remote viewing from phone or desktop.</p>
-        </div>
-
-        <div class="card">
-          <h3>Clean installs</h3>
-          <p>Neat cable runs, labeled hardware, and organized racks that stay manageable over time.</p>
-        </div>
-
-        <div class="card">
-          <h3>Reliable system design</h3>
-          <p>UniFi equipment is used because it keeps networking, Wi-Fi, cameras, and storage in one system. That means simpler management and easier remote support if needed.</p>
-        </div>
-
-        <div class="card">
-          <h3>Optional ongoing support</h3>
-          <p>Remote monitoring and updates are available for clients who want continued oversight and faster response when issues arise.</p>
-        </div>
-
+    <section class="footer">
+      <div class="wrap">
+        © <span id="year"></span> Slade Networks — Finger Lakes and surrounding areas in upstate NY.
+        <br><br>
+        UniFi® is a trademark of Ubiquiti Inc. Slade Networks is not affiliated with or endorsed by Ubiquiti.
       </div>
-    </div>
-  </section>
+    </section>
+  </main>
 
-  <section class="footer">
-    <div class="wrap">
-      © <span id="year"></span> Slade Networks — Finger Lakes and surrounding areas in upstate NY.
-      <br><br>
-      UniFi® is a trademark of Ubiquiti Inc. Slade Networks is not affiliated with or endorsed by Ubiquiti.
-    </div>
-  </section>
-</main>
-
-<script>
-  document.getElementById("year").textContent = new Date().getFullYear();
-</script>
-
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
