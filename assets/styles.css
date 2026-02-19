@@ -352,14 +352,15 @@ input:focus, textarea:focus, select:focus{
   margin-left: calc(50% - (var(--max) / 2));
   margin-right: calc(50% - (var(--max) / 2));
 }
+
+/* hard lock: horizontal only */
 .productScroll{
   display:flex;
   gap:16px;
-
   padding: 6px 22px 14px;
 
   overflow-x:auto;
-  overflow-y:hidden;              /* prevent vertical scroll */
+  overflow-y:hidden !important;          /* kill vertical scroll */
   overscroll-behavior-x: contain;
   -webkit-overflow-scrolling: touch;
 
@@ -373,49 +374,48 @@ input:focus, textarea:focus, select:focus{
   border-radius:999px;
 }
 
+/* Make each carousel item square-sized (not wide cards) */
 .tile{
-  /* Slightly smaller max so square photos don’t become huge vertically */
-  flex: 0 0 clamp(280px, 70vw, 420px);
+  /* A square tile needs a predictable width */
+  flex: 0 0 clamp(260px, 62vw, 360px) !important;
   scroll-snap-align: center;
   scroll-snap-stop: always;
 
-  background:rgba(255,255,255,.88);
-  border:1px solid var(--stroke);
-  border-radius: 22px;
-  box-shadow: var(--shadow);
-  padding:18px;
+  /* If you want “no bubbles” around photos globally */
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
 }
-.tile h3{
-  margin:0 0 6px;
-  font-size:15px;
-  letter-spacing:-0.02em;
-}
+
+/* Remove labels globally (since you said you don’t need them) */
+.tile h3,
 .tile p{
-  margin:0;
-  color:var(--muted);
-  font-size:13.5px;
-  line-height:1.55;
+  display:none !important;
 }
 
-/* ✅ SQUARE PHOTO FRAME */
+/* Square photo frame */
 .tile .media{
-  margin-top:14px;
-  border-radius:18px;
-  border:1px solid var(--stroke);
-  background:#fff;
-  overflow:hidden;
+  margin-top: 0 !important;
 
-  width:100%;
-  aspect-ratio: 1 / 1;            /* makes it square */
-  height:auto;                    /* remove fixed height */
-  display:block;
+  width: 100% !important;                /* equals tile width */
+  aspect-ratio: 1 / 1 !important;        /* force square */
+  height: auto !important;
+
+  border-radius: 18px !important;
+  overflow: hidden !important;
+
+  border: none !important;
+  background: transparent !important;
+
+  display:block !important;
 }
 
-/* ✅ Fill square (your 3024×3024 images will look perfect) */
+/* Fill the square */
 .tile img{
-  width:100%;
-  height:100%;
-  object-fit:cover;               /* fill the square */
+  width:100% !important;
+  height:100% !important;
+  object-fit: cover !important;          /* your 3024×3024 photos are ideal here */
   display:block;
 }
 
