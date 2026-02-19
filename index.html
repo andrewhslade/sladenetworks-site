@@ -4,13 +4,13 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Slade Networks — UniFi Networking in the Finger Lakes</title>
-  <meta name="description" content="Network installation and support for homes and small businesses. Strong Wi-Fi coverage, easy camera access, clean rack work, and systems built to stay stable. Serving the Finger Lakes and surrounding areas in upstate NY." />
+  <meta name="description" content="Network infrastructure installation, configuration, and administration for homes and small businesses in the Finger Lakes and surrounding areas in upstate NY." />
   <meta name="theme-color" content="#FFFFFF" />
 
   <!-- Shared site CSS -->
   <link rel="stylesheet" href="./assets/styles.css">
 
-  <!-- Small home-page-only styles -->
+  <!-- Home-page-only styles (layout + image tiles) -->
   <style>
     .eyebrow{
       display:inline-flex;
@@ -32,51 +32,104 @@
       flex:0 0 auto;
     }
 
-    .heroGrid{
-      display:grid;
-      grid-template-columns: 1.05fr .95fr;
-      gap:18px;
-      align-items:start;
+    .heroActions{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
       margin-top:18px;
     }
 
-    .chips{
-      display:flex;
-      flex-wrap:wrap;
-      gap:10px;
-      margin-top:18px;
+    .tiles{
+      margin-top:22px;
+      display:grid;
+      grid-template-columns:repeat(12,1fr);
+      gap:14px;
     }
-    .chip{
-      display:inline-flex;
-      align-items:center;
-      padding:8px 12px;
-      border-radius:999px;
+    .tile{
+      grid-column: span 6;
+      background:var(--glass);
+      border:1px solid var(--stroke);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      padding:18px;
+      overflow:hidden;
+    }
+    .tileHead{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:12px;
+      margin-bottom:10px;
+    }
+    .tile h2{
+      margin:0;
+      font-size:16px;
+      letter-spacing:-0.02em;
+    }
+    .tile p{
+      margin:0;
+      color:var(--muted);
+      font-size:13.5px;
+      line-height:1.55;
+    }
+    .tag{
+      font-size:12px;
+      color:rgba(15,18,26,.72);
       border:1px solid var(--stroke);
       background:rgba(255,255,255,.88);
-      color:rgba(15,18,26,.72);
-      font-size:13px;
+      padding:5px 9px;
+      border-radius:999px;
+      white-space:nowrap;
       font-weight:600;
-      line-height:1;
+      flex:0 0 auto;
     }
-
-    .image{
+    .tileImg{
+      margin-top:12px;
       width:100%;
-      display:block;
-      border-radius:18px;
+      border-radius:16px;
       border:1px solid var(--stroke);
       box-shadow:var(--shadow);
+      display:block;
       background:#fff;
     }
 
-    .mini{
-      margin-top:12px;
+    .section{
+      padding:14px 0 0;
+    }
+    .sectionTitle{
+      margin:26px 0 10px;
+      font-size:20px;
+      letter-spacing:-0.03em;
+    }
+    .whyGrid{
+      display:grid;
+      grid-template-columns:repeat(12,1fr);
+      gap:14px;
+      margin-top:14px;
+    }
+    .why{
+      grid-column: span 6;
+      background:var(--glass);
+      border:1px solid var(--stroke);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      padding:18px;
+    }
+    .why h3{
+      margin:0 0 6px;
+      font-size:15px;
+      letter-spacing:-0.02em;
+    }
+    .why p{
+      margin:0;
       color:var(--muted);
       font-size:13.5px;
-      line-height:1.6;
+      line-height:1.55;
     }
 
     @media(max-width:980px){
-      .heroGrid{grid-template-columns:1fr}
+      .tile{grid-column: span 12;}
+      .why{grid-column: span 12;}
     }
   </style>
 </head>
@@ -109,53 +162,126 @@
   <main>
     <section class="hero">
       <div class="wrap">
+        <!-- keep full-stack line where it is -->
         <div class="eyebrow">
           <span class="eyedot" aria-hidden="true"></span>
           <span>Deploying UniFi Full-Stack Networking in the Finger Lakes</span>
         </div>
 
-        <h1>Clean installs. Stable systems. Simple to manage.</h1>
+        <h1>Reliable Wi-Fi, Cameras, and Phone systems for Homes and Small Businesses</h1>
+
         <p class="sub">
-          Network installation and support for homes and small businesses. Strong Wi-Fi coverage, easy camera access,
-          clean rack work, and systems built to stay stable. Serving the Finger Lakes and surrounding areas in upstate NY.
+          Network infrastructure installation, configuration, and administration.
         </p>
 
-        <div class="cta" style="margin-top:18px; flex-wrap:wrap;">
+        <div class="heroActions">
           <a class="btn primary" href="./contact/">Request a free consultation</a>
           <a class="btn" href="./services/">View services</a>
           <a class="btn" href="mailto:info@sladenetworks.com?subject=Slade%20Networks%20Consultation">info@sladenetworks.com</a>
         </div>
 
-        <div class="heroGrid">
-          <div class="card">
-            <h2>What’s included</h2>
-            <p>Everything is designed to be easy to use and easy to support later.</p>
+        <div class="section">
+          <h2 class="sectionTitle">What this covers</h2>
+          <p class="sub" style="max-width:92ch">
+            A complete, supportable setup—designed to work well day-to-day and stay easy to manage over time.
+          </p>
 
-            <div class="chips" aria-label="Service focus areas">
-              <span class="chip">Network</span>
-              <span class="chip">Cameras</span>
-              <span class="chip">VoIP</span>
-              <span class="chip">Connect (digital signage)</span>
-              <span class="chip">UniFi Site Manager (single pane of glass)</span>
-              <span class="chip">Continued management + administration</span>
+          <!-- Outcome tiles with associated images in /assets -->
+          <div class="tiles">
+
+            <div class="tile">
+              <div class="tileHead">
+                <div>
+                  <h2>Cloud gateways</h2>
+                  <p>Reliable internet routing, secure remote access, and a clean foundation for the entire system.</p>
+                </div>
+                <span class="tag">Gateway</span>
+              </div>
+              <img class="tileImg" src="./assets/udm-pro-1.png" alt="UniFi Dream Machine Pro cloud gateway">
             </div>
 
-            <p class="mini">
-              Continued management is optional—available for clients who want monitoring, updates, and faster troubleshooting.
-            </p>
+            <div class="tile">
+              <div class="tileHead">
+                <div>
+                  <h2>Wi-Fi</h2>
+                  <p>Consistent coverage throughout the space—not just fast speed in one spot.</p>
+                </div>
+                <span class="tag">Wi-Fi</span>
+              </div>
+              <img class="tileImg" src="./assets/u7-pro-xg-2.png" alt="UniFi Wi-Fi access point">
+            </div>
+
+            <div class="tile">
+              <div class="tileHead">
+                <div>
+                  <h2>Cameras</h2>
+                  <p>Easy camera access from one app, secure remote viewing, and dependable recording.</p>
+                </div>
+                <span class="tag">Protect</span>
+              </div>
+              <img class="tileImg" src="./assets/uvc-g6-pro-turret-10.png" alt="UniFi Protect camera">
+            </div>
+
+            <div class="tile">
+              <div class="tileHead">
+                <div>
+                  <h2>Phone systems</h2>
+                  <p>Business calling with clear voice quality, simple management, and clean handoff.</p>
+                </div>
+                <span class="tag">Talk</span>
+              </div>
+              <img class="tileImg" src="./assets/utp-g3-touch-enterprise-1.png" alt="UniFi Talk phone">
+            </div>
+
+            <div class="tile">
+              <div class="tileHead">
+                <div>
+                  <h2>Network storage (NAS)</h2>
+                  <p>Central storage for files and backups, with straightforward access and management.</p>
+                </div>
+                <span class="tag">Storage</span>
+              </div>
+              <img class="tileImg" src="./assets/unas-pro-1.png" alt="UniFi network attached storage device">
+            </div>
+
+            <div class="tile">
+              <div class="tileHead">
+                <div>
+                  <h2>Digital signage</h2>
+                  <p>Simple screen casting and signage management for offices, retail, and shared spaces.</p>
+                </div>
+                <span class="tag">Connect</span>
+              </div>
+              <img class="tileImg" src="./assets/uc-display21-1.png" alt="UniFi Connect display">
+            </div>
+
           </div>
+        </div>
 
-          <div class="card">
-            <h2>Example hardware</h2>
-            <p>Sample image added to verify the site image pipeline.</p>
+        <!-- Why UniFi section -->
+        <div class="section">
+          <h2 class="sectionTitle">Why UniFi</h2>
+          <p class="sub" style="max-width:92ch">
+            UniFi keeps networking, Wi-Fi, cameras, and phones in one system. That makes installs easier to support and simpler to manage.
+          </p>
 
-            <div style="margin-top:14px;">
-              <img class="image" src="./assets/images/usw-24-1.png" alt="UniFi USW-24 switch product image">
+          <div class="whyGrid">
+            <div class="why">
+              <h3>One dashboard</h3>
+              <p>Network, Wi-Fi, cameras, and phones can be managed in one place instead of multiple apps.</p>
             </div>
-
-            <p class="mini">
-              Note: This image is displayed from <code>./assets/images/usw-24-1.png</code>.
-            </p>
+            <div class="why">
+              <h3>Built for stability</h3>
+              <p>Clean configuration standards and predictable updates reduce “random issues” and avoid messy setups.</p>
+            </div>
+            <div class="why">
+              <h3>Remote support when needed</h3>
+              <p>Optional continued administration allows faster troubleshooting and ongoing improvements over time.</p>
+            </div>
+            <div class="why">
+              <h3>Customer ownership</h3>
+              <p>Admin access stays with the customer. Everything is handed off clearly and documented.</p>
+            </div>
           </div>
         </div>
 
