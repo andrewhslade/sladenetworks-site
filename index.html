@@ -9,6 +9,32 @@
 
   <!-- Page-specific overrides -->
   <style>
+    /* ----- HEADER UPDATES (logo image + larger nav links) ----- */
+    .brand{
+      gap: 0 !important; /* remove spacing from old mark+text */
+    }
+    .brandLogoImg{
+      height: 34px;
+      width: auto;
+      display:block;
+    }
+    @media (max-width:700px){
+      .brandLogoImg{ height: 30px; }
+    }
+
+    /* Larger header buttons (nav links) */
+    .navlinks{
+      font-size: 15.5px !important;
+      gap: 22px !important;
+    }
+    .navlinks a{
+      padding: 10px 12px !important;
+      border-radius: 12px !important;
+    }
+    @media (max-width:700px){
+      .navlinks{ font-size: 15px !important; }
+    }
+
     /* ----- CAROUSEL FIXES ----- */
 
     /* Prevent vertical scrolling in the carousel region */
@@ -93,8 +119,7 @@
     <div class="wrap">
       <div class="nav">
         <a class="brand" href="/" aria-label="Slade Networks home">
-          <span class="logo" aria-hidden="true"></span>
-          <span>Slade Networks</span>
+          <img class="brandLogoImg" src="/assets/website%20logo.png" alt="Slade Networks">
         </a>
 
         <div class="navlinks" aria-label="Site navigation">
@@ -107,7 +132,6 @@
 
         <div class="cta">
           <a class="btn primary" href="/contact/">Free consultation</a>
-          <a class="btn" href="mailto:info@sladenetworks.com">Email</a>
         </div>
       </div>
     </div>
