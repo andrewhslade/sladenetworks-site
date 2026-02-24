@@ -7,108 +7,44 @@
   <meta name="description" content="UniFi network installation and support for homes and small businesses in the Finger Lakes and surrounding areas in upstate NY." />
   <link rel="stylesheet" href="/assets/styles.css">
 
-  <!-- Page-specific overrides -->
   <style>
-    /* ----- HEADER UPDATES (logo image + larger nav links) ----- */
-    .brand{
-      gap: 0 !important; /* remove spacing from old mark+text */
-    }
+    /* ----- HEADER OVERRIDES ----- */
     .brandLogoImg{
-      height: 34px;
-      width: auto;
+      height:40px;
+      width:auto;
       display:block;
     }
-    @media (max-width:700px){
-      .brandLogoImg{ height: 30px; }
-    }
 
-    /* Larger header buttons (nav links) */
     .navlinks{
-      font-size: 15.5px !important;
-      gap: 22px !important;
+      font-size:16px !important;
+      gap:24px !important;
     }
     .navlinks a{
-      padding: 10px 12px !important;
-      border-radius: 12px !important;
-    }
-    @media (max-width:700px){
-      .navlinks{ font-size: 15px !important; }
+      padding:10px 14px !important;
+      border-radius:12px !important;
     }
 
-    /* ----- CAROUSEL FIXES ----- */
-
-    /* Prevent vertical scrolling in the carousel region */
-    .scrollWrapper{
-      overflow-x: auto !important;
-      overflow-y: hidden !important;
+    /* ----- SERVICE AREA MAP ----- */
+    .serviceAreaWrap{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:20px;
+      align-items:center;
+      margin-top:18px;
     }
-    .productScroll{
-      overflow-y: hidden !important;
+    .serviceAreaMap{
+      border-radius:18px;
+      overflow:hidden;
+      border:1px solid var(--stroke);
+      box-shadow:var(--shadow);
     }
-
-    /* Remove tile chrome/labels so it's just photos */
-    .productScroll .tile{
-      background: transparent !important;
-      border: none !important;
-      box-shadow: none !important;
-      padding: 0 !important;
-    }
-    .productScroll .tile h3,
-    .productScroll .tile p{
-      display:none !important;
-    }
-
-    /* Make the media frame a true square and clip the image */
-    .productScroll .tile .media{
-      background: transparent !important;
-      border: none !important;
-      box-shadow: none !important;
-      padding: 0 !important;
-
-      /* KEY: square frame + full rounding */
-      aspect-ratio: 1 / 1;
-      width: min(560px, 78vw);     /* adjust max tile size; keeps nice on desktop */
-      border-radius: 18px;
-      overflow: hidden;            /* KEY: ensures all corners clip correctly */
+    .serviceAreaMap img{
+      width:100%;
+      height:auto;
       display:block;
     }
-
-    /* Fill the square frame cleanly */
-    .productScroll .tile .media img{
-      width: 100%;
-      height: 100%;
-      object-fit: cover;           /* crops to square (your 3024x3024 will be perfect) */
-      display:block;
-      border-radius: 0;            /* radius is handled by the frame for consistent clipping */
-    }
-
-    @media (max-width: 700px){
-      .productScroll .tile .media{
-        width: 82vw;               /* slightly larger on mobile */
-        border-radius: 16px;
-      }
-    }
-
-    /* ----- SERVICE AREA CARD (kept from prior improvement) ----- */
-    .serviceAreaCard{
-      padding: 26px 26px !important;
-    }
-    .serviceAreaTitle{
-      margin: 0 0 8px;
-      font-size: 16px;
-      letter-spacing: -0.02em;
-    }
-    .serviceAreaText{
-      margin: 0;
-      font-size: 16.5px;
-      line-height: 1.55;
-      opacity: .92;
-    }
-    .serviceAreaNote{
-      margin: 10px 0 0;
-      font-size: 14px;
-      opacity: .72;
-      line-height: 1.5;
+    @media(max-width:900px){
+      .serviceAreaWrap{ grid-template-columns:1fr; }
     }
   </style>
 </head>
@@ -118,21 +54,27 @@
   <div class="topbar">
     <div class="wrap">
       <div class="nav">
+
+        <!-- LOGO IMAGE -->
         <a class="brand" href="/" aria-label="Slade Networks home">
-          <img class="brandLogoImg" src="/assets/website%20logo.png" alt="Slade Networks">
+          <img class="brandLogoImg" src="/assets/Website%20Logo.png" alt="Slade Networks Logo">
         </a>
 
+        <!-- NAVIGATION -->
         <div class="navlinks" aria-label="Site navigation">
           <a href="/" class="active">Home</a>
           <a href="/services/">Services</a>
           <a href="/process/">Process</a>
           <a href="/faq/">FAQ</a>
+          <a href="/about/">About</a>
           <a href="/contact/">Contact</a>
         </div>
 
+        <!-- RIGHT SIDE CTA -->
         <div class="cta">
           <a class="btn primary" href="/contact/">Free consultation</a>
         </div>
+
       </div>
     </div>
   </div>
@@ -160,36 +102,6 @@
           Real installations across the Finger Lakes — clean work, proper mounting, and systems built to last.
         </p>
       </div>
-
-      <div class="scrollWrapper">
-        <div class="productScroll" aria-label="Install photos carousel">
-
-          <div class="tile">
-            <div class="media">
-              <img src="/assets/IMG_0465.jpeg" alt="Wi-Fi access point installation">
-            </div>
-          </div>
-
-          <div class="tile">
-            <div class="media">
-              <img src="/assets/Camera Install.jpeg" alt="Camera installation">
-            </div>
-          </div>
-
-          <div class="tile">
-            <div class="media">
-              <img src="/assets/IMG_0464.jpeg" alt="VoIP phone installation">
-            </div>
-          </div>
-
-          <div class="tile">
-            <div class="media">
-              <img src="/assets/IMG_0431.jpeg" alt="Network rack installation">
-            </div>
-          </div>
-
-        </div>
-      </div>
     </section>
 
     <section class="section">
@@ -205,17 +117,14 @@
             <h3>Single pane of glass</h3>
             <p>Manage gateways, switching, Wi-Fi, cameras, and VoIP from one dashboard instead of juggling multiple apps.</p>
           </div>
-
           <div class="infoCard">
             <h3>Reliability built in</h3>
             <p>Standardized configurations and predictable updates reduce surprises and keep systems stable day-to-day.</p>
           </div>
-
           <div class="infoCard">
             <h3>Performance you can feel</h3>
             <p>Proper placement, clean RF design, and tuned configurations deliver consistent coverage and throughput.</p>
           </div>
-
           <div class="infoCard">
             <h3>Supportable over time</h3>
             <p>Optional remote administration helps troubleshoot faster and keep everything running smoothly.</p>
@@ -225,21 +134,33 @@
       </div>
     </section>
 
+    <!-- SERVICE AREA WITH MAP -->
     <section class="section">
       <div class="wrap">
 
         <h2 class="sectionTitle">Service Area</h2>
-        <p class="sectionIntro">Local installs across the Finger Lakes and nearby towns.</p>
+        <p class="sectionIntro">
+          Local installs across the Finger Lakes and nearby towns.
+        </p>
 
-        <div class="infoCard serviceAreaCard">
-          <h3 class="serviceAreaTitle">Finger Lakes coverage</h3>
-          <p class="serviceAreaText">
-            Serving Penn Yan, Keuka Park, Hammondsport, Watkins Glen, Geneva, Canandaigua, Naples, Victor, Auburn,
-            Ithaca (case-by-case), and everywhere in between.
-          </p>
-          <p class="serviceAreaNote">
-            If you’re slightly outside this area, reach out — travel is often possible depending on project size.
-          </p>
+        <div class="serviceAreaWrap">
+
+          <div class="infoCard">
+            <h3 class="serviceAreaTitle">Finger Lakes coverage</h3>
+            <p class="serviceAreaText">
+              Serving Penn Yan, Keuka Park, Hammondsport, Watkins Glen, Geneva,
+              Canandaigua, Naples, Victor, Auburn, Ithaca (case-by-case), and
+              surrounding communities.
+            </p>
+            <p class="serviceAreaNote">
+              If you're slightly outside this area, reach out — travel is often possible depending on project size.
+            </p>
+          </div>
+
+          <div class="serviceAreaMap">
+            <img src="/assets/Website%20Map.png" alt="Service Area Map - Finger Lakes Coverage">
+          </div>
+
         </div>
 
       </div>
@@ -255,7 +176,6 @@
 
           <div class="ctaButtons">
             <a class="btn primary" href="/contact/">Request a free consultation</a>
-            <a class="btn" href="mailto:info@sladenetworks.com">Email info@sladenetworks.com</a>
           </div>
         </div>
       </div>
