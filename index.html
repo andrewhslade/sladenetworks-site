@@ -7,164 +7,100 @@
   <meta name="description" content="UniFi network installation and support for homes and small businesses in the Finger Lakes and surrounding areas in upstate NY." />
   <link rel="stylesheet" href="/assets/styles.css">
 
-  <!-- Page-specific overrides -->
   <style>
-    /* ===== HEADER FIXES: larger logo + larger nav links ===== */
-
-    /* Give the header more vertical room so the larger logo fits */
+    /* =========================
+       HEADER HEIGHT (kept large for logo)
+    ========================== */
     .nav{
-      height: 92px !important; /* was 64px in global CSS */
+      height:92px !important;
     }
-
-    /* Replace text/blue square with image logo */
-    .brand{
-      gap: 0 !important;
-    }
-    .brand .logo{ display:none !important; } /* safety: hide the old blue square if it exists */
     .brandLogoImg{
-      height: 78px;            /* ~2x+ the prior size */
-      width: auto;
+      height:78px;
+      width:auto;
       display:block;
     }
 
-    /* Bigger nav links */
-    .navlinks{
-      font-size: 16.5px !important;
-      gap: 26px !important;
-    }
-    .navlinks a{
-      padding: 12px 14px !important;
-      border-radius: 12px !important;
-    }
-
-    @media (max-width: 700px){
-      .nav{ height: 78px !important; }
-      .brandLogoImg{ height: 56px; }
-      .navlinks{ font-size: 16px !important; }
-    }
-
-    /* ===== CAROUSEL FIXES (restored) ===== */
-
-    /* Prevent vertical scrolling in the carousel region */
-    .scrollWrapper{
-      overflow-x: auto !important;
-      overflow-y: hidden !important;
-    }
+    /* =========================
+       CAROUSEL SIZE REDUCED
+    ========================== */
     .productScroll{
-      overflow-y: hidden !important;
+      --tile: clamp(220px, 40vw, 300px) !important; /* smaller than before */
     }
 
-    /* Remove tile chrome/labels so it's just photos */
-    .productScroll .tile{
-      background: transparent !important;
-      border: none !important;
-      box-shadow: none !important;
-      padding: 0 !important;
-    }
-    .productScroll .tile h3,
-    .productScroll .tile p{
-      display:none !important;
-    }
-
-    /* Make the media frame a true square and clip the image */
     .productScroll .tile .media{
-      background: transparent !important;
-      border: none !important;
-      box-shadow: none !important;
-      padding: 0 !important;
-
-      /* KEY: square frame + full rounding */
+      width: var(--tile);
       aspect-ratio: 1 / 1;
-      width: min(560px, 78vw);
-      border-radius: 18px;
-      overflow: hidden;
+      border-radius:18px;
+      overflow:hidden;
+    }
+
+    .productScroll .tile img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
       display:block;
     }
 
-    /* Fill the square frame cleanly */
-    .productScroll .tile .media img{
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display:block;
-      border-radius: 0;
-    }
-
-    @media (max-width: 700px){
-      .productScroll .tile .media{
-        width: 82vw;
-        border-radius: 16px;
-      }
-    }
-
-    /* ===== SERVICE AREA: map + card same size ===== */
-
-    .serviceAreaCard{
-      padding: 26px 26px !important;
-    }
-    .serviceAreaTitle{
-      margin: 0 0 8px;
-      font-size: 16px;
-      letter-spacing: -0.02em;
-    }
-    .serviceAreaText{
-      margin: 0;
-      font-size: 16.5px;
-      line-height: 1.55;
-      opacity: .92;
-    }
-    .serviceAreaNote{
-      margin: 10px 0 0;
-      font-size: 14px;
-      opacity: .72;
-      line-height: 1.5;
-    }
+    /* =========================
+       SERVICE AREA CLEANUP
+    ========================== */
 
     .serviceAreaWrap{
       display:grid;
       grid-template-columns: 1fr 1fr;
-      gap: 18px;
-      align-items: stretch; /* important: equal-height columns */
-      margin-top: 14px;
+      gap:22px;
+      align-items:stretch;
+      margin-top:18px;
     }
 
-    /* Force a consistent height on desktop so card and map match */
-    .serviceAreaFixedHeight{
-      height: clamp(300px, 34vw, 380px);
+    /* force square layout */
+    .serviceAreaSquare{
+      aspect-ratio: 1 / 1;
+      border-radius:18px;
+      border:1px solid var(--stroke);
+      box-shadow:var(--shadow);
+      background:rgba(255,255,255,.92);
+      overflow:hidden;
     }
 
-    .serviceAreaCard.serviceAreaFixedHeight{
+    /* map styling (NO cropping) */
+    .serviceAreaMap img{
+      width:100%;
+      height:100%;
+      object-fit:contain; /* critical: do NOT crop */
+      display:block;
+      background:#f5f5f5;
+    }
+
+    /* text square */
+    .serviceAreaCard{
+      padding:34px;
       display:flex;
       flex-direction:column;
       justify-content:center;
     }
 
-    .serviceAreaMap{
-      border-radius: 18px;
-      overflow: hidden;
-      border: 1px solid var(--stroke);
-      box-shadow: var(--shadow);
-      background: rgba(255,255,255,.92);
-    }
-    .serviceAreaMap img{
-      width: 100%;
-      height: 100%;
-      object-fit: cover; /* makes the map fit the fixed height cleanly */
-      display:block;
+    .serviceAreaCard h3{
+      margin:0 0 14px;
+      font-size:20px;
     }
 
-    @media (max-width: 900px){
+    .serviceAreaCard p{
+      font-size:15.5px;
+      line-height:1.65;
+      margin:0 0 14px;
+      color:var(--muted);
+    }
+
+    @media(max-width:900px){
       .serviceAreaWrap{
-        grid-template-columns: 1fr;
+        grid-template-columns:1fr;
       }
-      .serviceAreaFixedHeight{
-        height: auto; /* natural height when stacked */
-      }
-      .serviceAreaMap img{
-        height: auto;
-        object-fit: contain;
+      .serviceAreaSquare{
+        aspect-ratio:auto;
       }
     }
+
   </style>
 </head>
 
@@ -173,8 +109,8 @@
   <div class="topbar">
     <div class="wrap">
       <div class="nav">
+
         <a class="brand" href="/" aria-label="Slade Networks home">
-          <!-- File name must match exactly (case + spacing). Keep %20 for the space -->
           <img class="brandLogoImg" src="/assets/Website%20Logo.png" alt="Slade Networks">
         </a>
 
@@ -190,6 +126,7 @@
         <div class="cta">
           <a class="btn primary" href="/contact/">Free consultation</a>
         </div>
+
       </div>
     </div>
   </div>
@@ -210,7 +147,7 @@
       </div>
     </section>
 
-    <!-- RESTORED CAROUSEL SECTION -->
+    <!-- CAROUSEL -->
     <section class="section">
       <div class="wrap">
         <h2 class="sectionTitle">Wi-Fi, Cameras, VoIP, and More</h2>
@@ -250,63 +187,38 @@
       </div>
     </section>
 
-    <section class="section">
-      <div class="wrap">
-
-        <h2 class="sectionTitle">Why UniFi</h2>
-        <p class="sectionIntro">
-          UniFi brings networking, Wi-Fi, cameras, and phones into a single pane of glass. That means fewer moving parts, clearer visibility, and a setup that stays reliable and fast over time.
-        </p>
-
-        <div class="gridTwo">
-          <div class="infoCard">
-            <h3>Single pane of glass</h3>
-            <p>Manage gateways, switching, Wi-Fi, cameras, and VoIP from one dashboard instead of juggling multiple apps.</p>
-          </div>
-
-          <div class="infoCard">
-            <h3>Reliability built in</h3>
-            <p>Standardized configurations and predictable updates reduce surprises and keep systems stable day-to-day.</p>
-          </div>
-
-          <div class="infoCard">
-            <h3>Performance you can feel</h3>
-            <p>Proper placement, clean RF design, and tuned configurations deliver consistent coverage and throughput.</p>
-          </div>
-
-          <div class="infoCard">
-            <h3>Supportable over time</h3>
-            <p>Optional remote administration helps troubleshoot faster and keep everything running smoothly.</p>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
+    <!-- SERVICE AREA -->
     <section class="section">
       <div class="wrap">
 
         <h2 class="sectionTitle">Service Area</h2>
-        <p class="sectionIntro">Local installs across the Finger Lakes and nearby towns.</p>
+        <p class="sectionIntro">
+          Local installs across the Finger Lakes and nearby towns.
+        </p>
 
         <div class="serviceAreaWrap">
 
-          <div class="infoCard serviceAreaCard serviceAreaFixedHeight">
-            <h3 class="serviceAreaTitle">Finger Lakes coverage</h3>
-            <p class="serviceAreaText">
-              Serving Penn Yan, Keuka Park, Hammondsport, Watkins Glen, Geneva, Canandaigua, Naples, Victor, Auburn,
-              Ithaca (case-by-case), and everywhere in between.
+          <!-- TEXT BOX (square) -->
+          <div class="serviceAreaSquare serviceAreaCard">
+            <h3>Finger Lakes coverage</h3>
+            <p>
+              Serving Penn Yan, Keuka Park, Hammondsport, Watkins Glen,
+              Geneva, Canandaigua, Naples, Victor, Auburn, and Ithaca (case-by-case).
             </p>
-            <p class="serviceAreaNote">
-              If you’re slightly outside this area, reach out — travel is often possible depending on project size.
+            <p>
+              If you're slightly outside this area, reach out — travel is often
+              possible depending on project size.
             </p>
-            <p class="serviceAreaNote">
-              Typical projects include whole-home Wi-Fi coverage, small business networks, camera systems, and VoIP installs.
+            <p>
+              Typical projects include whole-home Wi-Fi coverage, small business
+              network infrastructure, camera systems, and VoIP deployments.
             </p>
           </div>
 
-          <div class="serviceAreaMap serviceAreaFixedHeight" aria-label="Service area map">
-            <img src="/assets/Website%20Map.png" alt="Map of Slade Networks service area in the Finger Lakes">
+          <!-- MAP BOX (square, no crop) -->
+          <div class="serviceAreaSquare serviceAreaMap">
+            <img src="/assets/Service%20Area%20Map.png"
+                 alt="Slade Networks service area map in the Finger Lakes">
           </div>
 
         </div>
@@ -324,7 +236,6 @@
 
           <div class="ctaButtons">
             <a class="btn primary" href="/contact/">Request a free consultation</a>
-            <a class="btn" href="mailto:info@sladenetworks.com">Email info@sladenetworks.com</a>
           </div>
         </div>
       </div>
