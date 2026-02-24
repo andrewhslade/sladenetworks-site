@@ -34,6 +34,7 @@
     a{text-decoration:none;color:inherit}
     .wrap{max-width:var(--max);margin:0 auto;padding:0 22px}
 
+    /* Top Navigation (match home) */
     .topbar{
       position:sticky; top:0;
       backdrop-filter:blur(12px) saturate(140%);
@@ -43,21 +44,34 @@
     }
 
     .nav{
-      display:flex; justify-content:space-between; align-items:center;
-      height:64px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      height:92px;
     }
-    .brand{display:flex; align-items:center; gap:10px; font-weight:600;}
-    .logo{
-      width:26px; height:26px; border-radius:8px;
-      background:linear-gradient(135deg,#2563EB,#60A5FA);
-      box-shadow:0 6px 18px rgba(37,99,235,.25);
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:0;
+      font-weight:600;
     }
+    .brandLogoImg{
+      height:78px;
+      width:auto;
+      display:block;
+    }
+
     .navlinks{
-      display:flex; gap:18px;
-      font-size:14px; color:var(--muted);
+      display:flex;
+      gap:26px;
+      font-size:16.5px;
+      color:var(--muted);
     }
-    .navlinks a:hover{color:var(--ink)}
+    .navlinks a{padding:12px 14px;border-radius:12px}
+    .navlinks a:hover{color:var(--ink); background:rgba(15,18,26,.04)}
     .navlinks a.active{color:var(--ink)}
+
     .cta{display:flex; gap:10px}
 
     .btn{
@@ -73,6 +87,7 @@
       justify-content:center;
       gap:10px;
       cursor:pointer;
+      white-space:nowrap;
     }
     .btn.primary{
       background:var(--accent);
@@ -80,6 +95,7 @@
       border-color:var(--accent);
     }
 
+    /* Page */
     .hero{padding:70px 0 22px}
     h1{
       font-size:42px; line-height:1.1;
@@ -185,12 +201,69 @@
     }
     .notice.show{display:block}
 
+    /* Footer (match home) */
     .footer{
       margin-top:64px;
       padding:40px 0;
       border-top:1px solid var(--stroke);
       font-size:13px;
       color:var(--muted);
+    }
+    .footerInner{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:18px;
+      flex-wrap:wrap;
+    }
+    .footerLeft{
+      max-width:78ch;
+    }
+    .footerLeft .copyright{
+      font-weight:600;
+      color:var(--muted);
+    }
+    .footerLeft .disclaimer{
+      margin-top:6px;
+      color:var(--muted);
+      line-height:1.55;
+    }
+    .footerRight{
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
+    .socialBtn{
+      width:40px;
+      height:40px;
+      border-radius:12px;
+      border:1px solid var(--stroke);
+      background:rgba(255,255,255,.88);
+      box-shadow:var(--shadow);
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      color:rgba(15,18,26,.72);
+      transition: transform .15s ease, border-color .15s ease, color .15s ease;
+    }
+    .socialBtn:hover{
+      transform: translateY(-1px);
+      border-color: rgba(37,99,235,.25);
+      color: rgba(15,18,26,.88);
+    }
+    .socialBtn svg{
+      width:18px;
+      height:18px;
+      display:block;
+    }
+    .socialBtn.soon{
+      opacity:.55;
+      cursor:default;
+    }
+    .socialBtn.soon:hover{
+      transform:none;
+      border-color: var(--stroke);
+      color: rgba(15,18,26,.72);
     }
 
     @media(max-width:980px){
@@ -200,30 +273,33 @@
       h1{font-size:34px}
       .navlinks{display:none}
       .row2{grid-template-columns:1fr}
+      .nav{height:78px}
+      .brandLogoImg{height:56px}
     }
   </style>
 </head>
 
 <body>
+
+  <!-- HEADER (matches home) -->
   <div class="topbar">
     <div class="wrap">
       <div class="nav">
-        <a class="brand" href="../">
-          <div class="logo"></div>
-          <span>Slade Networks</span>
+        <a class="brand" href="../" aria-label="Slade Networks home">
+          <img class="brandLogoImg" src="/assets/Website%20Logo.png" alt="Slade Networks">
         </a>
 
-        <div class="navlinks">
+        <div class="navlinks" aria-label="Site navigation">
           <a href="../">Home</a>
           <a href="../services/">Services</a>
           <a href="../process/">Process</a>
           <a href="../faq/">FAQ</a>
-          <a class="active" href="./">Contact</a>
+          <a href="../about/">About</a>
+          <a href="./" class="active">Contact</a>
         </div>
 
         <div class="cta">
-          <a class="btn" href="mailto:info@sladenetworks.com?subject=Slade%20Networks%20Consultation">info@sladenetworks.com</a>
-          <a class="btn primary" href="mailto:support@sladenetworks.com?subject=Support%20Request%20-%20Slade%20Networks">Support</a>
+          <a class="btn primary" href="./">Free consultation</a>
         </div>
       </div>
     </div>
@@ -240,14 +316,7 @@
             <h2>Request a free consultation</h2>
             <p>Send the details below. This goes directly to email.</p>
 
-            <!--
-              IMPORTANT:
-              1) Create a Formspree form and replace the action URL below.
-                 Example: https://formspree.io/f/xxxxabcd
-              2) In Formspree, set the destination email to info@sladenetworks.com.
-            -->
             <form id="contactForm" action="https://formspree.io/f/maqdblqe" method="POST">
-              <!-- Formspree helpers -->
               <input type="hidden" name="_subject" value="New Consultation Request — Slade Networks" />
               <input type="hidden" name="_next" value="./?sent=1" />
 
@@ -344,19 +413,63 @@
 
       </div>
     </section>
-
-    <section class="footer">
-      <div class="wrap">
-        © <span id="year"></span> Slade Networks — Finger Lakes and surrounding areas in upstate NY.
-        <br><br>
-        UniFi® is a trademark of Ubiquiti Inc. Slade Networks is not affiliated with or endorsed by Ubiquiti.
-      </div>
-    </section>
   </main>
 
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
+  <!-- FOOTER (matches home) -->
+  <footer class="footer">
+    <div class="wrap">
+      <div class="footerInner">
 
+        <div class="footerLeft">
+          <div class="copyright">© 2026 Slade Networks</div>
+          <div class="disclaimer">
+            UniFi® is a trademark of Ubiquiti Inc. Slade Networks is not affiliated with or endorsed by Ubiquiti.
+          </div>
+        </div>
+
+        <div class="footerRight" aria-label="Social links">
+          <!-- LinkedIn (live) -->
+          <a class="socialBtn"
+             href="https://linkedin.com/slade-networks"
+             target="_blank"
+             rel="noopener"
+             aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <rect width="24" height="24" rx="4" fill="#0A66C2"></rect>
+              <path fill="#ffffff" d="M6.94 9H4.5v7h2.44V9zM5.72 8.02c.78 0 1.27-.52 1.27-1.17-.01-.66-.49-1.17-1.26-1.17S4.46 6.19 4.46 6.85c0 .65.49 1.17 1.25 1.17zM9 9h2.34v.96h.03c.33-.63 1.13-1.3 2.32-1.3 2.48 0 2.94 1.63 2.94 3.75V16H14.2v-3.24c0-.77-.01-1.76-1.07-1.76-1.07 0-1.23.83-1.23 1.7V16H9V9z"/>
+            </svg>
+          </a>
+
+          <!-- Facebook (placeholder) -->
+          <a class="socialBtn soon"
+             href="#"
+             aria-label="Facebook (coming soon)"
+             title="Facebook link coming soon"
+             onclick="return false;">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M13.5 22v-8h2.7l.4-3h-3.1V9.1c0-.9.2-1.5 1.5-1.5h1.7V4.9c-.3 0-1.3-.1-2.5-.1-2.5 0-4.2 1.5-4.2 4.3V11H7.3v3H10v8h3.5z"/>
+            </svg>
+          </a>
+
+          <!-- Instagram (placeholder) -->
+          <a class="socialBtn soon"
+             href="#"
+             aria-label="Instagram (coming soon)"
+             title="Instagram link coming soon"
+             onclick="return false;">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M7.5 2h9A5.5 5.5 0 0 1 22 7.5v9A5.5 5.5 0 0 1 16.5 22h-9A5.5 5.5 0 0 1 2 16.5v-9A5.5 5.5 0 0 1 7.5 2zm9 2h-9A3.5 3.5 0 0 0 4 7.5v9A3.5 3.5 0 0 0 7.5 20h9A3.5 3.5 0 0 0 20 16.5v-9A3.5 3.5 0 0 0 16.5 4z"/>
+              <path d="M12 7.3A4.7 4.7 0 1 1 7.3 12 4.7 4.7 0 0 1 12 7.3zm0 2A2.7 2.7 0 1 0 14.7 12 2.7 2.7 0 0 0 12 9.3z"/>
+              <path d="M17.7 6.7a1.1 1.1 0 1 1-1.1-1.1 1.1 1.1 0 0 1 1.1 1.1z"/>
+            </svg>
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </footer>
+
+  <script>
     // Show a success notice after redirect (?sent=1)
     const params = new URLSearchParams(window.location.search);
     if (params.get("sent") === "1") {
