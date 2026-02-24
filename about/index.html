@@ -1,0 +1,269 @@
+<!-- /about/index.html -->
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>About — Slade Networks</title>
+  <meta name="description" content="Learn about Slade Networks and founder Andrew Slade. UniFi network installation and support across the Finger Lakes in upstate NY." />
+  <link rel="stylesheet" href="/assets/styles.css">
+
+  <!-- Page-specific overrides (kept minimal; matches existing style system) -->
+  <style>
+    .aboutGrid{
+      display:grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap:18px;
+      align-items:start;
+      margin-top:14px;
+    }
+    .aboutCard{
+      background:var(--glass);
+      border:1px solid var(--stroke);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      padding:22px;
+    }
+    .aboutCard h2{
+      margin:0 0 8px;
+      font-size:18px;
+      letter-spacing:-0.02em;
+    }
+    .aboutCard p{
+      margin:0;
+      color:var(--muted);
+      font-size:14px;
+      line-height:1.65;
+      max-width:92ch;
+    }
+    .aboutCard p + p{ margin-top:10px; }
+
+    .founderRow{
+      display:grid;
+      grid-template-columns: 120px 1fr;
+      gap:14px;
+      align-items:start;
+      margin-top:12px;
+    }
+    .headshot{
+      width:120px;
+      height:120px;
+      border-radius:18px;
+      overflow:hidden;
+      border:1px solid var(--stroke);
+      background:rgba(255,255,255,.92);
+      box-shadow:var(--shadow);
+    }
+    .headshot img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+    }
+    .founderMeta{
+      margin:0;
+      color:var(--muted);
+      font-size:13.5px;
+      line-height:1.6;
+    }
+    .pillRow{
+      margin-top:12px;
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:8px 12px;
+      border-radius:999px;
+      border:1px solid var(--stroke);
+      background:rgba(255,255,255,.88);
+      color:var(--muted);
+      font-size:13px;
+      line-height:1;
+      white-space:nowrap;
+    }
+
+    .valuesGrid{
+      margin-top:14px;
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:14px;
+    }
+
+    @media(max-width:980px){
+      .aboutGrid{ grid-template-columns: 1fr; }
+    }
+    @media(max-width:700px){
+      .founderRow{ grid-template-columns: 92px 1fr; }
+      .headshot{ width:92px; height:92px; border-radius:16px; }
+      .valuesGrid{ grid-template-columns:1fr; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="topbar">
+    <div class="wrap">
+      <div class="nav">
+        <a class="brand" href="/" aria-label="Slade Networks home">
+          <span class="logo" aria-hidden="true"></span>
+          <span>Slade Networks</span>
+        </a>
+
+        <div class="navlinks" aria-label="Site navigation">
+          <a href="/">Home</a>
+          <a href="/services/">Services</a>
+          <a href="/process/">Process</a>
+          <a href="/faq/">FAQ</a>
+          <a href="/about/" class="active">About</a>
+          <a href="/contact/">Contact</a>
+        </div>
+
+        <div class="cta">
+          <a class="btn primary" href="/contact/">Free consultation</a>
+          <a class="btn" href="mailto:info@sladenetworks.com">Email</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <main>
+
+    <section class="hero">
+      <div class="wrap">
+        <h1>About Slade Networks</h1>
+        <p class="subtext">
+          A local Finger Lakes company focused on clean installs, dependable configurations, and systems that are easy to support long after the job is done.
+        </p>
+
+        <div class="heroButtons">
+          <a class="btn primary" href="/contact/">Request a free consultation</a>
+          <a class="btn" href="/services/">View services</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+
+        <div class="aboutGrid">
+
+          <!-- Company -->
+          <div class="aboutCard">
+            <h2>What we do</h2>
+            <p>
+              Slade Networks designs, installs, and supports modern network infrastructure for homes and small businesses across the Finger Lakes.
+              Most projects use UniFi for a single-pane dashboard across routing, switching, Wi-Fi, cameras, and VoIP — with documentation and configuration
+              that stays maintainable.
+            </p>
+            <p>
+              Whether you’re building from scratch or fixing coverage, reliability, or visibility issues, the approach is the same:
+              proper planning, clean cabling and mounting, correct RF design, and predictable configs with sensible security defaults.
+            </p>
+
+            <div class="pillRow" aria-label="Core services">
+              <span class="pill">Wi-Fi & switching</span>
+              <span class="pill">Security cameras</span>
+              <span class="pill">VoIP & phone systems</span>
+              <span class="pill">Remote administration (optional)</span>
+            </div>
+
+            <div class="valuesGrid">
+              <div class="infoCard">
+                <h3>Built to last</h3>
+                <p>Stable configs, clean physical installs, and sane update practices to reduce surprises.</p>
+              </div>
+              <div class="infoCard">
+                <h3>Supportable</h3>
+                <p>Clear labeling and documentation so changes and troubleshooting stay straightforward.</p>
+              </div>
+              <div class="infoCard">
+                <h3>Security-minded</h3>
+                <p>Network segmentation, least-privilege access, and practical hardening without complexity.</p>
+              </div>
+              <div class="infoCard">
+                <h3>Local and responsive</h3>
+                <p>Service area-first scheduling and clear communication before, during, and after installs.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Founder -->
+          <div class="aboutCard">
+            <h2>Founder</h2>
+
+            <div class="founderRow">
+              <div class="headshot">
+                <img src="/assets/Headshot.jpg" alt="Headshot of Andrew Slade">
+              </div>
+
+              <div>
+                <p style="margin:0; font-weight:650; letter-spacing:-0.01em;">Andrew Slade</p>
+                <p class="founderMeta" style="margin-top:6px;">
+                  Andrew is the founder of Slade Networks. He is completing a Bachelor’s degree in Computer Science at St. Bonaventure University and holds the Cisco CCNA certification.
+                  His focus is practical, real-world networking: consistent performance, straightforward management, and designs that scale from a home network to a small business environment.
+                </p>
+              </div>
+            </div>
+
+            <div class="pillRow" aria-label="Credentials">
+              <span class="pill">B.S. Computer Science (St. Bonaventure University)</span>
+              <span class="pill">Cisco CCNA</span>
+              <span class="pill">UniFi deployments</span>
+            </div>
+
+            <div style="margin-top:14px;">
+              <h2 style="margin-top:0;">How he works</h2>
+              <p>
+                Projects start with the basics: what you’re trying to accomplish, what’s failing today, and what “good” looks like in terms of coverage, speed, reliability, and visibility.
+                From there, the plan is executed cleanly — with testing, documentation, and a clear handoff (or optional ongoing administration).
+              </p>
+            </div>
+
+            <div class="callout" style="margin-top:18px;">
+              <div>
+                <h2>Have a project in mind?</h2>
+                <p>Share the space, what equipment you have (if any), and what you want to improve. You’ll get a clear next step.</p>
+              </div>
+              <a class="btn primary" href="/contact/">Contact</a>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <section class="ctaSection">
+      <div class="wrap">
+        <div class="ctaInner">
+          <div>
+            <h2>Ready to improve your network?</h2>
+            <p>Tell us what you’re trying to fix or build. We’ll respond with next steps and a clear plan.</p>
+          </div>
+
+          <div class="ctaButtons">
+            <a class="btn primary" href="/contact/">Request a free consultation</a>
+            <a class="btn" href="mailto:info@sladenetworks.com">Email info@sladenetworks.com</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="wrap">
+      <div>© 2026 Slade Networks — Finger Lakes and surrounding areas in upstate NY.</div>
+      <div style="margin-top:6px;">
+        UniFi® is a trademark of Ubiquiti Inc. Slade Networks is not affiliated with or endorsed by Ubiquiti.
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
