@@ -68,11 +68,11 @@
     .navlinks{
       display:flex;
       align-items:center;
+      justify-content:center;
       gap:26px;
       font-size:16.5px;
       color:var(--muted);
       flex:1 1 auto;
-      justify-content:center;
       min-width:0;
     }
 
@@ -88,28 +88,6 @@
     }
 
     .navlinks a.active{color:var(--ink)}
-
-    .headerRight{
-      display:flex;
-      align-items:center;
-      gap:12px;
-      flex:0 0 auto;
-    }
-
-    .supportEmail{
-      font-size:13.5px;
-      color:var(--muted);
-      white-space:nowrap;
-      padding:8px 10px;
-      border-radius:12px;
-      border:1px solid var(--stroke);
-      background:rgba(255,255,255,.78);
-    }
-
-    .supportEmail:hover{
-      color:var(--ink);
-      border-color:rgba(37,99,235,.20);
-    }
 
     .btn{
       padding:10px 16px;
@@ -154,19 +132,6 @@
       margin-top:28px;
       display:grid;
       gap:16px;
-      position:relative;
-    }
-
-    /* Optional subtle vertical connector line */
-    .steps::before{
-      content:"";
-      position:absolute;
-      left:38px;
-      top:18px;
-      bottom:18px;
-      width:1px;
-      background:rgba(15,18,26,.06);
-      pointer-events:none;
     }
 
     .step{
@@ -177,7 +142,6 @@
       padding:22px;
     }
 
-    /* add light rhythm so list doesn’t feel like repeated clones */
     .step:nth-child(even){
       background:rgba(255,255,255,.86);
     }
@@ -201,8 +165,6 @@
       justify-content:center;
       font-size:14px;
       flex:0 0 auto;
-      position:relative;
-      z-index:1; /* sits above connector line */
     }
 
     .step h2{
@@ -220,9 +182,7 @@
     }
 
     /* Bottom CTA */
-    .ctaSection{
-      padding:0 0 64px;
-    }
+    .ctaSection{padding:0 0 64px}
 
     .ctaCard{
       background:var(--glass);
@@ -285,6 +245,23 @@
       display:flex;
       align-items:center;
       gap:10px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+    }
+
+    .footerEmail{
+      font-size:13.5px;
+      color:var(--muted);
+      white-space:nowrap;
+      padding:8px 10px;
+      border-radius:12px;
+      border:1px solid var(--stroke);
+      background:rgba(255,255,255,.78);
+    }
+
+    .footerEmail:hover{
+      color:var(--ink);
+      border-color:rgba(37,99,235,.20);
     }
 
     .socialBtn{
@@ -320,17 +297,13 @@
       color:rgba(15,18,26,.72);
     }
 
-    @media(max-width:860px){
-      .supportEmail{display:none} /* keeps header clean on smaller screens */
-    }
-
     @media(max-width:700px){
       h1{font-size:34px}
       .nav{height:78px}
       .brandLogoImg{height:56px}
       .navlinks{display:none}
-      .steps::before{left:30px}
       .ctaCard{align-items:flex-start}
+      .footerRight{justify-content:flex-start}
     }
   </style>
 </head>
@@ -349,13 +322,11 @@
           <a href="../services/">Services</a>
           <a href="./" class="active">The Process</a>
           <a href="../faq/">FAQ</a>
-          <a href="../about/">About</a>
+          <a href="../about/">About Us</a>
           <a href="../contact/">Contact</a>
         </nav>
 
-        <div class="headerRight">
-          <a class="supportEmail" href="mailto:support@sladenetworks.com">support@sladenetworks.com</a>
-        </div>
+        <a class="btn primary" href="../contact/">Free consultation</a>
       </div>
     </div>
   </div>
@@ -375,7 +346,8 @@
               <h2>On-site consultation + space review</h2>
             </div>
             <p>
-              We walk the space and talk through what you want covered (Wi-Fi, cameras, or phones). Then we measure and map the layout so coverage can be planned before anything is installed.
+              We walk the space and talk through what you want covered (Wi-Fi, cameras, or phones).
+              Then we measure and map the layout so coverage can be planned before anything is installed.
             </p>
           </article>
 
@@ -385,7 +357,8 @@
               <h2>Plan + equipment list</h2>
             </div>
             <p>
-              You get a clear plan with where equipment will go and what hardware is needed. We confirm placement and expectations up front so there are no last-minute surprises.
+              You get a clear plan with where equipment will go and what hardware is needed.
+              We confirm placement and expectations up front so there are no last-minute surprises.
             </p>
           </article>
 
@@ -395,7 +368,8 @@
               <h2>Installation</h2>
             </div>
             <p>
-              Equipment is installed cleanly and labeled properly, with cabling kept tidy. The goal is a finished system that looks professional and is easy to service later.
+              Equipment is installed cleanly and labeled properly, with cabling kept tidy.
+              The goal is a finished system that looks professional and is easy to service later.
             </p>
           </article>
 
@@ -405,7 +379,8 @@
               <h2>Configuration + verification</h2>
             </div>
             <p>
-              Before handoff, we verify Wi-Fi coverage, confirm cameras record and play back correctly, and test calling so it’s reliable. You get a quick walkthrough and the access you need.
+              Before handoff, we verify Wi-Fi coverage, confirm cameras record and play back correctly, and test calling so it’s reliable.
+              You get a quick walkthrough and the access you need.
             </p>
           </article>
 
@@ -447,7 +422,9 @@
           </div>
         </div>
 
-        <div class="footerRight" aria-label="Social links">
+        <div class="footerRight" aria-label="Footer links">
+          <a class="footerEmail" href="mailto:support@sladenetworks.com">support@sladenetworks.com</a>
+
           <a class="socialBtn"
              href="https://linkedin.com/slade-networks"
              target="_blank"
