@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Process — Slade Networks</title>
+  <title>The Process — Slade Networks</title>
   <meta name="description" content="Clear, step-by-step network installation process for homes and small businesses in the Finger Lakes and surrounding areas in upstate NY." />
   <meta name="theme-color" content="#FFFFFF" />
 
@@ -22,6 +22,7 @@
 
     *{box-sizing:border-box}
     html,body{height:100%}
+
     body{
       margin:0;
       font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",Roboto,Inter,Helvetica,Arial,sans-serif;
@@ -30,12 +31,13 @@
       letter-spacing:-0.01em;
     }
 
-    a{text-decoration:none;color:inherit}
+    a{color:inherit;text-decoration:none}
     .wrap{max-width:var(--max);margin:0 auto;padding:0 22px}
 
-    /* Top Navigation (match home) */
+    /* Top Navigation */
     .topbar{
-      position:sticky; top:0;
+      position:sticky;
+      top:0;
       backdrop-filter:blur(12px) saturate(140%);
       background:rgba(255,255,255,.75);
       border-bottom:1px solid var(--stroke);
@@ -44,17 +46,19 @@
 
     .nav{
       display:flex;
-      justify-content:space-between;
       align-items:center;
+      justify-content:space-between;
       height:92px;
+      gap:18px;
     }
 
     .brand{
       display:flex;
       align-items:center;
-      gap:0;
       font-weight:600;
+      flex:0 0 auto;
     }
+
     .brandLogoImg{
       height:78px;
       width:auto;
@@ -63,15 +67,49 @@
 
     .navlinks{
       display:flex;
+      align-items:center;
       gap:26px;
       font-size:16.5px;
       color:var(--muted);
+      flex:1 1 auto;
+      justify-content:center;
+      min-width:0;
     }
-    .navlinks a{padding:12px 14px;border-radius:12px}
-    .navlinks a:hover{color:var(--ink); background:rgba(15,18,26,.04)}
+
+    .navlinks a{
+      padding:12px 14px;
+      border-radius:12px;
+      white-space:nowrap;
+    }
+
+    .navlinks a:hover{
+      color:var(--ink);
+      background:rgba(15,18,26,.04);
+    }
+
     .navlinks a.active{color:var(--ink)}
 
-    .cta{display:flex; gap:10px}
+    .headerRight{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      flex:0 0 auto;
+    }
+
+    .supportEmail{
+      font-size:13.5px;
+      color:var(--muted);
+      white-space:nowrap;
+      padding:8px 10px;
+      border-radius:12px;
+      border:1px solid var(--stroke);
+      background:rgba(255,255,255,.78);
+    }
+
+    .supportEmail:hover{
+      color:var(--ink);
+      border-color:rgba(37,99,235,.20);
+    }
 
     .btn{
       padding:10px 16px;
@@ -90,17 +128,17 @@
 
     .btn.primary{
       background:var(--accent);
-      color:white;
+      color:#fff;
       border-color:var(--accent);
     }
 
     /* Page */
-    .hero{padding:70px 0 24px}
+    .hero{padding:70px 0 22px}
 
     h1{
       font-size:42px;
       line-height:1.1;
-      margin:0 0 14px;
+      margin:0 0 12px;
       letter-spacing:-0.04em;
     }
 
@@ -108,14 +146,27 @@
       font-size:16.5px;
       color:var(--muted);
       line-height:1.6;
-      max-width:85ch;
       margin:0;
+      max-width:85ch;
     }
 
     .steps{
-      margin-top:30px;
+      margin-top:28px;
       display:grid;
-      gap:18px;
+      gap:16px;
+      position:relative;
+    }
+
+    /* Optional subtle vertical connector line */
+    .steps::before{
+      content:"";
+      position:absolute;
+      left:38px;
+      top:18px;
+      bottom:18px;
+      width:1px;
+      background:rgba(15,18,26,.06);
+      pointer-events:none;
     }
 
     .step{
@@ -126,11 +177,16 @@
       padding:22px;
     }
 
+    /* add light rhythm so list doesn’t feel like repeated clones */
+    .step:nth-child(even){
+      background:rgba(255,255,255,.86);
+    }
+
     .stepHeader{
       display:flex;
-      align-items:center;
+      align-items:flex-start;
       gap:14px;
-      margin-bottom:10px;
+      margin-bottom:8px;
     }
 
     .number{
@@ -144,6 +200,9 @@
       align-items:center;
       justify-content:center;
       font-size:14px;
+      flex:0 0 auto;
+      position:relative;
+      z-index:1; /* sits above connector line */
     }
 
     .step h2{
@@ -157,16 +216,50 @@
       font-size:14.5px;
       color:var(--muted);
       line-height:1.6;
+      max-width:95ch;
     }
 
-    /* Footer (match home) */
+    /* Bottom CTA */
+    .ctaSection{
+      padding:0 0 64px;
+    }
+
+    .ctaCard{
+      background:var(--glass);
+      border:1px solid var(--stroke);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      padding:18px 20px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:14px;
+      flex-wrap:wrap;
+    }
+
+    .ctaCard h2{
+      margin:0;
+      font-size:18px;
+      letter-spacing:-0.02em;
+    }
+
+    .ctaCard p{
+      margin:4px 0 0;
+      color:var(--muted);
+      font-size:14px;
+      line-height:1.6;
+      max-width:78ch;
+    }
+
+    /* Footer */
     .footer{
-      margin-top:64px;
+      margin-top:0;
       padding:40px 0;
       border-top:1px solid var(--stroke);
       font-size:13px;
       color:var(--muted);
     }
+
     .footerInner{
       display:flex;
       align-items:flex-start;
@@ -174,23 +267,26 @@
       gap:18px;
       flex-wrap:wrap;
     }
-    .footerLeft{
-      max-width:78ch;
-    }
+
+    .footerLeft{max-width:78ch}
+
     .footerLeft .copyright{
       font-weight:600;
       color:var(--muted);
     }
+
     .footerLeft .disclaimer{
       margin-top:6px;
       color:var(--muted);
       line-height:1.55;
     }
+
     .footerRight{
       display:flex;
       align-items:center;
       gap:10px;
     }
+
     .socialBtn{
       width:40px;
       height:40px;
@@ -202,40 +298,45 @@
       align-items:center;
       justify-content:center;
       color:rgba(15,18,26,.72);
-      transition: transform .15s ease, border-color .15s ease, color .15s ease;
+      transition:transform .15s ease,border-color .15s ease,color .15s ease;
     }
+
     .socialBtn:hover{
-      transform: translateY(-1px);
-      border-color: rgba(37,99,235,.25);
-      color: rgba(15,18,26,.88);
+      transform:translateY(-1px);
+      border-color:rgba(37,99,235,.25);
+      color:rgba(15,18,26,.88);
     }
-    .socialBtn svg{
-      width:18px;
-      height:18px;
-      display:block;
-    }
+
+    .socialBtn svg{width:18px;height:18px;display:block}
+
     .socialBtn.soon{
       opacity:.55;
       cursor:default;
     }
+
     .socialBtn.soon:hover{
       transform:none;
-      border-color: var(--stroke);
-      color: rgba(15,18,26,.72);
+      border-color:var(--stroke);
+      color:rgba(15,18,26,.72);
+    }
+
+    @media(max-width:860px){
+      .supportEmail{display:none} /* keeps header clean on smaller screens */
     }
 
     @media(max-width:700px){
       h1{font-size:34px}
-      .navlinks{display:none}
       .nav{height:78px}
       .brandLogoImg{height:56px}
+      .navlinks{display:none}
+      .steps::before{left:30px}
+      .ctaCard{align-items:flex-start}
     }
   </style>
 </head>
 
 <body>
-
-  <!-- HEADER (matches home) -->
+  <!-- HEADER -->
   <div class="topbar">
     <div class="wrap">
       <div class="nav">
@@ -243,17 +344,17 @@
           <img class="brandLogoImg" src="/assets/Website%20Logo.png" alt="Slade Networks">
         </a>
 
-        <div class="navlinks" aria-label="Site navigation">
+        <nav class="navlinks" aria-label="Site navigation">
           <a href="../">Home</a>
           <a href="../services/">Services</a>
-          <a href="./" class="active">Process</a>
+          <a href="./" class="active">The Process</a>
           <a href="../faq/">FAQ</a>
           <a href="../about/">About</a>
           <a href="../contact/">Contact</a>
-        </div>
+        </nav>
 
-        <div class="cta">
-          <a class="btn primary" href="../contact/">Free consultation</a>
+        <div class="headerRight">
+          <a class="supportEmail" href="mailto:support@sladenetworks.com">support@sladenetworks.com</a>
         </div>
       </div>
     </div>
@@ -264,80 +365,81 @@
       <div class="wrap">
         <h1>How the process works</h1>
         <p class="sub">
-          Clear steps. No guesswork. Each project follows a structured plan so expectations are set before installation begins.
+          A structured plan that avoids surprises. Coverage, hardware, and expectations are clear before installation begins.
         </p>
 
-        <div class="steps">
-
-          <div class="step">
+        <div class="steps" aria-label="Project steps">
+          <article class="step">
             <div class="stepHeader">
-              <div class="number">1</div>
-              <h2>On-site consultation + space mapping</h2>
+              <div class="number" aria-hidden="true">1</div>
+              <h2>On-site consultation + space review</h2>
             </div>
             <p>
-              The space is reviewed in person. Layout, materials, and device placement are evaluated.
-              A LiDAR scan is used to map the space for accurate Wi-Fi and camera planning.
-              That map is then used inside UniFi Design Center to model coverage before anything is installed.
+              We walk the space and talk through what you want covered (Wi-Fi, cameras, or phones). Then we measure and map the layout so coverage can be planned before anything is installed.
             </p>
-          </div>
+          </article>
 
-          <div class="step">
+          <article class="step">
             <div class="stepHeader">
-              <div class="number">2</div>
-              <h2>Design review + equipment plan</h2>
+              <div class="number" aria-hidden="true">2</div>
+              <h2>Plan + equipment list</h2>
             </div>
             <p>
-              A follow-up meeting walks through the Design Center layout and coverage plan.
-              Equipment is reviewed, placement is confirmed, and a clear list of hardware is provided.
-              No surprises before installation.
+              You get a clear plan with where equipment will go and what hardware is needed. We confirm placement and expectations up front so there are no last-minute surprises.
             </p>
-          </div>
+          </article>
 
-          <div class="step">
+          <article class="step">
             <div class="stepHeader">
-              <div class="number">3</div>
+              <div class="number" aria-hidden="true">3</div>
               <h2>Installation</h2>
             </div>
             <p>
-              Cabling, racks, access points, cameras, gateways, and switches are installed cleanly and labeled properly.
-              The goal is a finished system that looks organized and professional.
+              Equipment is installed cleanly and labeled properly, with cabling kept tidy. The goal is a finished system that looks professional and is easy to service later.
             </p>
-          </div>
+          </article>
 
-          <div class="step">
+          <article class="step">
             <div class="stepHeader">
-              <div class="number">4</div>
-              <h2>Configuration, training, and handoff</h2>
+              <div class="number" aria-hidden="true">4</div>
+              <h2>Configuration + verification</h2>
             </div>
             <p>
-              The system is configured, tested, and reviewed.
-              Wi-Fi is verified, cameras are confirmed working, and access is demonstrated.
-              The client receives login access and a walkthrough so the system is easy to manage.
+              Before handoff, we verify Wi-Fi coverage, confirm cameras record and play back correctly, and test calling so it’s reliable. You get a quick walkthrough and the access you need.
             </p>
-          </div>
+          </article>
 
-          <div class="step">
+          <article class="step">
             <div class="stepHeader">
-              <div class="number">5</div>
-              <h2>Continued administration (optional)</h2>
+              <div class="number" aria-hidden="true">5</div>
+              <h2>Optional ongoing support</h2>
             </div>
             <p>
-              Ongoing remote administration is available if desired.
-              This can include monitoring, updates, and faster response if issues arise.
-              Clients can choose to manage everything themselves or keep continued support in place.
+              If you want hands-off ownership, ongoing support is available for updates, troubleshooting, and faster response when something breaks.
             </p>
-          </div>
+          </article>
+        </div>
+      </div>
+    </section>
 
+    <!-- Bottom CTA -->
+    <section class="ctaSection">
+      <div class="wrap">
+        <div class="ctaCard">
+          <div>
+            <h2>Ready to get started?</h2>
+            <p>Tell us what you need covered and we’ll map out the right approach for your space.</p>
+          </div>
+          <a class="btn primary" href="../contact/">Request a Free Consultation</a>
         </div>
       </div>
     </section>
   </main>
 
-  <!-- FOOTER (matches home) -->
+  <!-- FOOTER -->
   <footer class="footer">
     <div class="wrap">
       <div class="footerInner">
-
         <div class="footerLeft">
           <div class="copyright">© 2026 Slade Networks</div>
           <div class="disclaimer">
@@ -346,7 +448,6 @@
         </div>
 
         <div class="footerRight" aria-label="Social links">
-          <!-- LinkedIn (live) -->
           <a class="socialBtn"
              href="https://linkedin.com/slade-networks"
              target="_blank"
@@ -358,7 +459,6 @@
             </svg>
           </a>
 
-          <!-- Facebook (placeholder) -->
           <a class="socialBtn soon"
              href="#"
              aria-label="Facebook (coming soon)"
@@ -369,7 +469,6 @@
             </svg>
           </a>
 
-          <!-- Instagram (placeholder) -->
           <a class="socialBtn soon"
              href="#"
              aria-label="Instagram (coming soon)"
@@ -382,10 +481,8 @@
             </svg>
           </a>
         </div>
-
       </div>
     </div>
   </footer>
-
 </body>
 </html>
