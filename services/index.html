@@ -22,6 +22,7 @@
 
     *{box-sizing:border-box}
     html,body{height:100%}
+
     body{
       margin:0;
       font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",Roboto,Inter,Helvetica,Arial,sans-serif;
@@ -30,7 +31,7 @@
       letter-spacing:-0.01em;
     }
 
-    a{text-decoration:none;color:inherit}
+    a{color:inherit;text-decoration:none}
     .wrap{max-width:var(--max);margin:0 auto;padding:0 22px}
 
     /* Top Navigation */
@@ -45,17 +46,17 @@
 
     .nav{
       display:flex;
-      justify-content:space-between;
       align-items:center;
-      height:92px; /* match home */
+      justify-content:space-between;
+      height:92px;
     }
 
     .brand{
       display:flex;
       align-items:center;
-      gap:0;
       font-weight:600;
     }
+
     .brandLogoImg{
       height:78px;
       width:auto;
@@ -68,11 +69,18 @@
       font-size:16.5px;
       color:var(--muted);
     }
-    .navlinks a{padding:12px 14px;border-radius:12px}
-    .navlinks a:hover{color:var(--ink); background:rgba(15,18,26,.04)}
-    .navlinks a.active{color:var(--ink)}
 
-    .cta{display:flex;gap:10px}
+    .navlinks a{
+      padding:12px 14px;
+      border-radius:12px;
+    }
+
+    .navlinks a:hover{
+      color:var(--ink);
+      background:rgba(15,18,26,.04);
+    }
+
+    .navlinks a.active{color:var(--ink)}
 
     .btn{
       padding:10px 16px;
@@ -91,12 +99,13 @@
 
     .btn.primary{
       background:var(--accent);
-      color:white;
+      color:#fff;
       border-color:var(--accent);
     }
 
     /* Hero */
     .hero{padding:70px 0 22px}
+
     h1{
       font-size:42px;
       line-height:1.1;
@@ -112,8 +121,16 @@
       margin:0 0 18px;
     }
 
+    .heroActions{
+      margin-top:14px;
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+
     /* Sections */
     .section{padding:18px 0 54px}
+
     .sectionHead{
       display:flex;
       justify-content:space-between;
@@ -121,11 +138,13 @@
       gap:14px;
       margin-bottom:16px;
     }
+
     .h2{
       margin:0;
       font-size:20px;
       letter-spacing:-0.02em;
     }
+
     .lead{
       margin:6px 0 0;
       color:var(--muted);
@@ -154,10 +173,10 @@
 
     .cardTitle{
       display:flex;
-      align-items:center;
+      align-items:flex-start;
       justify-content:space-between;
-      gap:10px;
-      margin-bottom:8px;
+      gap:12px;
+      margin-bottom:6px;
     }
 
     .cardTitle h3{
@@ -166,78 +185,36 @@
       letter-spacing:-0.02em;
     }
 
-    .tag{
-      font-size:12px;
-      color:var(--muted);
-      border:1px solid var(--stroke);
-      background:rgba(255,255,255,.88);
-      padding:5px 9px;
-      border-radius:999px;
-      white-space:nowrap;
-    }
-
     .card p{
       margin:0;
       color:var(--muted);
       font-size:14px;
       line-height:1.6;
+      max-width:70ch;
     }
 
-    .bullets{
-      margin:12px 0 0;
-      padding-left:18px;
-      color:var(--muted);
-      font-size:13.5px;
-      line-height:1.6;
-    }
-    .bullets li{margin:6px 0}
-
+    /* Media (no border, smaller image) */
     .media{
       margin-top:14px;
-      border:1px solid var(--stroke);
+      border:none;
       border-radius:14px;
-      background:rgba(255,255,255,.88);
-      padding:14px;
+      background:transparent;
+      padding:0;
       display:flex;
       align-items:center;
       justify-content:center;
-      min-height:140px;
+      min-height:90px;
     }
+
     .media img{
-      max-width:100%;
+      width:50%;
+      max-width:220px;
       height:auto;
       display:block;
       object-fit:contain;
     }
 
-    .callout{
-      margin-top:18px;
-      background:var(--glass);
-      border:1px solid var(--stroke);
-      border-radius:var(--radius);
-      box-shadow:var(--shadow);
-      padding:18px 20px;
-    }
-    .callout h3{
-      margin:0 0 6px;
-      font-size:16px;
-      letter-spacing:-0.02em;
-    }
-    .callout p{
-      margin:0;
-      color:var(--muted);
-      font-size:14px;
-      line-height:1.6;
-      max-width:85ch;
-    }
-    .calloutActions{
-      margin-top:12px;
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-    }
-
-    /* Footer (match home) */
+    /* Footer */
     .footer{
       margin-top:64px;
       padding:40px 0;
@@ -245,6 +222,7 @@
       font-size:13px;
       color:var(--muted);
     }
+
     .footerInner{
       display:flex;
       align-items:flex-start;
@@ -252,23 +230,26 @@
       gap:18px;
       flex-wrap:wrap;
     }
-    .footerLeft{
-      max-width:78ch;
-    }
+
+    .footerLeft{max-width:78ch}
+
     .footerLeft .copyright{
       font-weight:600;
       color:var(--muted);
     }
+
     .footerLeft .disclaimer{
       margin-top:6px;
       color:var(--muted);
       line-height:1.55;
     }
+
     .footerRight{
       display:flex;
       align-items:center;
       gap:10px;
     }
+
     .socialBtn{
       width:40px;
       height:40px;
@@ -280,43 +261,48 @@
       align-items:center;
       justify-content:center;
       color:rgba(15,18,26,.72);
-      transition: transform .15s ease, border-color .15s ease, color .15s ease;
+      transition:transform .15s ease,border-color .15s ease,color .15s ease;
     }
+
     .socialBtn:hover{
-      transform: translateY(-1px);
-      border-color: rgba(37,99,235,.25);
-      color: rgba(15,18,26,.88);
+      transform:translateY(-1px);
+      border-color:rgba(37,99,235,.25);
+      color:rgba(15,18,26,.88);
     }
+
     .socialBtn svg{
       width:18px;
       height:18px;
       display:block;
     }
+
     .socialBtn.soon{
       opacity:.55;
       cursor:default;
     }
+
     .socialBtn.soon:hover{
       transform:none;
-      border-color: var(--stroke);
-      color: rgba(15,18,26,.72);
+      border-color:var(--stroke);
+      color:rgba(15,18,26,.72);
     }
 
     @media(max-width:980px){
       .card{grid-column:span 12}
     }
+
     @media(max-width:700px){
       h1{font-size:34px}
       .navlinks{display:none}
       .nav{height:78px}
       .brandLogoImg{height:56px}
+      .media img{width:56%;max-width:200px}
     }
   </style>
 </head>
 
 <body>
-
-  <!-- HEADER (matches home) -->
+  <!-- HEADER -->
   <div class="topbar">
     <div class="wrap">
       <div class="nav">
@@ -324,18 +310,16 @@
           <img class="brandLogoImg" src="/assets/Website%20Logo.png" alt="Slade Networks">
         </a>
 
-        <div class="navlinks" aria-label="Site navigation">
+        <nav class="navlinks" aria-label="Site navigation">
           <a href="../">Home</a>
           <a href="./" class="active">Services</a>
           <a href="../process/">Process</a>
           <a href="../faq/">FAQ</a>
           <a href="../about/">About</a>
           <a href="../contact/">Contact</a>
-        </div>
+        </nav>
 
-        <div class="cta">
-          <a class="btn primary" href="../contact/">Free consultation</a>
-        </div>
+        <a class="btn primary" href="../contact/">Request a Free Consultation</a>
       </div>
     </div>
   </div>
@@ -345,241 +329,136 @@
       <div class="wrap">
         <h1>Services</h1>
         <p class="sub">
-          <strong>We offer services for every home and business.</strong>
-          From Wi-Fi and cameras to clean cabling, racks, and core network configuration — designed to be supportable, documented, and easy to manage.
+          UniFi installs for homes and small businesses—Wi-Fi that holds up, clean cabling, and network gear set up the right way so it stays stable and easy to manage.
         </p>
 
-        <div class="cta">
-          <a class="btn primary" href="../contact/">Request a quote</a>
-          <a class="btn" href="mailto:info@sladenetworks.com?subject=Project%20Inquiry">Email info@sladenetworks.com</a>
+        <!-- Single CTA only (kept here; removed email + extra button) -->
+        <div class="heroActions">
+          <a class="btn primary" href="../contact/">Request a Free Consultation</a>
         </div>
-
-        <div class="callout">
-          <h3>What’s included in each install</h3>
-          <p>
-            Clear scope and a written plan, clean mounting and cable management, secure configuration,
-            and a tested handoff. You’ll get labeled equipment, basic documentation (what’s connected where),
-            and confirmation that key items work as expected (coverage, camera access, failover, or calling — depending on scope).
-          </p>
-        </div>
-
-        <div class="callout">
-          <h3>Why UniFi is used</h3>
-          <p>
-            UniFi keeps gateways, switching, Wi-Fi, cameras, and device management in one system. That usually means fewer separate tools,
-            easier visibility, and simpler long-term support.
-          </p>
-        </div>
-
       </div>
     </section>
 
     <section class="section">
       <div class="wrap">
-
         <div class="sectionHead">
           <div>
-            <h2 class="h2">Most requested services</h2>
-            <p class="lead">Ordered by what clients ask for most often. Each service can be a standalone project or part of a full build.</p>
+            <h2 class="h2">UniFi, done right</h2>
+            <p class="lead">
+              UniFi is reliable day to day, keeps your devices under your control, and avoids a pile of separate apps and accounts for basic network management.
+            </p>
           </div>
         </div>
 
         <div class="grid">
-
-          <!-- Wi-Fi -->
           <article class="card">
             <div class="cardTitle">
               <h3>Wi-Fi</h3>
-              <span class="tag">Coverage</span>
             </div>
-            <p>Access point placement and tuning so coverage stays consistent throughout the space.</p>
-            <ul class="bullets">
-              <li>Placement planning based on layout and usage</li>
-              <li>Setup and tuning for stable performance</li>
-              <li>Guest Wi-Fi option for homes or businesses</li>
-            </ul>
+            <p>Consistent coverage where you actually use it, tuned to reduce dropouts and dead spots.</p>
             <div class="media">
               <img src="/assets/u7-pro-xg-2.png" alt="UniFi Wi-Fi access point">
             </div>
           </article>
 
-          <!-- Cameras -->
           <article class="card">
             <div class="cardTitle">
-              <h3>Camera security</h3>
-              <span class="tag">Cameras + NVR</span>
+              <h3>Cameras</h3>
             </div>
-            <p>Camera installs with simple, secure viewing from phone or desktop.</p>
-            <ul class="bullets">
-              <li>Camera placement review and install</li>
-              <li>NVR setup and storage/retention planning</li>
-              <li>Remote viewing configured securely</li>
-            </ul>
+            <p>Camera setup with straightforward viewing on your phone and a clean, dependable recording system.</p>
             <div class="media">
               <img src="/assets/uvc-g6-pro-turret-10.png" alt="UniFi camera">
             </div>
           </article>
 
-          <!-- Structured cabling -->
           <article class="card">
             <div class="cardTitle">
               <h3>Structured cabling</h3>
-              <span class="tag">Cat6 + Fiber</span>
             </div>
-            <p>New runs, drops, patching, and labeling for clean, serviceable installs.</p>
-            <ul class="bullets">
-              <li>Cat6 runs, wall jacks, patch panels, and labeling</li>
-              <li>Fiber runs when needed (planned and routed cleanly)</li>
-              <li>Cable organization and cleanup</li>
-            </ul>
+            <p>Neat Ethernet runs with labeled jacks so everything is easy to trace later.</p>
             <div class="media">
               <img src="/assets/u-cable-c6-cmr-1.png" alt="Structured cabling materials">
             </div>
           </article>
 
-          <!-- Gateways + switching -->
           <article class="card">
             <div class="cardTitle">
               <h3>Gateways and switching</h3>
-              <span class="tag">Core network</span>
             </div>
-            <p>Stable network setup with clean wiring and a configuration that’s easy to support.</p>
-            <ul class="bullets">
-              <li>Gateway install and secure remote access setup (optional)</li>
-              <li>Switch install, PoE planning, and port configuration</li>
-              <li>Coordination with ISP for basic setup or static IP</li>
-            </ul>
+            <p>Core network equipment installed and configured for stable performance and simple troubleshooting.</p>
             <div class="media">
-              <img src="/assets/udm-pro-1.png" alt="UniFi gateway and core network equipment">
+              <img src="/assets/udm-pro-1.png" alt="UniFi gateway and switching equipment">
             </div>
           </article>
 
-          <!-- Racks -->
           <article class="card">
             <div class="cardTitle">
-              <h3>Racks and rack mounting</h3>
-              <span class="tag">Organization</span>
+              <h3>Racks and mounting</h3>
             </div>
-            <p>Equipment mounted properly with tidy patching and room to expand later.</p>
-            <ul class="bullets">
-              <li>Rack selection and layout planning</li>
-              <li>Clean mounting, patching, and cable management</li>
-              <li>Labeling so anyone can understand it later</li>
-            </ul>
+            <p>Gear mounted cleanly with tidy patching so it looks good and stays serviceable.</p>
             <div class="media">
               <img src="/assets/uacc-rack-12u-wall-slim-2.png" alt="Network rack">
             </div>
           </article>
 
-          <!-- Power -->
           <article class="card">
             <div class="cardTitle">
-              <h3>UPSs and PDUs</h3>
-              <span class="tag">Power</span>
+              <h3>Power backup</h3>
             </div>
-            <p>Power protection and clean power distribution for critical gear.</p>
-            <ul class="bullets">
-              <li>UPS sizing help and installation</li>
-              <li>PDU planning for clean power layout</li>
-              <li>Labeling and load awareness</li>
-            </ul>
+            <p>Battery backup for your critical gear so brief outages don’t take everything down.</p>
             <div class="media">
               <img src="/assets/ups-2u-us-1.png" alt="UPS battery backup">
             </div>
           </article>
 
-          <!-- LTE/5G failover -->
           <article class="card">
             <div class="cardTitle">
-              <h3>LTE/5G backup internet</h3>
-              <span class="tag">Failover</span>
+              <h3>Backup internet</h3>
             </div>
-            <p>Backup internet options for when the primary ISP goes down.</p>
-            <ul class="bullets">
-              <li>Modem install and signal placement guidance</li>
-              <li>Failover setup and testing</li>
-              <li>Notes on plan limits and expectations</li>
-            </ul>
+            <p>Cellular backup that can keep you online when your main internet goes out.</p>
             <div class="media">
               <img src="/assets/u5g-max-2.png" alt="LTE/5G backup modem">
             </div>
           </article>
 
-          <!-- VoIP -->
           <article class="card">
             <div class="cardTitle">
-              <h3>Managed VoIP</h3>
-              <span class="tag">UniFi Talk</span>
+              <h3>VoIP</h3>
             </div>
-            <p>Business calling setup with simple routing and clean cutover planning.</p>
-            <ul class="bullets">
-              <li>Number porting coordination</li>
-              <li>Extensions, ring groups, voicemail</li>
-              <li>Testing for call quality and reliability</li>
-            </ul>
+            <p>Business calling with clean setup, number porting help, and a tested cutover plan.</p>
             <div class="media">
               <img src="/assets/utp-g3-touch-enterprise-1.png" alt="UniFi Talk phone">
             </div>
           </article>
 
-          <!-- Network storage -->
           <article class="card">
             <div class="cardTitle">
               <h3>Network storage</h3>
-              <span class="tag">Files + backups</span>
             </div>
-            <p>Central storage for files and backups with simple, controlled access.</p>
-            <ul class="bullets">
-              <li>Storage setup and basic share organization</li>
-              <li>User access setup (who can access what)</li>
-              <li>Backup guidance and best practices</li>
-            </ul>
+            <p>Shared storage for files and backups with sensible access for the people who need it.</p>
             <div class="media">
-              <img src="/assets/unas-pro-1.png" alt="Network attached storage device">
+              <img src="/assets/unas-pro-1.png" alt="Network storage device">
             </div>
           </article>
 
-          <!-- Display casting -->
           <article class="card">
             <div class="cardTitle">
               <h3>Display casting</h3>
-              <span class="tag">UniFi Connect</span>
             </div>
-            <p>Simple signage/casting setups that stay stable and easy to manage.</p>
-            <ul class="bullets">
-              <li>Device setup and enrollment</li>
-              <li>Basic configuration and management handoff</li>
-              <li>Optional segmentation where needed</li>
-            </ul>
+            <p>Simple casting/signage setups that stay stable and are easy to update.</p>
             <div class="media">
               <img src="/assets/uc-display21-1.png" alt="UniFi Connect display">
             </div>
           </article>
-
         </div>
-
-        <div class="callout">
-          <h3>Optional ongoing support</h3>
-          <p>
-            For clients who want it, ongoing support is available. This can include remote monitoring, updates,
-            and faster troubleshooting when something goes wrong.
-          </p>
-          <div class="calloutActions">
-            <a class="btn primary" href="../contact/">Ask about support</a>
-            <a class="btn" href="mailto:support@sladenetworks.com?subject=Support%20Question%20-%20Slade%20Networks">Email support</a>
-          </div>
-        </div>
-
       </div>
     </section>
-
   </main>
 
-  <!-- FOOTER (matches home) -->
+  <!-- FOOTER -->
   <footer class="footer">
     <div class="wrap">
       <div class="footerInner">
-
         <div class="footerLeft">
           <div class="copyright">© 2026 Slade Networks</div>
           <div class="disclaimer">
@@ -588,7 +467,6 @@
         </div>
 
         <div class="footerRight" aria-label="Social links">
-          <!-- LinkedIn (live) -->
           <a class="socialBtn"
              href="https://linkedin.com/slade-networks"
              target="_blank"
@@ -600,7 +478,6 @@
             </svg>
           </a>
 
-          <!-- Facebook (placeholder) -->
           <a class="socialBtn soon"
              href="#"
              aria-label="Facebook (coming soon)"
@@ -611,7 +488,6 @@
             </svg>
           </a>
 
-          <!-- Instagram (placeholder) -->
           <a class="socialBtn soon"
              href="#"
              aria-label="Instagram (coming soon)"
@@ -624,10 +500,8 @@
             </svg>
           </a>
         </div>
-
       </div>
     </div>
   </footer>
-
 </body>
 </html>
