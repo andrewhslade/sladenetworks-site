@@ -6,9 +6,12 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>About — Slade Networks</title>
   <meta name="description" content="Learn about Slade Networks and founder Andrew Slade. UniFi network installation and support across the Finger Lakes in upstate NY." />
+  <meta name="theme-color" content="#FFFFFF" />
+
+  <!-- Site-wide styles -->
   <link rel="stylesheet" href="/assets/styles.css">
 
-  <!-- Page-specific overrides (kept minimal; matches existing style system) -->
+  <!-- Page-specific overrides (about only) -->
   <style>
     .aboutGrid{
       display:grid;
@@ -17,6 +20,7 @@
       align-items:start;
       margin-top:14px;
     }
+
     .aboutCard{
       background:var(--glass);
       border:1px solid var(--stroke);
@@ -24,11 +28,13 @@
       box-shadow:var(--shadow);
       padding:22px;
     }
+
     .aboutCard h2{
       margin:0 0 8px;
       font-size:18px;
       letter-spacing:-0.02em;
     }
+
     .aboutCard p{
       margin:0;
       color:var(--muted);
@@ -45,6 +51,7 @@
       align-items:start;
       margin-top:12px;
     }
+
     .headshot{
       width:120px;
       height:120px;
@@ -54,24 +61,28 @@
       background:rgba(255,255,255,.92);
       box-shadow:var(--shadow);
     }
+
     .headshot img{
       width:100%;
       height:100%;
       object-fit:cover;
       display:block;
     }
+
     .founderMeta{
       margin:0;
       color:var(--muted);
       font-size:13.5px;
       line-height:1.6;
     }
+
     .pillRow{
       margin-top:12px;
       display:flex;
       gap:10px;
       flex-wrap:wrap;
     }
+
     .pill{
       display:inline-flex;
       align-items:center;
@@ -93,115 +104,56 @@
       gap:14px;
     }
 
-    /* Header + Footer (match home) */
-    .nav{
-      height:92px !important;
-    }
-    .brandLogoImg{
-      height:78px;
-      width:auto;
-      display:block;
-    }
-
-    .footerInner{
-      display:flex;
-      align-items:flex-start;
-      justify-content:space-between;
-      gap:18px;
-      flex-wrap:wrap;
-    }
-    .footerLeft{
-      max-width:78ch;
-    }
-    .footerLeft .copyright{
-      font-weight:600;
-      color:var(--muted);
-    }
-    .footerLeft .disclaimer{
-      margin-top:6px;
-      color:var(--muted);
-      line-height:1.55;
-    }
-    .footerRight{
-      display:flex;
-      align-items:center;
-      gap:10px;
-    }
-    .socialBtn{
-      width:40px;
-      height:40px;
-      border-radius:12px;
-      border:1px solid var(--stroke);
-      background:rgba(255,255,255,.88);
-      box-shadow:var(--shadow);
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      color:rgba(15,18,26,.72);
-      transition: transform .15s ease, border-color .15s ease, color .15s ease;
-    }
-    .socialBtn:hover{
-      transform: translateY(-1px);
-      border-color: rgba(37,99,235,.25);
-      color: rgba(15,18,26,.88);
-    }
-    .socialBtn svg{
-      width:18px;
-      height:18px;
-      display:block;
-    }
-    .socialBtn.soon{
-      opacity:.55;
-      cursor:default;
-    }
-    .socialBtn.soon:hover{
-      transform:none;
-      border-color: var(--stroke);
-      color: rgba(15,18,26,.72);
-    }
-
     @media(max-width:980px){
       .aboutGrid{ grid-template-columns: 1fr; }
     }
+
     @media(max-width:700px){
       .founderRow{ grid-template-columns: 92px 1fr; }
       .headshot{ width:92px; height:92px; border-radius:16px; }
       .valuesGrid{ grid-template-columns:1fr; }
-      .navlinks{display:none}
-      .nav{height:78px !important}
-      .brandLogoImg{height:56px}
     }
   </style>
 </head>
 
 <body>
-
   <!-- HEADER (matches home) -->
   <div class="topbar">
     <div class="wrap">
-      <div class="nav">
+      <header class="nav" id="siteNav">
+
+        <button class="navToggle" type="button"
+                aria-label="Open navigation menu"
+                aria-expanded="false"
+                aria-controls="navLinks"
+                id="navToggle">
+          <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <path d="M5 7h14M5 12h14M5 17h14"/>
+          </svg>
+        </button>
+
         <a class="brand" href="/" aria-label="Slade Networks home">
           <img class="brandLogoImg" src="/assets/Website%20Logo.png" alt="Slade Networks">
         </a>
 
-        <div class="navlinks" aria-label="Site navigation">
+        <nav class="navlinks" aria-label="Site navigation" id="navLinks">
           <a href="/">Home</a>
           <a href="/services/">Services</a>
-          <a href="/process/">Process</a>
+          <a href="/process/">The Process</a>
           <a href="/faq/">FAQ</a>
-          <a href="/about/" class="active">About</a>
-          <a href="/contact/">Contact</a>
-        </div>
+          <a href="/about/" class="active">About Us</a>
+          <a href="/contact/">Contact Us</a>
+        </nav>
 
         <div class="cta">
-          <a class="btn primary" href="/contact/">Free consultation</a>
+          <a class="btn primary btnCta" href="/contact/"><span>Free<br>consultation</span></a>
         </div>
-      </div>
+
+      </header>
     </div>
   </div>
 
   <main>
-
     <section class="hero">
       <div class="wrap">
         <h1>About Slade Networks</h1>
@@ -218,7 +170,6 @@
 
     <section class="section">
       <div class="wrap">
-
         <div class="aboutGrid">
 
           <!-- Company -->
@@ -303,7 +254,6 @@
           </div>
 
         </div>
-
       </div>
     </section>
 
@@ -317,12 +267,11 @@
 
           <div class="ctaButtons">
             <a class="btn primary" href="/contact/">Request a free consultation</a>
-            <a class="btn" href="mailto:info@sladenetworks.com">Email info@sladenetworks.com</a>
+            <a class="btn" href="mailto:support@sladenetworks.com">Email support@sladenetworks.com</a>
           </div>
         </div>
       </div>
     </section>
-
   </main>
 
   <!-- FOOTER (matches home) -->
@@ -337,41 +286,25 @@
           </div>
         </div>
 
-        <div class="footerRight" aria-label="Social links">
-          <!-- LinkedIn (live) -->
-          <a class="socialBtn"
-             href="https://linkedin.com/slade-networks"
-             target="_blank"
-             rel="noopener"
-             aria-label="LinkedIn">
-            <svg viewBox="0 0 24 24" aria-hidden="true">
-              <rect width="24" height="24" rx="4" fill="#0A66C2"></rect>
-              <path fill="#ffffff" d="M6.94 9H4.5v7h2.44V9zM5.72 8.02c.78 0 1.27-.52 1.27-1.17-.01-.66-.49-1.17-1.26-1.17S4.46 6.19 4.46 6.85c0 .65.49 1.17 1.25 1.17zM9 9h2.34v.96h.03c.33-.63 1.13-1.3 2.32-1.3 2.48 0 2.94 1.63 2.94 3.75V16H14.2v-3.24c0-.77-.01-1.76-1.07-1.76-1.07 0-1.23.83-1.23 1.7V16H9V9z"/>
-            </svg>
+        <div class="footerRight" aria-label="Social links and support email">
+          <a class="socialBtn" href="https://linkedin.com/slade-networks" target="_blank" rel="noopener" aria-label="LinkedIn">
+            <img class="socialIconImg" src="/assets/LI-In-Bug.png" alt="">
           </a>
 
-          <!-- Facebook (placeholder) -->
-          <a class="socialBtn soon"
-             href="#"
-             aria-label="Facebook (coming soon)"
-             title="Facebook link coming soon"
-             onclick="return false;">
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-              <path d="M13.5 22v-8h2.7l.4-3h-3.1V9.1c0-.9.2-1.5 1.5-1.5h1.7V4.9c-.3 0-1.3-.1-2.5-.1-2.5 0-4.2 1.5-4.2 4.3V11H7.3v3H10v8h3.5z"/>
-            </svg>
+          <a class="socialBtn" href="#" aria-label="Facebook">
+            <img class="socialIconImg" src="/assets/Facebook_Logo_Primary.png" alt="">
           </a>
 
-          <!-- Instagram (placeholder) -->
-          <a class="socialBtn soon"
-             href="#"
-             aria-label="Instagram (coming soon)"
-             title="Instagram link coming soon"
-             onclick="return false;">
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-              <path d="M7.5 2h9A5.5 5.5 0 0 1 22 7.5v9A5.5 5.5 0 0 1 16.5 22h-9A5.5 5.5 0 0 1 2 16.5v-9A5.5 5.5 0 0 1 7.5 2zm9 2h-9A3.5 3.5 0 0 0 4 7.5v9A3.5 3.5 0 0 0 7.5 20h9A3.5 3.5 0 0 0 20 16.5v-9A3.5 3.5 0 0 0 16.5 4z"/>
-              <path d="M12 7.3A4.7 4.7 0 1 1 7.3 12 4.7 4.7 0 0 1 12 7.3zm0 2A2.7 2.7 0 1 0 14.7 12 2.7 2.7 0 0 0 12 9.3z"/>
-              <path d="M17.7 6.7a1.1 1.1 0 1 1-1.1-1.1 1.1 1.1 0 0 1 1.1 1.1z"/>
+          <a class="socialBtn" href="#" aria-label="Instagram">
+            <img class="socialIconImg" src="/assets/Instagram_Glyph_Gradient.png" alt="">
+          </a>
+
+          <a class="footerEmail" href="mailto:support@sladenetworks.com" aria-label="Email support@sladenetworks.com">
+            <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 6h16v12H4z"/>
+              <path d="m4 7 8 6 8-6"/>
             </svg>
+            support@sladenetworks.com
           </a>
         </div>
 
@@ -379,5 +312,31 @@
     </div>
   </footer>
 
+  <script>
+    (function () {
+      const nav = document.getElementById('siteNav');
+      const toggle = document.getElementById('navToggle');
+      if (!nav || !toggle) return;
+
+      function setOpen(isOpen){
+        nav.classList.toggle('navOpen', isOpen);
+        toggle.setAttribute('aria-expanded', String(isOpen));
+      }
+
+      toggle.addEventListener('click', function () {
+        setOpen(!nav.classList.contains('navOpen'));
+      });
+
+      document.addEventListener('click', function (e) {
+        if (!nav.classList.contains('navOpen')) return;
+        if (nav.contains(e.target)) return;
+        setOpen(false);
+      });
+
+      window.addEventListener('resize', function () {
+        if (window.innerWidth > 820) setOpen(false);
+      });
+    })();
+  </script>
 </body>
 </html>
