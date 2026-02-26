@@ -12,9 +12,9 @@
 
   <div class="topbar">
     <div class="wrap">
-      <div class="nav" id="siteNav">
+      <header class="nav" id="siteNav">
 
-        <!-- Mobile nav toggle (left) -->
+        <!-- Mobile nav toggle (left on mobile) -->
         <button class="navToggle" type="button"
                 aria-label="Open navigation menu"
                 aria-expanded="false"
@@ -25,12 +25,12 @@
           </svg>
         </button>
 
-        <!-- Logo (center on mobile) -->
+        <!-- Logo (center on mobile via grid) -->
         <a class="brand" href="/" aria-label="Slade Networks home">
           <img class="brandLogoImg" src="/assets/Website%20Logo.png" alt="Slade Networks">
         </a>
 
-        <!-- Desktop links + mobile dropdown -->
+        <!-- Links: visible on desktop, dropdown on mobile when .navOpen present -->
         <nav class="navlinks" aria-label="Site navigation" id="navLinks">
           <a href="/" class="active">Home</a>
           <a href="/services/">Services</a>
@@ -45,7 +45,7 @@
           <a class="btn primary" href="/contact/">Free consultation</a>
         </div>
 
-      </div>
+      </header>
     </div>
   </div>
 
@@ -72,35 +72,36 @@
         <p class="sectionIntro">
           Real installations across the Finger Lakes — clean work, proper mounting, and systems built to last.
         </p>
-      </div>
 
-      <!-- scroll container -->
-      <div class="scrollWrapper" aria-label="Install photos carousel">
-        <div class="productScroll">
-          <div class="tile">
-            <div class="media">
-              <img src="/assets/IMG_0465.jpeg" alt="Wi-Fi access point installation">
+        <!-- Keep carousel inside wrap; only this area scrolls horizontally -->
+        <div class="scrollWrapper" aria-label="Install photos carousel">
+          <div class="productScroll">
+            <div class="tile">
+              <div class="media">
+                <img src="/assets/IMG_0465.jpeg" alt="Wi-Fi access point installation">
+              </div>
             </div>
-          </div>
 
-          <div class="tile">
-            <div class="media">
-              <img src="/assets/Camera Install.jpeg" alt="Camera installation">
+            <div class="tile">
+              <div class="media">
+                <img src="/assets/Camera Install.jpeg" alt="Camera installation">
+              </div>
             </div>
-          </div>
 
-          <div class="tile">
-            <div class="media">
-              <img src="/assets/IMG_0464.jpeg" alt="VoIP phone installation">
+            <div class="tile">
+              <div class="media">
+                <img src="/assets/IMG_0464.jpeg" alt="VoIP phone installation">
+              </div>
             </div>
-          </div>
 
-          <div class="tile">
-            <div class="media">
-              <img src="/assets/IMG_0431.jpeg" alt="Network rack installation">
+            <div class="tile">
+              <div class="media">
+                <img src="/assets/IMG_0431.jpeg" alt="Network rack installation">
+              </div>
             </div>
           </div>
         </div>
+
       </div>
     </section>
 
@@ -108,7 +109,8 @@
       <div class="wrap">
 
         <h2 class="sectionTitle">Why UniFi</h2>
-        <!-- Full width on desktop -->
+
+        <!-- Requested: full width on desktop -->
         <p class="sectionIntro sectionIntroFull">
           UniFi brings networking, Wi-Fi, cameras, and phones into a single pane of glass. That means fewer moving parts, clearer visibility, and a setup that stays reliable and fast over time.
         </p>
@@ -262,21 +264,12 @@
         setOpen(!nav.classList.contains('navOpen'));
       });
 
-      // Close when tapping a link
-      nav.addEventListener('click', function (e) {
-        const a = e.target.closest && e.target.closest('a');
-        if (!a) return;
-        if (nav.classList.contains('navOpen')) setOpen(false);
-      });
-
-      // Close when clicking outside
       document.addEventListener('click', function (e) {
         if (!nav.classList.contains('navOpen')) return;
         if (nav.contains(e.target)) return;
         setOpen(false);
       });
 
-      // Close on resize to desktop
       window.addEventListener('resize', function () {
         if (window.innerWidth > 820) setOpen(false);
       });
