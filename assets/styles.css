@@ -87,7 +87,9 @@ a{text-decoration:none;color:inherit}
 }
 .navToggle svg{width:20px;height:20px;display:block}
 
-/* Mobile: true centered logo via 1fr auto 1fr */
+/* Mobile: true centered logo via 1fr auto 1fr
+   Hamburger bigger, CTA smaller (wraps to 2 lines), same height.
+*/
 @media (max-width: 820px){
   .nav{
     display:grid;
@@ -95,25 +97,36 @@ a{text-decoration:none;color:inherit}
     align-items:center;
   }
 
+  .brand{justify-self:center}
+
   .navToggle{
     display:inline-flex;
     justify-self:start;
+    width:52px;
+    height:52px;
+    border-radius:16px;
   }
-
-  .brand{
-    justify-self:center;
-  }
+  .navToggle svg{width:24px;height:24px}
 
   .cta{
     justify-self:end;
   }
 
-  /* shrink CTA so it doesn't crowd */
-  .cta .btn{
-    padding:9px 12px;
-    font-size:13px;
-    border-radius:12px;
+  /* CTA becomes a square-ish "bubble" matching hamburger size */
+  .btnCta{
+    width:52px;
+    height:52px;
+    padding:0;
+    border-radius:16px;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    line-height:1.05;
+    font-size:12px;
+    white-space:normal; /* allow wrap */
   }
+  .btnCta span{display:block}
 
   /* dropdown links */
   .navlinks{
@@ -384,12 +397,13 @@ h1{
   justify-content:flex-end;
 }
 
+/* Social bubbles should match email bubble height (same vertical padding band) */
 .socialBtn{
+  height:40px;            /* matches email pill height below */
   width:40px;
-  height:40px;
   border-radius:12px;
   border:1px solid var(--stroke);
-  background:rgba(255,255,255,.88);
+  background:#fff;        /* requested: all white backgrounds */
   box-shadow:var(--shadow);
   display:inline-flex;
   align-items:center;
@@ -409,28 +423,14 @@ h1{
   display:block;
 }
 
-/* Make white/light logos visible */
-.socialBtn.linkedin{
-  background:#0A66C2;
-  border-color:#0A66C2;
-}
-.socialBtn.facebook{
-  background:#1877F2;
-  border-color:#1877F2;
-}
-/* instagram glyph is black, keep light background */
-.socialBtn.instagram{
-  background:rgba(255,255,255,.88);
-}
-
 .footerEmail{
   display:inline-flex;
   align-items:center;
   gap:8px;
-  padding:9px 12px;
+  padding:9px 12px;       /* yields ~40px total height */
   border-radius:12px;
   border:1px solid var(--stroke);
-  background:rgba(255,255,255,.88);
+  background:#fff;
   box-shadow:var(--shadow);
   color:rgba(15,18,26,.78);
   font-weight:600;
@@ -461,9 +461,4 @@ h1{
   }
 
   .footerRight{width:100%; justify-content:flex-start}
-
-  .cta .btn{
-    padding:8px 10px;
-    font-size:12.5px;
-  }
 }
