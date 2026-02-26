@@ -13,8 +13,6 @@
 
 *{box-sizing:border-box}
 html,body{height:100%}
-
-/* Hard stop for accidental document-wide horizontal scroll */
 html{overflow-x:hidden}
 body{
   margin:0;
@@ -52,7 +50,6 @@ a{text-decoration:none;color:inherit}
 .brand{
   display:flex;
   align-items:center;
-  gap:10px;
   font-weight:600;
 }
 
@@ -92,8 +89,7 @@ a{text-decoration:none;color:inherit}
 .navToggle svg{width:20px;height:20px;display:block}
 
 /* Mobile header layout:
-   left = hamburger, center = logo, right = CTA
-   (no absolute positioning => no giant logo overlay)
+   left = hamburger, center = logo, right = CTA (shrunk)
 */
 @media (max-width: 820px){
   .nav{
@@ -103,7 +99,20 @@ a{text-decoration:none;color:inherit}
   }
 
   .navToggle{display:inline-flex}
-  .brand{justify-self:center}
+
+  /* Center logo reliably */
+  .brand{
+    justify-self:center;
+    min-width:0;
+  }
+
+  /* Shrink CTA so logo stays centered */
+  .cta .btn{
+    padding:9px 12px;
+    border-radius:12px;
+    font-size:13px;
+  }
+
   .cta{justify-self:end}
 
   /* Links become dropdown */
@@ -174,13 +183,6 @@ h1{
   margin:0;
 }
 
-.heroButtons{
-  display:flex;
-  gap:10px;
-  flex-wrap:wrap;
-  margin-top:18px;
-}
-
 /* =========================================================
    SECTIONS
 ========================================================= */
@@ -199,55 +201,38 @@ h1{
   line-height:1.6;
   max-width:92ch;
 }
-
 .sectionIntroFull{max-width:none}
 
 /* =========================================================
-   CAROUSEL (FIXED: only the carousel scrolls)
+   CAROUSEL
 ========================================================= */
 .scrollWrapper{
-  /* Safe “bleed” by matching wrap padding, not viewport math */
   margin-left:-22px;
   margin-right:-22px;
-
   padding-left:22px;
   padding-right:22px;
-
   overflow-x:auto;
   overflow-y:hidden;
   -webkit-overflow-scrolling:touch;
   overscroll-behavior-x:contain;
-
-  /* prevent the wrapper from forcing body wider */
   max-width:100%;
 }
 
 .productScroll{
   --tile: clamp(220px, 40vw, 300px);
-
   display:flex;
   flex-wrap:nowrap;
   gap:16px;
-
   width:max-content;
   min-width:100%;
-
   padding: 6px 0 14px;
-
   scroll-snap-type:x mandatory;
-  scroll-padding-left:0;
-  scroll-padding-right:0;
 }
 
 .productScroll .tile{
   flex:0 0 var(--tile);
   scroll-snap-align:start;
   scroll-snap-stop:always;
-
-  background:transparent;
-  border:none;
-  box-shadow:none;
-  padding:0;
 }
 
 .productScroll .tile .media{
@@ -399,6 +384,7 @@ h1{
   justify-content:flex-end;
 }
 
+/* Social buttons now host images */
 .socialBtn{
   width:40px;
   height:40px;
@@ -409,17 +395,29 @@ h1{
   display:inline-flex;
   align-items:center;
   justify-content:center;
-  color:rgba(15,18,26,.72);
-  transition: transform .15s ease, border-color .15s ease, color .15s ease;
+  transition: transform .15s ease, border-color .15s ease;
+  overflow:hidden;
 }
 .socialBtn:hover{
   transform: translateY(-1px);
   border-color: rgba(37,99,235,.25);
-  color: rgba(15,18,26,.88);
 }
-.socialBtn svg{width:18px;height:18px;display:block}
-.socialBtn.soon{opacity:.55; cursor:default}
-.socialBtn.soon:hover{transform:none;border-color:var(--stroke);color:rgba(15,18,26,.72)}
+
+.socialIconImg{
+  width:22px;
+  height:22px;
+  object-fit:contain;
+  display:block;
+}
+
+/* Special-case: LinkedIn image is white, so give it a dark tile background */
+.socialBtn.linkedin{
+  background:#0A66C2;
+  border-color:#0A66C2;
+}
+.socialBtn.linkedin:hover{
+  border-color:#0A66C2;
+}
 
 .footerEmail{
   display:inline-flex;
@@ -451,7 +449,6 @@ h1{
   h1{font-size:34px}
   .wrap{padding:0 16px}
 
-  /* match the wrap padding for carousel bleed */
   .scrollWrapper{
     margin-left:-16px;
     margin-right:-16px;
@@ -460,4 +457,13 @@ h1{
   }
 
   .footerRight{width:100%; justify-content:flex-start}
+
+  /* If you want even more centering room, shrink CTA a touch more on very small phones */
+  .cta .btn{
+    padding:8px 10px;
+    font-size:12.5px;
+  }
+
+  .socialBtn{width:38px;height:38px}
+  .socialIconImg{width:21px;height:21px}
 }
