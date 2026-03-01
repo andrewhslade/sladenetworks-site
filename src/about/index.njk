@@ -1,17 +1,11 @@
-<!-- /about/index.html -->
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>About — Slade Networks</title>
-  <meta name="description" content="Learn about Slade Networks and founder Andrew Slade. UniFi network installation and support across the Finger Lakes in upstate NY." />
-  <meta name="theme-color" content="#FFFFFF" />
+---
+title: "About — Slade Networks"
+description: "Learn about Slade Networks and founder Andrew Slade. UniFi network installation and support across the Finger Lakes in upstate NY."
+navActive: about
+---
+{% extends "base.njk" %}
 
-  <!-- Site-wide styles -->
-  <link rel="stylesheet" href="/assets/styles.css">
-
-  <!-- Page-specific overrides (about only) -->
+{% block pageStyles %}
   <style>
     .aboutGrid{
       display:grid;
@@ -114,45 +108,9 @@
       .valuesGrid{ grid-template-columns:1fr; }
     }
   </style>
-</head>
+{% endblock %}
 
-<body>
-  <!-- HEADER (matches home) -->
-  <div class="topbar">
-    <div class="wrap">
-      <header class="nav" id="siteNav">
-
-        <button class="navToggle" type="button"
-                aria-label="Open navigation menu"
-                aria-expanded="false"
-                aria-controls="navLinks"
-                id="navToggle">
-          <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
-            <path d="M5 7h14M5 12h14M5 17h14"/>
-          </svg>
-        </button>
-
-        <a class="brand" href="/" aria-label="Slade Networks home">
-          <img class="brandLogoImg" src="/assets/Website%20Logo.png" alt="Slade Networks">
-        </a>
-
-        <nav class="navlinks" aria-label="Site navigation" id="navLinks">
-          <a href="/">Home</a>
-          <a href="/services/">Services</a>
-          <a href="/process/">The Process</a>
-          <a href="/faq/">FAQ</a>
-          <a href="/about/" class="active">About Us</a>
-          <a href="/contact/">Contact Us</a>
-        </nav>
-
-        <div class="cta">
-          <a class="btn primary btnCta" href="/contact/"><span>Free<br>consultation</span></a>
-        </div>
-
-      </header>
-    </div>
-  </div>
-
+{% block content %}
   <main>
     <section class="hero">
       <div class="wrap">
@@ -181,7 +139,7 @@
               that stays maintainable.
             </p>
             <p>
-              Whether you’re building from scratch or fixing coverage, reliability, or visibility issues, the approach is the same:
+              Whether you're building from scratch or fixing coverage, reliability, or visibility issues, the approach is the same:
               proper planning, clean cabling and mounting, correct RF design, and predictable configs with sensible security defaults.
             </p>
 
@@ -224,7 +182,7 @@
               <div>
                 <p style="margin:0; font-weight:650; letter-spacing:-0.01em;">Andrew Slade</p>
                 <p class="founderMeta" style="margin-top:6px;">
-                  Andrew is the founder of Slade Networks. He is completing a Bachelor’s degree in Computer Science at St. Bonaventure University and holds the Cisco CCNA certification.
+                  Andrew is the founder of Slade Networks. He is completing a Bachelor's degree in Computer Science at St. Bonaventure University and holds the Cisco CCNA certification.
                   His focus is practical, real-world networking: consistent performance, straightforward management, and designs that scale from a home network to a small business environment.
                 </p>
               </div>
@@ -239,7 +197,7 @@
             <div style="margin-top:14px;">
               <h2 style="margin-top:0;">How he works</h2>
               <p>
-                Projects start with the basics: what you’re trying to accomplish, what’s failing today, and what “good” looks like in terms of coverage, speed, reliability, and visibility.
+                Projects start with the basics: what you're trying to accomplish, what's failing today, and what "good" looks like in terms of coverage, speed, reliability, and visibility.
                 From there, the plan is executed cleanly — with testing, documentation, and a clear handoff (or optional ongoing administration).
               </p>
             </div>
@@ -247,7 +205,7 @@
             <div class="callout" style="margin-top:18px;">
               <div>
                 <h2>Have a project in mind?</h2>
-                <p>Share the space, what equipment you have (if any), and what you want to improve. You’ll get a clear next step.</p>
+                <p>Share the space, what equipment you have (if any), and what you want to improve. You'll get a clear next step.</p>
               </div>
               <a class="btn primary" href="/contact/">Contact</a>
             </div>
@@ -262,7 +220,7 @@
         <div class="ctaInner">
           <div>
             <h2>Ready to improve your network?</h2>
-            <p>Tell us what you’re trying to fix or build. We’ll respond with next steps and a clear plan.</p>
+            <p>Tell us what you're trying to fix or build. We'll respond with next steps and a clear plan.</p>
           </div>
 
           <div class="ctaButtons">
@@ -273,70 +231,4 @@
       </div>
     </section>
   </main>
-
-  <!-- FOOTER (matches home) -->
-  <footer class="footer">
-    <div class="wrap">
-      <div class="footerInner">
-
-        <div class="footerLeft">
-          <div class="copyright">© 2026 Slade Networks</div>
-          <div class="disclaimer">
-            UniFi® is a trademark of Ubiquiti Inc. Slade Networks is not affiliated with or endorsed by Ubiquiti.
-          </div>
-        </div>
-
-        <div class="footerRight" aria-label="Social links and support email">
-          <a class="socialBtn" href="https://linkedin.com/slade-networks" target="_blank" rel="noopener" aria-label="LinkedIn">
-            <img class="socialIconImg" src="/assets/LI-In-Bug.png" alt="">
-          </a>
-
-          <a class="socialBtn" href="#" aria-label="Facebook">
-            <img class="socialIconImg" src="/assets/Facebook_Logo_Primary.png" alt="">
-          </a>
-
-          <a class="socialBtn" href="#" aria-label="Instagram">
-            <img class="socialIconImg" src="/assets/Instagram_Glyph_Gradient.png" alt="">
-          </a>
-
-          <a class="footerEmail" href="mailto:support@sladenetworks.com" aria-label="Email support@sladenetworks.com">
-            <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M4 6h16v12H4z"/>
-              <path d="m4 7 8 6 8-6"/>
-            </svg>
-            support@sladenetworks.com
-          </a>
-        </div>
-
-      </div>
-    </div>
-  </footer>
-
-  <script>
-    (function () {
-      const nav = document.getElementById('siteNav');
-      const toggle = document.getElementById('navToggle');
-      if (!nav || !toggle) return;
-
-      function setOpen(isOpen){
-        nav.classList.toggle('navOpen', isOpen);
-        toggle.setAttribute('aria-expanded', String(isOpen));
-      }
-
-      toggle.addEventListener('click', function () {
-        setOpen(!nav.classList.contains('navOpen'));
-      });
-
-      document.addEventListener('click', function (e) {
-        if (!nav.classList.contains('navOpen')) return;
-        if (nav.contains(e.target)) return;
-        setOpen(false);
-      });
-
-      window.addEventListener('resize', function () {
-        if (window.innerWidth > 820) setOpen(false);
-      });
-    })();
-  </script>
-</body>
-</html>
+{% endblock %}

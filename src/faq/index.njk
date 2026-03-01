@@ -1,16 +1,11 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>FAQ — Slade Networks</title>
-  <meta name="description" content="Answers to common questions about Wi-Fi, cameras, cabling, and network installs for homes and small businesses in the Finger Lakes and surrounding areas in upstate NY." />
-  <meta name="theme-color" content="#FFFFFF" />
+---
+title: "FAQ — Slade Networks"
+description: "Answers to common questions about Wi-Fi, cameras, cabling, and network installs for homes and small businesses in the Finger Lakes and surrounding areas in upstate NY."
+navActive: faq
+---
+{% extends "base.njk" %}
 
-  <!-- Site-wide styles -->
-  <link rel="stylesheet" href="/assets/styles.css" />
-
-  <!-- Page-specific styles (faq only) -->
+{% block pageStyles %}
   <style>
     /* =========================================================
        FAQ PAGE ONLY
@@ -120,45 +115,9 @@
       h1{font-size:34px}
     }
   </style>
-</head>
+{% endblock %}
 
-<body>
-  <!-- HEADER (matches home) -->
-  <div class="topbar">
-    <div class="wrap">
-      <header class="nav" id="siteNav">
-
-        <button class="navToggle" type="button"
-                aria-label="Open navigation menu"
-                aria-expanded="false"
-                aria-controls="navLinks"
-                id="navToggle">
-          <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
-            <path d="M5 7h14M5 12h14M5 17h14"/>
-          </svg>
-        </button>
-
-        <a class="brand" href="/" aria-label="Slade Networks home">
-          <img class="brandLogoImg" src="/assets/Website%20Logo.png" alt="Slade Networks">
-        </a>
-
-        <nav class="navlinks" aria-label="Site navigation" id="navLinks">
-          <a href="/">Home</a>
-          <a href="/services/">Services</a>
-          <a href="/process/">The Process</a>
-          <a href="/faq/" class="active">FAQ</a>
-          <a href="/about/">About Us</a>
-          <a href="/contact/">Contact Us</a>
-        </nav>
-
-        <div class="cta">
-          <a class="btn primary btnCta" href="/contact/"><span>Free<br>consultation</span></a>
-        </div>
-
-      </header>
-    </div>
-  </div>
-
+{% block content %}
   <main>
     <section class="hero">
       <div class="wrap">
@@ -169,8 +128,8 @@
 
         <div class="callout">
           <div>
-            <h2>Have a question that isn’t listed?</h2>
-            <p>Email support@sladenetworks.com and we’ll reply as soon as possible.</p>
+            <h2>Have a question that isn't listed?</h2>
+            <p>Email support@sladenetworks.com and we'll reply as soon as possible.</p>
           </div>
           <div style="display:flex; gap:10px; flex-wrap:wrap;">
             <a class="btn primary" href="/contact/">Request a free consultation</a>
@@ -230,7 +189,7 @@
               <span class="chev" aria-hidden="true">⌄</span>
             </summary>
             <div class="answer">
-              Both. Some projects are new installs and some are upgrades or cleanups. If Wi-Fi coverage is poor, cameras are unreliable, or the rack is a mess, the first step is to identify what’s causing the problem and then make a clear plan to fix it.
+              Both. Some projects are new installs and some are upgrades or cleanups. If Wi-Fi coverage is poor, cameras are unreliable, or the rack is a mess, the first step is to identify what's causing the problem and then make a clear plan to fix it.
             </div>
           </details>
 
@@ -250,7 +209,7 @@
               <span class="chev" aria-hidden="true">⌄</span>
             </summary>
             <div class="answer">
-              Yes. Admin access is provided to the customer and the setup is explained during handoff. Nothing is “locked away.”
+              Yes. Admin access is provided to the customer and the setup is explained during handoff. Nothing is "locked away."
             </div>
           </details>
 
@@ -288,70 +247,4 @@
       </div>
     </section>
   </main>
-
-  <!-- FOOTER (matches home) -->
-  <footer class="footer">
-    <div class="wrap">
-      <div class="footerInner">
-
-        <div class="footerLeft">
-          <div class="copyright">© 2026 Slade Networks</div>
-          <div class="disclaimer">
-            UniFi® is a trademark of Ubiquiti Inc. Slade Networks is not affiliated with or endorsed by Ubiquiti.
-          </div>
-        </div>
-
-        <div class="footerRight" aria-label="Social links and support email">
-          <a class="socialBtn" href="https://linkedin.com/slade-networks" target="_blank" rel="noopener" aria-label="LinkedIn">
-            <img class="socialIconImg" src="/assets/LI-In-Bug.png" alt="">
-          </a>
-
-          <a class="socialBtn" href="#" aria-label="Facebook">
-            <img class="socialIconImg" src="/assets/Facebook_Logo_Primary.png" alt="">
-          </a>
-
-          <a class="socialBtn" href="#" aria-label="Instagram">
-            <img class="socialIconImg" src="/assets/Instagram_Glyph_Gradient.png" alt="">
-          </a>
-
-          <a class="footerEmail" href="mailto:support@sladenetworks.com" aria-label="Email support@sladenetworks.com">
-            <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M4 6h16v12H4z"/>
-              <path d="m4 7 8 6 8-6"/>
-            </svg>
-            support@sladenetworks.com
-          </a>
-        </div>
-
-      </div>
-    </div>
-  </footer>
-
-  <script>
-    (function () {
-      const nav = document.getElementById('siteNav');
-      const toggle = document.getElementById('navToggle');
-      if (!nav || !toggle) return;
-
-      function setOpen(isOpen){
-        nav.classList.toggle('navOpen', isOpen);
-        toggle.setAttribute('aria-expanded', String(isOpen));
-      }
-
-      toggle.addEventListener('click', function () {
-        setOpen(!nav.classList.contains('navOpen'));
-      });
-
-      document.addEventListener('click', function (e) {
-        if (!nav.classList.contains('navOpen')) return;
-        if (nav.contains(e.target)) return;
-        setOpen(false);
-      });
-
-      window.addEventListener('resize', function () {
-        if (window.innerWidth > 820) setOpen(false);
-      });
-    })();
-  </script>
-</body>
-</html>
+{% endblock %}
