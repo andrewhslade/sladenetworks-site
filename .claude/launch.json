@@ -2,8 +2,8 @@
   "version": "0.0.1",
   "configurations": [
     {
-      "name": "Eleventy dev server",
-      "runtimeExecutable": "npm",
+      "name": "eleventy-dev",
+      "runtimeExecutable": "/opt/homebrew/bin/npm",
       "runtimeArgs": ["start"],
       "port": 8080
     }

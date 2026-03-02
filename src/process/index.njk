@@ -46,6 +46,27 @@ navActive: process
       background:rgba(255,255,255,.86);
     }
 
+    /* Featured step override */
+    .step.featured{
+      background:rgba(37,99,235,.04);
+      border-color:rgba(37,99,235,.22);
+    }
+
+    .stepBadge{
+      display:inline-flex;
+      align-items:center;
+      gap:5px;
+      background:rgba(37,99,235,.10);
+      color:#2563EB;
+      font-size:11px;
+      font-weight:700;
+      letter-spacing:0.07em;
+      text-transform:uppercase;
+      border-radius:8px;
+      padding:4px 9px;
+      margin-bottom:12px;
+    }
+
     .stepHeader{
       display:flex;
       align-items:flex-start;
@@ -81,7 +102,37 @@ navActive: process
       max-width:95ch;
     }
 
-    /* Bottom CTA (kept as-is for this page layout) */
+    .step p + p{
+      margin-top:8px;
+    }
+
+    /* Benefit list inside support plan step */
+    .benefitList{
+      list-style:none;
+      padding:0;
+      margin:14px 0 0;
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:7px 18px;
+    }
+
+    .benefitList li{
+      font-size:13.5px;
+      color:var(--muted);
+      display:flex;
+      align-items:center;
+      gap:7px;
+    }
+
+    .benefitList li::before{
+      content:"✓";
+      color:#2563EB;
+      font-weight:700;
+      font-size:12px;
+      flex:0 0 auto;
+    }
+
+    /* Bottom CTA */
     .ctaSection{padding:0 0 64px}
 
     .ctaCard{
@@ -114,6 +165,7 @@ navActive: process
     @media(max-width:700px){
       h1{font-size:34px}
       .ctaCard{align-items:flex-start}
+      .benefitList{grid-template-columns:1fr}
     }
   </style>
 {% endblock %}
@@ -122,31 +174,29 @@ navActive: process
   <main>
     <section class="hero">
       <div class="wrap">
-        <h1>How the process works</h1>
+        <h1>How it works</h1>
         <p class="sub">
-          A structured plan that avoids surprises. Coverage, hardware, and expectations are clear before installation begins.
+          No surprises, no guesswork. Here's exactly what to expect — from the first conversation to a working system, and beyond.
         </p>
 
         <div class="steps" aria-label="Project steps">
           <article class="step">
             <div class="stepHeader">
               <div class="number" aria-hidden="true">1</div>
-              <h2>On-site consultation + space review</h2>
+              <h2>Free on-site consultation</h2>
             </div>
             <p>
-              We walk the space and talk through what you want covered (Wi-Fi, cameras, or phones).
-              Then we measure and map the layout so coverage can be planned before anything is installed.
+              We come to you. We walk through the space, talk through what's not working or what you want to add — better Wi-Fi, cameras, phones, or all three — and map the layout so coverage can be planned before anything is installed. You won't be quoted off a phone call or a floor plan.
             </p>
           </article>
 
           <article class="step">
             <div class="stepHeader">
               <div class="number" aria-hidden="true">2</div>
-              <h2>Plan + equipment list</h2>
+              <h2>Custom plan and written quote</h2>
             </div>
             <p>
-              You get a clear plan with where equipment will go and what hardware is needed.
-              We confirm placement and expectations up front so there are no last-minute surprises.
+              You'll get a clear plan showing where everything goes, what hardware is needed, and exactly what it costs — all in writing before any work begins. No vague estimates, no surprise add-ons at the end.
             </p>
           </article>
 
@@ -156,30 +206,40 @@ navActive: process
               <h2>Installation</h2>
             </div>
             <p>
-              Equipment is installed cleanly and labeled properly, with cabling kept tidy.
-              The goal is a finished system that looks professional and is easy to service later.
+              Equipment goes in cleanly — cables routed neatly, gear mounted properly, everything labeled so it's easy to work on later. The goal is a finished system that looks like a professional job, not a pile of gear shoved in a closet.
             </p>
           </article>
 
           <article class="step">
             <div class="stepHeader">
               <div class="number" aria-hidden="true">4</div>
-              <h2>Configuration + verification</h2>
+              <h2>Testing and handoff</h2>
             </div>
             <p>
-              Before handoff, we verify Wi-Fi coverage, confirm cameras record and play back correctly, and test calling so it's reliable.
-              You get a quick walkthrough and the access you need.
+              Before we leave, everything is verified. Wi-Fi coverage is spot-checked, cameras are confirmed recording and playing back, and calling is tested end-to-end. You get a walkthrough of how everything works and your own admin access — nothing is locked away or hidden.
             </p>
           </article>
 
-          <article class="step">
+          <article class="step featured">
+            <div class="stepBadge">Recommended add-on</div>
             <div class="stepHeader">
               <div class="number" aria-hidden="true">5</div>
-              <h2>Optional ongoing support</h2>
+              <h2>Ongoing Support Plan</h2>
             </div>
             <p>
-              If you want hands-off ownership, ongoing support is available for updates, troubleshooting, and faster response when something breaks.
+              Most problems that come up after an install don't need a site visit — they need someone who knows the system and can fix it remotely, fast. With an ongoing support plan, we monitor your network, handle firmware updates before they cause issues, and troubleshoot problems remotely so you're not dealing with it yourself.
             </p>
+            <p>
+              It's the difference between owning a system and having to manage it yourself, versus having someone watch over it for you. Especially useful for businesses where downtime costs real money.
+            </p>
+            <ul class="benefitList" aria-label="Support plan benefits">
+              <li>Remote monitoring</li>
+              <li>Priority response</li>
+              <li>Firmware updates handled for you</li>
+              <li>Remote troubleshooting</li>
+              <li>Most issues fixed without a site visit</li>
+              <li>One point of contact for anything network</li>
+            </ul>
           </article>
         </div>
       </div>
@@ -190,7 +250,7 @@ navActive: process
         <div class="ctaCard">
           <div>
             <h2>Ready to get started?</h2>
-            <p>Tell us what you need covered and we'll map out the right approach for your space.</p>
+            <p>Book a free consultation and we'll map out the right plan for your space. Ask us about the ongoing support plan — most clients add it.</p>
           </div>
           <a class="btn primary" href="/contact/">Request a Free Consultation</a>
         </div>
