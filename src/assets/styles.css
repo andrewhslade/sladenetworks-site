@@ -441,6 +441,35 @@ h1{
 .footerEmail:hover{border-color: rgba(37,99,235,.25); color: rgba(15,18,26,.90)}
 
 /* =========================================================
+   HERO BUTTONS
+========================================================= */
+.heroButtons{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  margin-top:20px;
+}
+
+/* =========================================================
+   CALLOUT (used on FAQ, About)
+========================================================= */
+.callout{
+  margin-top:18px;
+  background:var(--glass);
+  border:1px solid var(--stroke);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  padding:18px 20px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:14px;
+  flex-wrap:wrap;
+}
+.callout h2{margin:0;font-size:16px;letter-spacing:-0.02em}
+.callout p{margin:6px 0 0;color:var(--muted);font-size:14px;line-height:1.6;max-width:70ch}
+
+/* =========================================================
    RESPONSIVE
 ========================================================= */
 @media(max-width:980px){
