@@ -30,8 +30,24 @@ navActive: faq
 
     .section{padding:10px 0 54px}
 
+    .faqGroup{
+      margin-top:32px;
+    }
+    .faqGroup:first-child{
+      margin-top:0;
+    }
+
+    .groupLabel{
+      font-size:11px;
+      font-weight:700;
+      letter-spacing:0.08em;
+      text-transform:uppercase;
+      color:rgba(15,18,26,.38);
+      margin:0 0 12px;
+      padding-left:2px;
+    }
+
     .faq{
-      margin-top:20px;
       display:grid;
       gap:12px;
     }
@@ -95,17 +111,17 @@ navActive: faq
       <div class="wrap">
         <h1>FAQ</h1>
         <p class="sub">
-          Answers to common questions about installs, support, and how projects work.
+          Common questions about pricing, how projects work, and what to expect.
         </p>
 
         <div class="callout">
           <div>
             <h2>Have a question that isn't listed?</h2>
-            <p>Email support@sladenetworks.com and we'll reply as soon as possible.</p>
+            <p>Email info@sladenetworks.com and we'll reply as soon as possible.</p>
           </div>
           <div style="display:flex; gap:10px; flex-wrap:wrap;">
             <a class="btn primary" href="/contact/">Request a free consultation</a>
-            <a class="btn" href="mailto:support@sladenetworks.com?subject=Slade%20Networks%20Question">support@sladenetworks.com</a>
+            <a class="btn" href="mailto:info@sladenetworks.com?subject=Slade%20Networks%20Question">info@sladenetworks.com</a>
           </div>
         </div>
       </div>
@@ -113,109 +129,132 @@ navActive: faq
 
     <section class="section">
       <div class="wrap">
-        <div class="faq">
 
-          <details>
-            <summary>
-              Do services cover homes and small businesses?
-              <span class="chev" aria-hidden="true">⌄</span>
-            </summary>
-            <div class="answer">
-              Yes. Installs and support are available for homes and small businesses. The goal is the same either way: reliable Wi-Fi, easy camera access, and a clean, supportable setup.
-            </div>
-          </details>
+        <div class="faqGroup">
+          <p class="groupLabel">Before you start</p>
+          <div class="faq">
 
-          <details>
-            <summary>
-              What areas are served?
-              <span class="chev" aria-hidden="true">⌄</span>
-            </summary>
-            <div class="answer">
-              The Finger Lakes and surrounding areas in upstate NY. If a project is a little outside the area, it can still be discussed.
-            </div>
-          </details>
+            <details>
+              <summary>
+                How much does it cost?
+                <span class="chev" aria-hidden="true">⌄</span>
+              </summary>
+              <div class="answer">
+                Pricing depends on the scope — the size of the space, what's being installed, how much cabling is involved, and what equipment is needed. There's no flat rate because no two projects are the same.
+                <br><br>
+                As a rough sense: a small home Wi-Fi upgrade is on the lower end. A full install with cabling, cameras, and switching costs more. Equipment and labor are quoted together so there are no surprises.
+                <br><br>
+                The free consultation is how we get to a real number. After seeing the space and understanding what you want, you'll have a clear quote before any work begins.
+              </div>
+            </details>
 
-          <details>
-            <summary>
-              What happens during the free consultation?
-              <span class="chev" aria-hidden="true">⌄</span>
-            </summary>
-            <div class="answer">
-              The space is reviewed and goals are discussed. For Wi-Fi and cameras, the space can be mapped for planning and coverage modeling. After that, a simple plan is presented with recommended equipment and placement.
-            </div>
-          </details>
+            <details>
+              <summary>
+                Do you serve my area?
+                <span class="chev" aria-hidden="true">⌄</span>
+              </summary>
+              <div class="answer">
+                We serve the Finger Lakes and surrounding areas in upstate NY — including Penn Yan, Keuka Park, Hammondsport, Watkins Glen, Geneva, Canandaigua, Naples, Victor, and Auburn. If you're outside that range, reach out — travel is sometimes possible depending on the project size.
+              </div>
+            </details>
 
-          <details>
-            <summary>
-              Do customers need to buy equipment ahead of time?
-              <span class="chev" aria-hidden="true">⌄</span>
-            </summary>
-            <div class="answer">
-              No. Equipment can be recommended and sourced as part of the project. If equipment is already on site, it can be evaluated and used when it makes sense.
-            </div>
-          </details>
+            <details>
+              <summary>
+                What happens during the free consultation?
+                <span class="chev" aria-hidden="true">⌄</span>
+              </summary>
+              <div class="answer">
+                We walk through the space, talk through what isn't working and what you want to improve, and put together a simple plan — what equipment is needed, where it goes, and what everything will cost. For Wi-Fi and cameras, we can map the layout to model coverage before anything is installed. You'll have a clear recommendation and quote before any work begins.
+              </div>
+            </details>
 
-          <details>
-            <summary>
-              Can an existing setup be fixed, or only new installs?
-              <span class="chev" aria-hidden="true">⌄</span>
-            </summary>
-            <div class="answer">
-              Both. Some projects are new installs and some are upgrades or cleanups. If Wi-Fi coverage is poor, cameras are unreliable, or the rack is a mess, the first step is to identify what's causing the problem and then make a clear plan to fix it.
-            </div>
-          </details>
+            <details>
+              <summary>
+                Do I need to buy equipment before we talk?
+                <span class="chev" aria-hidden="true">⌄</span>
+              </summary>
+              <div class="answer">
+                No. Equipment can be sourced as part of the project. If you already have gear on site, we'll look at it and use it where it makes sense.
+              </div>
+            </details>
 
-          <details>
-            <summary>
-              Why is UniFi used?
-              <span class="chev" aria-hidden="true">⌄</span>
-            </summary>
-            <div class="answer">
-              UniFi keeps networking, Wi-Fi, cameras, and management in one system. That usually means simpler management, fewer separate apps, and easier remote support when needed.
-            </div>
-          </details>
-
-          <details>
-            <summary>
-              Will the customer keep access and ownership?
-              <span class="chev" aria-hidden="true">⌄</span>
-            </summary>
-            <div class="answer">
-              Yes. Admin access is provided to the customer and the setup is explained during handoff. Nothing is "locked away."
-            </div>
-          </details>
-
-          <details>
-            <summary>
-              Is ongoing support required?
-              <span class="chev" aria-hidden="true">⌄</span>
-            </summary>
-            <div class="answer">
-              No. Many projects are one-time installs. Ongoing remote administration is optional for clients who want monitoring, updates, and faster troubleshooting.
-            </div>
-          </details>
-
-          <details>
-            <summary>
-              How long does a typical project take?
-              <span class="chev" aria-hidden="true">⌄</span>
-            </summary>
-            <div class="answer">
-              It depends on the size of the space and what is being installed. Some jobs are a single visit and others take multiple days. After the consultation, a clear timeline is provided before work begins.
-            </div>
-          </details>
-
-          <details>
-            <summary>
-              How does support work for existing clients?
-              <span class="chev" aria-hidden="true">⌄</span>
-            </summary>
-            <div class="answer">
-              Existing clients can email support@sladenetworks.com for troubleshooting or changes. If remote support is enabled, many issues can be handled quickly without an on-site visit.
-            </div>
-          </details>
-
+          </div>
         </div>
+
+        <div class="faqGroup">
+          <p class="groupLabel">The install</p>
+          <div class="faq">
+
+            <details>
+              <summary>
+                Can you fix an existing setup, or is this only for new installs?
+                <span class="chev" aria-hidden="true">⌄</span>
+              </summary>
+              <div class="answer">
+                Both. Some projects are new installs; others are upgrades or fixes — poor Wi-Fi coverage, unreliable cameras, a messy rack. We'll identify what's causing the problem and make a clear plan to fix it.
+              </div>
+            </details>
+
+            <details>
+              <summary>
+                How long does a typical project take?
+                <span class="chev" aria-hidden="true">⌄</span>
+              </summary>
+              <div class="answer">
+                It depends on the size of the space and what's being installed. Some jobs are a single visit; others take a few days. You'll get a realistic timeline during the consultation before anything starts.
+              </div>
+            </details>
+
+            <details>
+              <summary>
+                What equipment do you use?
+                <span class="chev" aria-hidden="true">⌄</span>
+              </summary>
+              <div class="answer">
+                Most installs use UniFi by Ubiquiti. It brings Wi-Fi, cameras, switching, and phone systems into a single dashboard — fewer apps to manage, one consistent system, and simpler support over time. It's proven hardware that's designed to be updated and maintained for years.
+              </div>
+            </details>
+
+          </div>
+        </div>
+
+        <div class="faqGroup">
+          <p class="groupLabel">After the install</p>
+          <div class="faq">
+
+            <details>
+              <summary>
+                Will I keep full access to my own system?
+                <span class="chev" aria-hidden="true">⌄</span>
+              </summary>
+              <div class="answer">
+                Yes. You get admin access and a full walkthrough at handoff. Nothing is locked away or hidden.
+              </div>
+            </details>
+
+            <details>
+              <summary>
+                Do I have to sign up for ongoing support?
+                <span class="chev" aria-hidden="true">⌄</span>
+              </summary>
+              <div class="answer">
+                No. Most projects are one-time installs with a clean handoff. Ongoing remote administration is available for clients who want monitoring, proactive updates, and faster troubleshooting — but it's entirely optional.
+              </div>
+            </details>
+
+            <details>
+              <summary>
+                How do I get help after the job is done?
+                <span class="chev" aria-hidden="true">⌄</span>
+              </summary>
+              <div class="answer">
+                Email <a href="mailto:info@sladenetworks.com" style="text-decoration:underline; text-decoration-color:rgba(15,18,26,.25);">info@sladenetworks.com</a>. If remote support is set up on your system, many issues can be handled quickly without a site visit.
+              </div>
+            </details>
+
+          </div>
+        </div>
+
       </div>
     </section>
   </main>
