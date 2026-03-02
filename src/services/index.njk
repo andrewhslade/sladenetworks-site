@@ -1,16 +1,11 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Services — Slade Networks</title>
-  <meta name="description" content="UniFi installation and support services for homes and small businesses — Wi-Fi, cameras, switching, cabling, racks, power, VoIP, and failover. Serving the Finger Lakes region in upstate NY." />
-  <meta name="theme-color" content="#FFFFFF" />
+---
+title: "Services — Slade Networks"
+description: "UniFi installation and support services for homes and small businesses — Wi-Fi, cameras, switching, cabling, racks, power, VoIP, and failover. Serving the Finger Lakes region in upstate NY."
+navActive: services
+---
+{% extends "base.njk" %}
 
-  <!-- Site-wide styles -->
-  <link rel="stylesheet" href="/assets/styles.css" />
-
-  <!-- Page-specific styles (services only) -->
+{% block pageStyles %}
   <style>
     /* =========================================================
        SERVICES PAGE ONLY
@@ -187,51 +182,15 @@
       .ctaCard{align-items:flex-start}
     }
   </style>
-</head>
+{% endblock %}
 
-<body>
-  <!-- HEADER (matches home) -->
-  <div class="topbar">
-    <div class="wrap">
-      <header class="nav" id="siteNav">
-
-        <button class="navToggle" type="button"
-                aria-label="Open navigation menu"
-                aria-expanded="false"
-                aria-controls="navLinks"
-                id="navToggle">
-          <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
-            <path d="M5 7h14M5 12h14M5 17h14"/>
-          </svg>
-        </button>
-
-        <a class="brand" href="/" aria-label="Slade Networks home">
-          <img class="brandLogoImg" src="/assets/Website%20Logo.png" alt="Slade Networks">
-        </a>
-
-        <nav class="navlinks" aria-label="Site navigation" id="navLinks">
-          <a href="/">Home</a>
-          <a href="/services/" class="active">Services</a>
-          <a href="/process/">The Process</a>
-          <a href="/faq/">FAQ</a>
-          <a href="/about/">About Us</a>
-          <a href="/contact/">Contact Us</a>
-        </nav>
-
-        <div class="cta">
-          <a class="btn primary btnCta" href="/contact/"><span>Free<br>consultation</span></a>
-        </div>
-
-      </header>
-    </div>
-  </div>
-
+{% block content %}
   <main>
     <section class="hero">
       <div class="wrap">
         <h1>Services</h1>
         <p class="sub">
-          UniFi installs for homes and small businesses—Wi-Fi that holds up, cameras that cover what matters, and VoIP that’s reliable when you need it.
+          UniFi installs for homes and small businesses—Wi-Fi that holds up, cameras that cover what matters, and VoIP that's reliable when you need it.
         </p>
       </div>
     </section>
@@ -272,7 +231,7 @@
             <details>
               <summary>Learn more</summary>
               <div class="more">
-                We help choose good angles, avoid blind spots, and confirm you can view live and recorded footage without the “why is it not loading” hassle.
+                We help choose good angles, avoid blind spots, and confirm you can view live and recorded footage without the "why is it not loading" hassle.
               </div>
             </details>
             <div class="media">
@@ -284,11 +243,11 @@
             <div class="cardTitle">
               <h3>VoIP</h3>
             </div>
-            <p>Business calling with a clean cutover so calls don’t drop and phones just work.</p>
+            <p>Business calling with a clean cutover so calls don't drop and phones just work.</p>
             <details>
               <summary>Learn more</summary>
               <div class="more">
-                We handle setup and testing, and we can coordinate number porting so you don’t lose calls during the switch.
+                We handle setup and testing, and we can coordinate number porting so you don't lose calls during the switch.
               </div>
             </details>
             <div class="media">
@@ -304,7 +263,7 @@
             <details>
               <summary>Learn more</summary>
               <div class="more">
-                New runs, clean wall plates, and labeling—so you’re not guessing what goes where when you add a device later.
+                New runs, clean wall plates, and labeling—so you're not guessing what goes where when you add a device later.
               </div>
             </details>
             <div class="media">
@@ -336,7 +295,7 @@
             <details>
               <summary>Learn more</summary>
               <div class="more">
-                We mount equipment properly, organize cables, and label things so troubleshooting isn’t a mess.
+                We mount equipment properly, organize cables, and label things so troubleshooting isn't a mess.
               </div>
             </details>
             <div class="media">
@@ -348,11 +307,11 @@
             <div class="cardTitle">
               <h3>Power backup</h3>
             </div>
-            <p>Battery backup for critical gear so brief outages don’t take everything down.</p>
+            <p>Battery backup for critical gear so brief outages don't take everything down.</p>
             <details>
               <summary>Learn more</summary>
               <div class="more">
-                We size and install backup power for your network and phones, so short outages don’t kill Wi-Fi or calling.
+                We size and install backup power for your network and phones, so short outages don't kill Wi-Fi or calling.
               </div>
             </details>
             <div class="media">
@@ -368,7 +327,7 @@
             <details>
               <summary>Learn more</summary>
               <div class="more">
-                We set it up and test it, so you’re not finding out it doesn’t work during an outage.
+                We set it up and test it, so you're not finding out it doesn't work during an outage.
               </div>
             </details>
             <div class="media">
@@ -384,7 +343,7 @@
             <details>
               <summary>Learn more</summary>
               <div class="more">
-                Centralized file storage and basic backup setup so important files aren’t living on one laptop with no safety net.
+                Centralized file storage and basic backup setup so important files aren't living on one laptop with no safety net.
               </div>
             </details>
             <div class="media">
@@ -416,79 +375,16 @@
         <div class="ctaCard">
           <div>
             <h2>Ready to plan your install?</h2>
-            <p>Tell us what you want covered (Wi-Fi, cameras, or phones) and we’ll map out the right approach for your space.</p>
+            <p>Tell us what you want covered (Wi-Fi, cameras, or phones) and we'll map out the right approach for your space.</p>
           </div>
           <a class="btn primary" href="/contact/">Request a Free Consultation</a>
         </div>
       </div>
     </section>
   </main>
+{% endblock %}
 
-  <!-- FOOTER (matches home) -->
-  <footer class="footer">
-    <div class="wrap">
-      <div class="footerInner">
-
-        <div class="footerLeft">
-          <div class="copyright">© 2026 Slade Networks</div>
-          <div class="disclaimer">
-            UniFi® is a trademark of Ubiquiti Inc. Slade Networks is not affiliated with or endorsed by Ubiquiti.
-          </div>
-        </div>
-
-        <div class="footerRight" aria-label="Social links and support email">
-          <a class="socialBtn" href="https://www.linkedin.com/company/slade-networks" target="_blank" rel="noopener" aria-label="LinkedIn">
-            <img class="socialIconImg" src="/assets/LI-In-Bug.png" alt="">
-          </a>
-
-          <a class="socialBtn" href="https://www.facebook.com/sladenetworks" target="_blank" rel="noopener" aria-label="Facebook">
-            <img class="socialIconImg" src="/assets/Facebook_Logo_Primary.png" alt="">
-          </a>
-
-          <a class="socialBtn" href="https://www.instagram.com/sladenetworks/" target="_blank" rel="noopener" aria-label="Instagram">
-            <img class="socialIconImg" src="/assets/Instagram_Glyph_Gradient.png" alt="">
-          </a>
-
-          <a class="footerEmail" href="mailto:support@sladenetworks.com" aria-label="Email support@sladenetworks.com">
-            <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M4 6h16v12H4z"/>
-              <path d="m4 7 8 6 8-6"/>
-            </svg>
-            support@sladenetworks.com
-          </a>
-        </div>
-
-      </div>
-    </div>
-  </footer>
-
-  <script>
-    (function () {
-      const nav = document.getElementById('siteNav');
-      const toggle = document.getElementById('navToggle');
-      if (!nav || !toggle) return;
-
-      function setOpen(isOpen){
-        nav.classList.toggle('navOpen', isOpen);
-        toggle.setAttribute('aria-expanded', String(isOpen));
-      }
-
-      toggle.addEventListener('click', function () {
-        setOpen(!nav.classList.contains('navOpen'));
-      });
-
-      document.addEventListener('click', function (e) {
-        if (!nav.classList.contains('navOpen')) return;
-        if (nav.contains(e.target)) return;
-        setOpen(false);
-      });
-
-      window.addEventListener('resize', function () {
-        if (window.innerWidth > 820) setOpen(false);
-      });
-    })();
-  </script>
-
+{% block pageScript %}
   <script>
     // Make the whole card clickable to toggle "Learn more" without breaking native details behavior.
     document.querySelectorAll('.card').forEach(card => {
@@ -506,5 +402,4 @@
       });
     });
   </script>
-</body>
-</html>
+{% endblock %}

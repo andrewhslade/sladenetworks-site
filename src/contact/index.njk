@@ -1,16 +1,11 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Contact — Slade Networks</title>
-  <meta name="description" content="Contact Slade Networks for Wi-Fi, cameras, cabling, racks, and network support for homes and small businesses in the Finger Lakes and surrounding areas in upstate NY." />
-  <meta name="theme-color" content="#FFFFFF" />
+---
+title: "Contact — Slade Networks"
+description: "Contact Slade Networks for Wi-Fi, cameras, cabling, racks, and network support for homes and small businesses in the Finger Lakes and surrounding areas in upstate NY."
+navActive: contact
+---
+{% extends "base.njk" %}
 
-  <!-- Site-wide styles -->
-  <link rel="stylesheet" href="/assets/styles.css">
-
-  <!-- Page-specific styles (contact only) -->
+{% block pageStyles %}
   <style>
     /* =========================================================
        CONTACT PAGE ONLY
@@ -135,45 +130,9 @@
       .row2{grid-template-columns:1fr}
     }
   </style>
-</head>
+{% endblock %}
 
-<body>
-  <!-- HEADER (matches home) -->
-  <div class="topbar">
-    <div class="wrap">
-      <header class="nav" id="siteNav">
-
-        <button class="navToggle" type="button"
-                aria-label="Open navigation menu"
-                aria-expanded="false"
-                aria-controls="navLinks"
-                id="navToggle">
-          <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
-            <path d="M5 7h14M5 12h14M5 17h14"/>
-          </svg>
-        </button>
-
-        <a class="brand" href="/" aria-label="Slade Networks home">
-          <img class="brandLogoImg" src="/assets/Website%20Logo.png" alt="Slade Networks">
-        </a>
-
-        <nav class="navlinks" aria-label="Site navigation" id="navLinks">
-          <a href="/">Home</a>
-          <a href="/services/">Services</a>
-          <a href="/process/">The Process</a>
-          <a href="/faq/">FAQ</a>
-          <a href="/about/">About Us</a>
-          <a href="/contact/" class="active">Contact Us</a>
-        </nav>
-
-        <div class="cta">
-          <a class="btn primary btnCta" href="/contact/"><span>Free<br>consultation</span></a>
-        </div>
-
-      </header>
-    </div>
-  </div>
-
+{% block content %}
   <main>
     <section class="hero">
       <div class="wrap">
@@ -242,7 +201,7 @@
 
                 <div>
                   <label for="message">Project details</label>
-                  <textarea id="message" name="project_details" placeholder="Briefly describe what’s going on and what the goal is."></textarea>
+                  <textarea id="message" name="project_details" placeholder="Briefly describe what's going on and what the goal is."></textarea>
                 </div>
 
                 <div style="display:flex; gap:10px; flex-wrap:wrap;">
@@ -284,72 +243,11 @@
       </div>
     </section>
   </main>
+{% endblock %}
 
-  <!-- FOOTER (matches home) -->
-  <footer class="footer">
-    <div class="wrap">
-      <div class="footerInner">
-
-        <div class="footerLeft">
-          <div class="copyright">© 2026 Slade Networks</div>
-          <div class="disclaimer">
-            UniFi® is a trademark of Ubiquiti Inc. Slade Networks is not affiliated with or endorsed by Ubiquiti.
-          </div>
-        </div>
-
-        <div class="footerRight" aria-label="Social links and support email">
-          <a class="socialBtn" href="https://www.linkedin.com/company/slade-networks" target="_blank" rel="noopener" aria-label="LinkedIn">
-            <img class="socialIconImg" src="/assets/LI-In-Bug.png" alt="">
-          </a>
-
-          <a class="socialBtn" href="https://www.facebook.com/sladenetworks" target="_blank" rel="noopener" aria-label="Facebook">
-            <img class="socialIconImg" src="/assets/Facebook_Logo_Primary.png" alt="">
-          </a>
-
-          <a class="socialBtn" href="https://www.instagram.com/sladenetworks/" target="_blank" rel="noopener" aria-label="Instagram">
-            <img class="socialIconImg" src="/assets/Instagram_Glyph_Gradient.png" alt="">
-          </a>
-
-          <a class="footerEmail" href="mailto:support@sladenetworks.com" aria-label="Email support@sladenetworks.com">
-            <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M4 6h16v12H4z"/>
-              <path d="m4 7 8 6 8-6"/>
-            </svg>
-            support@sladenetworks.com
-          </a>
-        </div>
-
-      </div>
-    </div>
-  </footer>
-
+{% block pageScript %}
   <script>
     (function () {
-      // Nav toggle (matches home)
-      const nav = document.getElementById('siteNav');
-      const toggle = document.getElementById('navToggle');
-
-      function setOpen(isOpen){
-        nav.classList.toggle('navOpen', isOpen);
-        toggle.setAttribute('aria-expanded', String(isOpen));
-      }
-
-      if (nav && toggle){
-        toggle.addEventListener('click', function () {
-          setOpen(!nav.classList.contains('navOpen'));
-        });
-
-        document.addEventListener('click', function (e) {
-          if (!nav.classList.contains('navOpen')) return;
-          if (nav.contains(e.target)) return;
-          setOpen(false);
-        });
-
-        window.addEventListener('resize', function () {
-          if (window.innerWidth > 820) setOpen(false);
-        });
-      }
-
       // Show a success notice after redirect (?sent=1)
       const params = new URLSearchParams(window.location.search);
       if (params.get("sent") === "1") {
@@ -367,5 +265,4 @@
       }
     })();
   </script>
-</body>
-</html>
+{% endblock %}
