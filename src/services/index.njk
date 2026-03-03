@@ -1,6 +1,6 @@
 ---
 title: "Services — Slade Networks"
-description: "UniFi installation and support services for homes and small businesses — Wi-Fi, cameras, switching, cabling, racks, power, VoIP, and failover. Serving the Finger Lakes region in upstate NY."
+description: "UniFi installation and ongoing support for homes and small businesses — Wi-Fi, cameras, VoIP, cabling, and more. Serving the Finger Lakes region in upstate NY."
 navActive: services
 ---
 {% extends "base.njk" %}
@@ -12,174 +12,241 @@ navActive: services
     ========================================================= */
 
     /* Hero */
-    .hero{padding:70px 0 18px}
-    h1{
-      font-size:42px;
-      line-height:1.1;
-      margin:0 0 10px;
-      letter-spacing:-0.04em;
+    .hero { padding: 70px 0 18px }
+    h1 {
+      font-size: 42px;
+      line-height: 1.1;
+      margin: 0 0 10px;
+      letter-spacing: -0.04em;
     }
-    .sub{
-      font-size:16.5px;
-      color:var(--muted);
-      line-height:1.6;
-      margin:0;
-      max-width:none;
+    .sub {
+      font-size: 16.5px;
+      color: var(--muted);
+      line-height: 1.6;
+      margin: 0;
     }
 
     /* Sections */
-    .section{padding:18px 0 54px}
-    .sectionHead{
-      display:flex;
-      justify-content:space-between;
-      align-items:flex-end;
-      gap:14px;
-      margin-bottom:16px;
-    }
-    .h2{
-      margin:0;
-      font-size:20px;
-      letter-spacing:-0.02em;
-    }
-    .lead{
-      margin:6px 0 0;
-      color:var(--muted);
-      font-size:14.5px;
-      line-height:1.55;
-      max-width:none;
+    .section { padding: 22px 0 48px }
+    .supportSection { padding: 0 0 48px }
+
+    .sectionLabel {
+      margin: 0 0 14px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--muted);
     }
 
-    /* Cards grid */
-    .grid{
-      display:grid;
-      grid-template-columns:repeat(12, 1fr);
-      gap:18px;
-      margin-top:16px;
+    /* Primary cards (3 core services) */
+    .primaryGrid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
     }
 
-    .card{
-      grid-column:span 4; /* 3 per row on desktop */
-      background:var(--glass);
-      border:1px solid var(--stroke);
-      border-radius:var(--radius);
-      box-shadow:var(--shadow);
-      padding:18px;
-      overflow:hidden;
-      cursor:pointer;
-      transition: transform .15s ease, border-color .15s ease;
-    }
-    .card:hover{
-      transform: translateY(-1px);
-      border-color: rgba(37,99,235,.18);
+    .primaryCard {
+      background: var(--glass);
+      border: 1px solid var(--stroke);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
     }
 
-    .cardTitle{
-      display:flex;
-      align-items:flex-start;
-      justify-content:space-between;
-      gap:12px;
-      margin-bottom:6px;
-    }
-    .cardTitle h3{
-      margin:0;
-      font-size:16.5px;
-      letter-spacing:-0.02em;
+    .primaryCard h3 {
+      margin: 0 0 6px;
+      font-size: 17px;
+      letter-spacing: -0.02em;
     }
 
-    .card p{
-      margin:0;
-      color:var(--muted);
-      font-size:14px;
-      line-height:1.6;
+    .primaryCard p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.6;
+      flex: 1;
     }
 
-    /* Media (no border, smaller image) */
-    .media{
-      margin-top:12px;
-      border:none;
-      border-radius:14px;
-      background:transparent;
-      padding:0;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      min-height:86px;
-    }
-    .media img{
-      width:52%;
-      max-width:200px;
-      height:auto;
-      display:block;
-      object-fit:contain;
+    .media {
+      margin-top: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 80px;
     }
 
-    /* Details */
-    details{margin-top:10px}
-    summary{
-      list-style:none;
-      cursor:pointer;
-      user-select:none;
-      color:rgba(37,99,235,.95);
-      font-weight:600;
-      font-size:13.5px;
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      border-radius:10px;
-      padding:6px 10px;
-      background:rgba(37,99,235,.06);
-      border:1px solid rgba(37,99,235,.14);
+    .media img {
+      width: 52%;
+      max-width: 190px;
+      height: auto;
+      display: block;
+      object-fit: contain;
     }
-    summary::-webkit-details-marker{display:none}
-    details[open] summary{
-      background:rgba(37,99,235,.08);
-      border-color:rgba(37,99,235,.18);
+
+    /* Section divider */
+    .divider {
+      border: none;
+      border-top: 1px solid var(--stroke);
+      margin: 32px 0 24px;
     }
-    .more{
-      margin-top:10px;
-      padding-top:10px;
-      border-top:1px solid var(--stroke);
-      color:var(--muted);
-      font-size:13.5px;
-      line-height:1.6;
+
+    /* Secondary cards (supporting work) */
+    .secondaryGrid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+
+    .secondaryCard {
+      background: var(--glass);
+      border: 1px solid var(--stroke);
+      border-radius: 14px;
+      box-shadow: 0 4px 16px rgba(15,18,26,.05);
+      padding: 16px 18px;
+    }
+
+    .secondaryCard h3 {
+      margin: 0 0 4px;
+      font-size: 15px;
+      letter-spacing: -0.02em;
+    }
+
+    .secondaryCard p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 13.5px;
+      line-height: 1.55;
+    }
+
+    /* Pricing note */
+    .pricingNote {
+      margin-top: 20px;
+      padding: 14px 18px;
+      background: rgba(255,255,255,.7);
+      border: 1px solid var(--stroke);
+      border-radius: 14px;
+      font-size: 13.5px;
+      color: var(--muted);
+      line-height: 1.55;
+    }
+
+    .pricingNote strong { color: var(--ink) }
+    .pricingNote a { color: var(--accent) }
+
+    /* Ongoing support card */
+    .supportCard {
+      background: rgba(37,99,235,.04);
+      border: 1px solid rgba(37,99,235,.18);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 24px;
+    }
+
+    .supportBadge {
+      display: inline-flex;
+      align-items: center;
+      background: rgba(37,99,235,.10);
+      color: #2563EB;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .07em;
+      text-transform: uppercase;
+      border-radius: 8px;
+      padding: 4px 9px;
+      margin-bottom: 12px;
+    }
+
+    .supportCard h2 {
+      margin: 0 0 8px;
+      font-size: 20px;
+      letter-spacing: -0.02em;
+    }
+
+    .supportCard > p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14.5px;
+      line-height: 1.6;
+      max-width: 82ch;
+    }
+
+    .supportCard > p + p { margin-top: 8px }
+
+    .benefitList {
+      list-style: none;
+      padding: 0;
+      margin: 16px 0 0;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 7px 18px;
+    }
+
+    .benefitList li {
+      font-size: 13.5px;
+      color: var(--muted);
+      display: flex;
+      align-items: center;
+      gap: 7px;
+    }
+
+    .benefitList li::before {
+      content: "✓";
+      color: #2563EB;
+      font-weight: 700;
+      font-size: 12px;
+      flex: 0 0 auto;
+    }
+
+    .supportFooter {
+      margin-top: 18px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .supportFooter .processLink {
+      font-size: 13.5px;
+      color: var(--accent);
+      font-weight: 600;
     }
 
     /* Bottom CTA */
-    .ctaSection{padding:0 0 64px}
-    .ctaCard{
-      background:var(--glass);
-      border:1px solid var(--stroke);
-      border-radius:var(--radius);
-      box-shadow:var(--shadow);
-      padding:18px 20px;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:14px;
-      flex-wrap:wrap;
-    }
-    .ctaCard h2{
-      margin:0;
-      font-size:18px;
-      letter-spacing:-0.02em;
-    }
-    .ctaCard p{
-      margin:4px 0 0;
-      color:var(--muted);
-      font-size:14px;
-      line-height:1.6;
-      max-width:78ch;
+    .ctaSection { padding: 0 0 64px }
+
+    .ctaCard {
+      background: var(--glass);
+      border: 1px solid var(--stroke);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 20px 22px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      flex-wrap: wrap;
     }
 
+    .ctaCard h2 { margin: 0; font-size: 18px; letter-spacing: -0.02em }
+    .ctaCard p { margin: 4px 0 0; color: var(--muted); font-size: 14px; line-height: 1.6; max-width: 72ch }
+
     /* Responsive */
-    @media(max-width:980px){
-      .card{grid-column:span 6} /* 2 per row */
+    @media(max-width:980px) {
+      .primaryGrid { grid-template-columns: 1fr 1fr }
+      .secondaryGrid { grid-template-columns: 1fr 1fr }
+      .benefitList { grid-template-columns: 1fr 1fr }
     }
-    @media(max-width:700px){
-      h1{font-size:34px}
-      .card{grid-column:span 12} /* 1 per row */
-      .media img{width:56%;max-width:190px}
-      .ctaCard{align-items:flex-start}
+    @media(max-width:700px) {
+      h1 { font-size: 34px }
+      .primaryGrid { grid-template-columns: 1fr }
+      .benefitList { grid-template-columns: 1fr }
+      .ctaCard { align-items: flex-start }
+    }
+    @media(max-width:480px) {
+      .secondaryGrid { grid-template-columns: 1fr }
     }
   </style>
 {% endblock %}
@@ -190,182 +257,104 @@ navActive: services
       <div class="wrap">
         <h1>Services</h1>
         <p class="sub">
-          UniFi installs for homes and small businesses—Wi-Fi that holds up, cameras that cover what matters, and VoIP that's reliable when you need it.
+          UniFi installs and ongoing support for homes and small businesses — from the hardware to the handoff, and beyond if you need it.
         </p>
       </div>
     </section>
 
     <section class="section">
       <div class="wrap">
-        <div class="sectionHead">
-          <div>
-            <h2 class="h2">What we install</h2>
-            <p class="lead">
-              The focus is simple: strong Wi-Fi coverage, clean camera coverage, and calling that works without constant issues.
-            </p>
-          </div>
-        </div>
+        <p class="sectionLabel">Core services</p>
+        <div class="primaryGrid">
 
-        <div class="grid">
-          <article class="card" role="group" aria-label="Wi-Fi service">
-            <div class="cardTitle">
-              <h3>Wi-Fi</h3>
-            </div>
-            <p>Consistent coverage where you actually use it, tuned to reduce dropouts and dead spots.</p>
-            <details>
-              <summary>Learn more</summary>
-              <div class="more">
-                We plan placement, install access points cleanly, and verify coverage where you care about it (living areas, offices, patios—whatever the space needs).
-              </div>
-            </details>
+          <article class="primaryCard">
+            <h3>Wi-Fi</h3>
+            <p>Planned AP placement, clean installation, and coverage verified where you actually use it — living areas, offices, outdoor spaces. No dead spots, no guessing.</p>
             <div class="media">
               <img src="/assets/u7-pro-xg-2.png" alt="UniFi Wi-Fi access point">
             </div>
           </article>
 
-          <article class="card" role="group" aria-label="Cameras service">
-            <div class="cardTitle">
-              <h3>Cameras</h3>
-            </div>
-            <p>Camera setup with clear views, reliable recording, and simple access from your phone.</p>
-            <details>
-              <summary>Learn more</summary>
-              <div class="more">
-                We help choose good angles, avoid blind spots, and confirm you can view live and recorded footage without the "why is it not loading" hassle.
-              </div>
-            </details>
+          <article class="primaryCard">
+            <h3>Cameras</h3>
+            <p>Good angles, no blind spots, and footage you can access from your phone. We choose placement, avoid gaps in coverage, and confirm remote viewing works before we leave.</p>
             <div class="media">
               <img src="/assets/uvc-g6-pro-turret-10.png" alt="UniFi camera">
             </div>
           </article>
 
-          <article class="card" role="group" aria-label="VoIP service">
-            <div class="cardTitle">
-              <h3>VoIP</h3>
-            </div>
-            <p>Business calling with a clean cutover so calls don't drop and phones just work.</p>
-            <details>
-              <summary>Learn more</summary>
-              <div class="more">
-                We handle setup and testing, and we can coordinate number porting so you don't lose calls during the switch.
-              </div>
-            </details>
+          <article class="primaryCard">
+            <h3>VoIP phones</h3>
+            <p>Business calling on UniFi Talk — clean cutover, number porting handled, and tested end-to-end. Calls don't drop, phones just work.</p>
             <div class="media">
               <img src="/assets/utp-g3-touch-enterprise-1.png" alt="UniFi Talk phone">
             </div>
           </article>
 
-          <article class="card" role="group" aria-label="Structured cabling service">
-            <div class="cardTitle">
-              <h3>Structured cabling</h3>
-            </div>
-            <p>Neat Ethernet runs with labeled jacks so everything is easy to trace later.</p>
-            <details>
-              <summary>Learn more</summary>
-              <div class="more">
-                New runs, clean wall plates, and labeling—so you're not guessing what goes where when you add a device later.
-              </div>
-            </details>
-            <div class="media">
-              <img src="/assets/u-cable-c6-cmr-1.png" alt="Structured cabling materials">
-            </div>
+        </div>
+
+        <hr class="divider">
+
+        <p class="sectionLabel">Supporting work</p>
+        <div class="secondaryGrid">
+
+          <article class="secondaryCard">
+            <h3>Structured cabling</h3>
+            <p>Neat Ethernet runs, labeled jacks, and clean wall plates — easy to trace when you add something later.</p>
           </article>
 
-          <article class="card" role="group" aria-label="Gateways and switching service">
-            <div class="cardTitle">
-              <h3>Gateways and switching</h3>
-            </div>
-            <p>Core network equipment installed for stable performance and fewer weird outages.</p>
-            <details>
-              <summary>Learn more</summary>
-              <div class="more">
-                We size and install the right gear, keep wiring clean, and make sure the network stays consistent as you add devices.
-              </div>
-            </details>
-            <div class="media">
-              <img src="/assets/udm-pro-1.png" alt="UniFi gateway and switching equipment">
-            </div>
+          <article class="secondaryCard">
+            <h3>Gateways and switching</h3>
+            <p>Right-sized core gear, cleanly installed for stable performance as devices are added over time.</p>
           </article>
 
-          <article class="card" role="group" aria-label="Racks and mounting service">
-            <div class="cardTitle">
-              <h3>Racks and mounting</h3>
-            </div>
-            <p>Gear mounted cleanly with tidy patching so it looks good and stays serviceable.</p>
-            <details>
-              <summary>Learn more</summary>
-              <div class="more">
-                We mount equipment properly, organize cables, and label things so troubleshooting isn't a mess.
-              </div>
-            </details>
-            <div class="media">
-              <img src="/assets/uacc-rack-12u-wall-slim-2.png" alt="Network rack">
-            </div>
+          <article class="secondaryCard">
+            <h3>Racks and mounting</h3>
+            <p>Equipment mounted and patched properly — labeled ports, organized cables, easy to service.</p>
           </article>
 
-          <article class="card" role="group" aria-label="Power backup service">
-            <div class="cardTitle">
-              <h3>Power backup</h3>
-            </div>
-            <p>Battery backup for critical gear so brief outages don't take everything down.</p>
-            <details>
-              <summary>Learn more</summary>
-              <div class="more">
-                We size and install backup power for your network and phones, so short outages don't kill Wi-Fi or calling.
-              </div>
-            </details>
-            <div class="media">
-              <img src="/assets/ups-2u-us-1.png" alt="UPS battery backup">
-            </div>
+          <article class="secondaryCard">
+            <h3>Power and failover</h3>
+            <p>Battery backup for critical gear, and cellular failover so a downed connection doesn't take everything offline.</p>
           </article>
 
-          <article class="card" role="group" aria-label="Backup internet service">
-            <div class="cardTitle">
-              <h3>Backup internet</h3>
-            </div>
-            <p>Cellular backup that can keep you online when your main internet goes out.</p>
-            <details>
-              <summary>Learn more</summary>
-              <div class="more">
-                We set it up and test it, so you're not finding out it doesn't work during an outage.
-              </div>
-            </details>
-            <div class="media">
-              <img src="/assets/u5g-max-2.png" alt="LTE/5G backup modem">
-            </div>
+          <article class="secondaryCard">
+            <h3>Network storage</h3>
+            <p>Centralized files and camera recordings — accessible to the right people, backed up.</p>
           </article>
 
-          <article class="card" role="group" aria-label="Network storage service">
-            <div class="cardTitle">
-              <h3>Network storage</h3>
-            </div>
-            <p>Shared storage for files and backups with sensible access for the right people.</p>
-            <details>
-              <summary>Learn more</summary>
-              <div class="more">
-                Centralized file storage and basic backup setup so important files aren't living on one laptop with no safety net.
-              </div>
-            </details>
-            <div class="media">
-              <img src="/assets/unas-pro-1.png" alt="Network storage device">
-            </div>
+          <article class="secondaryCard">
+            <h3>Display and casting</h3>
+            <p>Digital signage and casting setups that stay connected and are easy to update without babysitting.</p>
           </article>
 
-          <article class="card" role="group" aria-label="Display casting service">
-            <div class="cardTitle">
-              <h3>Display casting</h3>
-            </div>
-            <p>Simple casting/signage setups that stay stable and are easy to update.</p>
-            <details>
-              <summary>Learn more</summary>
-              <div class="more">
-                We set it up, confirm it stays connected, and show you how to update content without babysitting it.
-              </div>
-            </details>
-            <div class="media">
-              <img src="/assets/uc-display21-1.png" alt="UniFi Connect display">
-            </div>
-          </article>
+        </div>
+
+        <div class="pricingNote">
+          <strong>Transparent pricing.</strong> Every job starts with a free on-site consultation and a written, itemized quote before any work begins — no vague estimates, no surprise add-ons at the end. <a href="/process/">See how the process works →</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="supportSection">
+      <div class="wrap">
+        <div class="supportCard">
+          <div class="supportBadge">Recommended add-on</div>
+          <h2>Ongoing Support Plan</h2>
+          <p>Most problems that come up after install don't need a site visit — they need someone who knows the system and can fix it fast. We monitor your network, handle firmware updates before they cause issues, and troubleshoot remotely so you're not dealing with it yourself.</p>
+          <p>Especially useful for businesses where downtime costs real money.</p>
+          <ul class="benefitList" aria-label="Support plan benefits">
+            <li>Remote monitoring</li>
+            <li>Firmware updates handled</li>
+            <li>Remote troubleshooting</li>
+            <li>Priority response</li>
+            <li>Most issues fixed without a site visit</li>
+            <li>One point of contact for anything network</li>
+          </ul>
+          <div class="supportFooter">
+            <a class="btn primary" href="/contact/">Ask about support plans</a>
+            <a class="processLink" href="/process/">How the full process works →</a>
+          </div>
         </div>
       </div>
     </section>
@@ -374,32 +363,12 @@ navActive: services
       <div class="wrap">
         <div class="ctaCard">
           <div>
-            <h2>Ready to plan your install?</h2>
-            <p>Tell us what you want covered (Wi-Fi, cameras, or phones) and we'll map out the right approach for your space.</p>
+            <h2>Start with a free consultation</h2>
+            <p>We come to you, walk the space, and put together a written quote before anything starts — no commitment required. Tell us what you need covered.</p>
           </div>
           <a class="btn primary" href="/contact/">Request a Free Consultation</a>
         </div>
       </div>
     </section>
   </main>
-{% endblock %}
-
-{% block pageScript %}
-  <script>
-    // Make the whole card clickable to toggle "Learn more" without breaking native details behavior.
-    document.querySelectorAll('.card').forEach(card => {
-      const details = card.querySelector('details');
-      if (!details) return;
-
-      card.addEventListener('click', (e) => {
-        const isSummaryClick = e.target.closest && e.target.closest('summary');
-        if (isSummaryClick) return;
-
-        const selection = window.getSelection && window.getSelection().toString();
-        if (selection && selection.length) return;
-
-        details.open = !details.open;
-      });
-    });
-  </script>
 {% endblock %}
