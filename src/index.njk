@@ -1,18 +1,64 @@
 ---
-title: "Slade Networks — Finger Lakes Networking"
+title: "Slade Networks — UniFi Installation & Support, Finger Lakes NY"
 description: "UniFi network installation and support for homes and small businesses in the Finger Lakes and surrounding areas in upstate NY."
 navActive: home
 ---
 {% extends "base.njk" %}
+
+{% block pageStyles %}
+  <style>
+    /* =========================================================
+       HOME PAGE ONLY
+    ========================================================= */
+
+    /* Testimonial */
+    .testimonialSection { padding: 0 0 44px }
+
+    .testimonialCard {
+      background: var(--glass);
+      border: 1px solid var(--stroke);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 24px 28px;
+      max-width: 760px;
+    }
+
+    .quoteMark {
+      display: block;
+      font-size: 52px;
+      line-height: .9;
+      color: rgba(37,99,235,.2);
+      font-family: Georgia, serif;
+      margin-bottom: 8px;
+    }
+
+    .quoteText {
+      font-size: 16px;
+      line-height: 1.7;
+      color: var(--ink);
+      margin: 0 0 14px;
+    }
+
+    .quoteAttrib {
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .quoteAttrib strong {
+      color: var(--ink);
+      font-weight: 600;
+    }
+  </style>
+{% endblock %}
 
 {% block content %}
   <main>
 
     <section class="hero">
       <div class="wrap">
-        <h1>Wi-Fi, Cameras, and Networking for the Finger Lakes</h1>
+        <h1>Wi-Fi, Cameras, and Phone Systems for the Finger Lakes</h1>
         <p class="subtext">
-          Professional UniFi installation and support for homes and small businesses — clean installs, reliable systems, and clear handoffs.
+          We install and support UniFi networks for homes and small businesses — and stay available after the job is done.
         </p>
         <div class="heroButtons">
           <a class="btn primary" href="/contact/">Request a free consultation</a>
@@ -23,9 +69,9 @@ navActive: home
 
     <section class="section">
       <div class="wrap">
-        <h2 class="sectionTitle">Wi-Fi, Cameras, VoIP, and More</h2>
+        <h2 class="sectionTitle">Real work, locally done</h2>
         <p class="sectionIntro">
-          Real installations across the Finger Lakes — clean work, proper mounting, and systems built to last.
+          Install photos from real projects across the Finger Lakes.
         </p>
 
         <div class="scrollWrapper" aria-label="Install photos carousel">
@@ -36,7 +82,16 @@ navActive: home
             <div class="tile"><div class="media"><img src="/assets/IMG_0431.jpeg" alt="Network rack installation"></div></div>
           </div>
         </div>
+      </div>
+    </section>
 
+    <section class="testimonialSection">
+      <div class="wrap">
+        <div class="testimonialCard">
+          <span class="quoteMark" aria-hidden="true">"</span>
+          <p class="quoteText">His professionalism and calm, practical problem-solving ability were consistently impressive. His work has had a meaningful impact on the Museum's operations and visitor experience.</p>
+          <p class="quoteAttrib">The Finger Lakes Boating Museum</p>
+        </div>
       </div>
     </section>
 
@@ -44,25 +99,25 @@ navActive: home
       <div class="wrap">
         <h2 class="sectionTitle">Why UniFi</h2>
         <p class="sectionIntro sectionIntroFull">
-          UniFi brings networking, Wi-Fi, cameras, and phones into a single pane of glass. That means fewer moving parts, clearer visibility, and a setup that stays reliable and fast over time.
+          UniFi brings Wi-Fi, cameras, and phones into one platform. That means less to manage, more visibility, and a setup that stays reliable over time.
         </p>
 
         <div class="gridTwo">
           <div class="infoCard">
-            <h3>Single pane of glass</h3>
-            <p>Manage gateways, switching, Wi-Fi, cameras, and VoIP from one dashboard instead of juggling multiple apps.</p>
+            <h3>Everything in one place</h3>
+            <p>Wi-Fi, cameras, and phones all run through a single app — no juggling three different systems from three different vendors.</p>
           </div>
           <div class="infoCard">
-            <h3>Reliability built in</h3>
-            <p>Standardized configurations and predictable updates reduce surprises and keep systems stable day-to-day.</p>
+            <h3>Stays stable</h3>
+            <p>Systems are configured to minimize surprises. Updates are managed so nothing breaks at a bad time.</p>
           </div>
           <div class="infoCard">
-            <h3>Performance you can feel</h3>
-            <p>Proper placement, clean RF design, and tuned configurations deliver consistent coverage and throughput.</p>
+            <h3>Coverage where you need it</h3>
+            <p>Access points are placed and tuned for your actual space — not just plugged in wherever is convenient.</p>
           </div>
           <div class="infoCard">
-            <h3>Supportable over time</h3>
-            <p>Optional remote administration helps troubleshoot faster and keep everything running smoothly.</p>
+            <h3>Support doesn't stop at handoff</h3>
+            <p>Ongoing support plans include remote monitoring, firmware updates, and someone to call when something needs attention. <a href="/services/" style="color:var(--accent)">Learn more →</a></p>
           </div>
         </div>
       </div>
@@ -75,18 +130,14 @@ navActive: home
 
         <div class="serviceAreaWrap">
           <div class="serviceAreaSquare serviceAreaCard">
-            <h3>Finger Lakes coverage</h3>
+            <h3>Based in Penn Yan</h3>
             <p>
-              Serving Penn Yan, Keuka Park, Hammondsport, Watkins Glen,
-              Geneva, Canandaigua, Naples, Victor, Auburn, and Ithaca (case-by-case).
+              We serve homes and businesses across the Finger Lakes — Penn Yan,
+              Keuka Park, Hammondsport, Watkins Glen, Geneva, Canandaigua, Naples,
+              Victor, and Auburn. Ithaca and surrounding areas on a case-by-case basis.
             </p>
             <p>
-              If you're slightly outside this area, reach out — travel is often
-              possible depending on project size.
-            </p>
-            <p>
-              Typical projects include whole-home Wi-Fi coverage, small business
-              network infrastructure, camera systems, and VoIP deployments.
+              Not on the list? Reach out — for the right project, travel isn't a problem.
             </p>
           </div>
 
@@ -101,8 +152,8 @@ navActive: home
       <div class="wrap">
         <div class="ctaInner">
           <div>
-            <h2>Ready to improve your network?</h2>
-            <p>Tell us what you're trying to fix or build. We'll respond with next steps and a clear plan.</p>
+            <h2>Start with a free on-site consultation</h2>
+            <p>We come to you, walk the space, and put together a written quote — no commitment required.</p>
           </div>
           <div class="ctaButtons">
             <a class="btn primary" href="/contact/">Request a free consultation</a>

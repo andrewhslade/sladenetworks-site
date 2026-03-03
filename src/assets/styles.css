@@ -427,7 +427,8 @@ h1{
   display:inline-flex;
   align-items:center;
   gap:8px;
-  padding:9px 12px;       /* yields ~40px total height */
+  height:40px;
+  padding:0 12px;
   border-radius:12px;
   border:1px solid var(--stroke);
   background:#fff;
@@ -436,9 +437,14 @@ h1{
   font-weight:600;
   font-size:14px;
   white-space:nowrap;
+  transition: transform .15s ease, border-color .15s ease;
 }
 .footerEmail svg{width:16px;height:16px;display:block}
-.footerEmail:hover{border-color: rgba(37,99,235,.25); color: rgba(15,18,26,.90)}
+.footerEmail:hover{
+  transform: translateY(-1px);
+  border-color: rgba(37,99,235,.25);
+  color: rgba(15,18,26,.90);
+}
 
 /* =========================================================
    HERO BUTTONS
