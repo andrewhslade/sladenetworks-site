@@ -11,24 +11,9 @@ navActive: faq
        FAQ PAGE ONLY
     ========================================================= */
 
-    .hero{padding:70px 0 24px}
-
-    h1{
-      font-size:42px;
-      line-height:1.1;
-      margin:0 0 12px;
-      letter-spacing:-0.04em;
-    }
-
-    .sub{
-      font-size:16.5px;
-      color:var(--muted);
-      line-height:1.6;
-      max-width:85ch;
-      margin:0;
-    }
-
     .section{padding:10px 0 54px}
+
+    .ctaSection{padding:0 0 64px}
 
     .faqGroup{
       margin-top:32px;
@@ -58,6 +43,11 @@ navActive: faq
       border-radius:var(--radius);
       box-shadow:var(--shadow);
       padding:16px 18px;
+      transition: box-shadow .2s ease, border-color .2s ease;
+    }
+    details:hover{
+      border-color:rgba(37,99,235,.15);
+      box-shadow: 0 18px 44px rgba(15,18,26,.1);
     }
 
     summary{
@@ -99,9 +89,6 @@ navActive: faq
       max-width:92ch;
     }
 
-    @media(max-width:700px){
-      h1{font-size:34px}
-    }
   </style>
 {% endblock %}
 
@@ -110,7 +97,7 @@ navActive: faq
     <section class="hero">
       <div class="wrap">
         <h1>FAQ</h1>
-        <p class="sub">
+        <p class="subtext">
           Common questions about pricing, how projects work, and what to expect.
         </p>
 
@@ -119,7 +106,7 @@ navActive: faq
             <h2>Have a question that isn't listed?</h2>
             <p>Email info@sladenetworks.com and we'll reply as soon as possible.</p>
           </div>
-          <div style="display:flex; gap:10px; flex-wrap:wrap;">
+          <div class="ctaButtons">
             <a class="btn primary" href="/contact/">Request a free consultation</a>
             <a class="btn" href="mailto:info@sladenetworks.com?subject=Slade%20Networks%20Question">info@sladenetworks.com</a>
           </div>
@@ -248,13 +235,27 @@ navActive: faq
                 <span class="chev" aria-hidden="true">⌄</span>
               </summary>
               <div class="answer">
-                Email <a href="mailto:info@sladenetworks.com" style="text-decoration:underline; text-decoration-color:rgba(15,18,26,.25);">info@sladenetworks.com</a>. If remote support is set up on your system, many issues can be handled quickly without a site visit.
+                Email <a href="mailto:support@sladenetworks.com" style="text-decoration:underline; text-decoration-color:rgba(15,18,26,.25);">support@sladenetworks.com</a>. If remote support is set up on your system, many issues can be handled quickly without a site visit.
               </div>
             </details>
 
           </div>
         </div>
 
+      </div>
+    </section>
+
+    <section class="ctaSection">
+      <div class="wrap">
+        <div class="ctaInner">
+          <div>
+            <h2>Ready to move forward?</h2>
+            <p>Book a free consultation and we'll put together a plan for your space — no commitment required.</p>
+          </div>
+          <div class="ctaButtons">
+            <a class="btn primary" href="/contact/">Request a free consultation</a>
+          </div>
+        </div>
       </div>
     </section>
   </main>

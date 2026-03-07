@@ -11,23 +11,6 @@ navActive: process
        PROCESS PAGE ONLY
     ========================================================= */
 
-    .hero{padding:70px 0 22px}
-
-    h1{
-      font-size:42px;
-      line-height:1.1;
-      margin:0 0 12px;
-      letter-spacing:-0.04em;
-    }
-
-    .sub{
-      font-size:16.5px;
-      color:var(--muted);
-      line-height:1.6;
-      margin:0;
-      max-width:85ch;
-    }
-
     .steps{
       margin-top:28px;
       display:grid;
@@ -37,9 +20,15 @@ navActive: process
     .step{
       background:var(--glass);
       border:1px solid var(--stroke);
+      border-left:3px solid rgba(37,99,235,.15);
       border-radius:var(--radius);
       box-shadow:var(--shadow);
       padding:22px;
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+    .step:hover{
+      transform: translateY(-1px);
+      box-shadow: 0 18px 44px rgba(15,18,26,.1);
     }
 
     .step:nth-child(even){
@@ -50,6 +39,7 @@ navActive: process
     .step.featured{
       background:rgba(37,99,235,.04);
       border-color:rgba(37,99,235,.22);
+      border-left-color:rgba(37,99,235,.45);
     }
 
     .stepBadge{
@@ -75,8 +65,8 @@ navActive: process
     }
 
     .number{
-      width:34px;
-      height:34px;
+      width:38px;
+      height:38px;
       border-radius:12px;
       background:rgba(37,99,235,.12);
       color:#2563EB;
@@ -84,7 +74,7 @@ navActive: process
       display:flex;
       align-items:center;
       justify-content:center;
-      font-size:14px;
+      font-size:15px;
       flex:0 0 auto;
     }
 
@@ -135,36 +125,7 @@ navActive: process
     /* Bottom CTA */
     .ctaSection{padding:0 0 64px}
 
-    .ctaCard{
-      background:var(--glass);
-      border:1px solid var(--stroke);
-      border-radius:var(--radius);
-      box-shadow:var(--shadow);
-      padding:18px 20px;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:14px;
-      flex-wrap:wrap;
-    }
-
-    .ctaCard h2{
-      margin:0;
-      font-size:18px;
-      letter-spacing:-0.02em;
-    }
-
-    .ctaCard p{
-      margin:4px 0 0;
-      color:var(--muted);
-      font-size:14px;
-      line-height:1.6;
-      max-width:78ch;
-    }
-
     @media(max-width:700px){
-      h1{font-size:34px}
-      .ctaCard{align-items:flex-start}
       .benefitList{grid-template-columns:1fr}
     }
   </style>
@@ -175,7 +136,7 @@ navActive: process
     <section class="hero">
       <div class="wrap">
         <h1>How it works</h1>
-        <p class="sub">
+        <p class="subtext">
           No surprises, no guesswork. Here's exactly what to expect — from the first conversation to a working system, and beyond.
         </p>
 
@@ -247,12 +208,14 @@ navActive: process
 
     <section class="ctaSection">
       <div class="wrap">
-        <div class="ctaCard">
+        <div class="ctaInner">
           <div>
             <h2>Ready to get started?</h2>
-            <p>Book a free consultation and we'll map out the right plan for your space. Ask us about the ongoing support plan — most clients add it.</p>
+            <p>Book a free consultation and we'll put together the right plan for your space.</p>
           </div>
-          <a class="btn primary" href="/contact/">Request a Free Consultation</a>
+          <div class="ctaButtons">
+            <a class="btn primary" href="/contact/">Request a free consultation</a>
+          </div>
         </div>
       </div>
     </section>

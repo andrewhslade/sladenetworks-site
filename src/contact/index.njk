@@ -11,23 +11,6 @@ navActive: contact
        CONTACT PAGE ONLY
     ========================================================= */
 
-    .hero { padding: 70px 0 22px }
-
-    h1 {
-      font-size: 42px;
-      line-height: 1.1;
-      margin: 0 0 12px;
-      letter-spacing: -0.04em;
-    }
-
-    .sub {
-      font-size: 16.5px;
-      color: var(--muted);
-      line-height: 1.6;
-      max-width: 80ch;
-      margin: 0;
-    }
-
     /* Two-column layout */
     .grid {
       display: grid;
@@ -71,6 +54,7 @@ navActive: contact
       font-size: 14px;
       outline: none;
       font-family: inherit;
+      transition: border-color .15s ease, box-shadow .15s ease;
     }
 
     textarea { min-height: 130px; resize: vertical }
@@ -183,7 +167,6 @@ navActive: contact
     }
 
     @media(max-width:700px) {
-      h1 { font-size: 34px }
       .row2 { grid-template-columns: 1fr }
     }
   </style>
@@ -194,7 +177,7 @@ navActive: contact
     <section class="hero">
       <div class="wrap">
         <h1>Contact</h1>
-        <p class="sub">Book a free on-site consultation or send a question — we'll get back to you within one business day.</p>
+        <p class="subtext">Book a free on-site consultation or send a question — we'll get back to you within one business day.</p>
 
         <div class="grid">
 
