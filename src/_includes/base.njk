@@ -5,14 +5,16 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>{{ title }}</title>
   <meta name="description" content="{{ description }}" />
-  <meta name="theme-color" content="#FFFFFF" />
+  <meta name="theme-color" content="#2563eb" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="/assets/styles.css">
   {% block pageStyles %}{% endblock %}
 </head>
 
 <body>
 
-  <div class="topbar">
+  <div class="topbar" id="topbar">
     <div class="wrap">
       <header class="nav" id="siteNav">
 
@@ -35,12 +37,12 @@
           <a href="/services/" {% if navActive == "services" %}class="active"{% endif %}>Services</a>
           <a href="/process/" {% if navActive == "process" %}class="active"{% endif %}>The Process</a>
           <a href="/faq/" {% if navActive == "faq" %}class="active"{% endif %}>FAQ</a>
-          <a href="/about/" {% if navActive == "about" %}class="active"{% endif %}>About Us</a>
-          <a href="/contact/" {% if navActive == "contact" %}class="active"{% endif %}>Contact Us</a>
+          <a href="/about/" {% if navActive == "about" %}class="active"{% endif %}>About</a>
+          <a href="/contact/" {% if navActive == "contact" %}class="active"{% endif %}>Contact</a>
         </nav>
 
         <div class="cta">
-          <a class="btn primary btnCta" href="/contact/"><span>Free<br>consultation</span></a>
+          <a class="btn primary btnCta" href="/contact/"><span>Free consultation</span></a>
         </div>
 
       </header>
@@ -51,29 +53,44 @@
 
   <footer class="footer">
     <div class="wrap">
-      <div class="footerInner">
+      <div class="footerGrid">
 
-        <div class="footerLeft">
-          <div class="copyright">© 2026 Slade Networks</div>
-          <div class="disclaimer">
-            UniFi® is a trademark of Ubiquiti Inc. Slade Networks is not affiliated with or endorsed by Ubiquiti.
-          </div>
+        <div class="footerBrand">
+          <img src="/assets/website-logo.png" alt="Slade Networks" style="height:40px; filter: brightness(0) invert(1); opacity:.8;">
+          <p>UniFi network installation and support for homes and small businesses in the Finger Lakes.</p>
         </div>
 
-        <div class="footerRight" aria-label="Social links and support email">
-          <a class="socialBtn" href="https://www.linkedin.com/company/slade-networks" target="_blank" rel="noopener" aria-label="LinkedIn">
-            <img class="socialIconImg" src="/assets/LI-In-Bug.png" alt="">
-          </a>
+        <div class="footerCol">
+          <h4>Services</h4>
+          <a href="/services/">Wi-Fi</a>
+          <a href="/services/">Cameras</a>
+          <a href="/services/">VoIP Phones</a>
+          <a href="/services/">Cabling</a>
+          <a href="/services/">Support Plans</a>
+        </div>
 
-          <a class="socialBtn" href="https://www.facebook.com/sladenetworks" target="_blank" rel="noopener" aria-label="Facebook">
-            <img class="socialIconImg" src="/assets/Facebook_Logo_Primary.png" alt="">
-          </a>
+        <div class="footerCol">
+          <h4>Company</h4>
+          <a href="/process/">How It Works</a>
+          <a href="/faq/">FAQ</a>
+          <a href="/about/">About</a>
+          <a href="/contact/">Contact</a>
+        </div>
 
-          <a class="socialBtn" href="https://www.instagram.com/sladenetworks/" target="_blank" rel="noopener" aria-label="Instagram">
-            <img class="socialIconImg" src="/assets/Instagram_Glyph_Gradient.png" alt="">
-          </a>
-
-          <a class="footerEmail" href="mailto:info@sladenetworks.com" aria-label="Email info@sladenetworks.com">
+        <div class="footerCol">
+          <h4>Connect</h4>
+          <div style="display:flex; gap:8px; margin-bottom:12px;">
+            <a class="socialBtn" href="https://www.linkedin.com/company/slade-networks" target="_blank" rel="noopener" aria-label="LinkedIn">
+              <img class="socialIconImg" src="/assets/LI-In-Bug.png" alt="">
+            </a>
+            <a class="socialBtn" href="https://www.facebook.com/sladenetworks" target="_blank" rel="noopener" aria-label="Facebook">
+              <img class="socialIconImg" src="/assets/Facebook_Logo_Primary.png" alt="">
+            </a>
+            <a class="socialBtn" href="https://www.instagram.com/sladenetworks/" target="_blank" rel="noopener" aria-label="Instagram">
+              <img class="socialIconImg" src="/assets/Instagram_Glyph_Gradient.png" alt="">
+            </a>
+          </div>
+          <a href="mailto:info@sladenetworks.com" class="footerEmail">
             <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M4 6h16v12H4z"/>
               <path d="m4 7 8 6 8-6"/>
@@ -83,13 +100,23 @@
         </div>
 
       </div>
+
+      <div class="footerBottom">
+        <div>
+          <div class="copyright">&copy; 2026 Slade Networks</div>
+          <div class="disclaimer">
+            UniFi&reg; is a trademark of Ubiquiti Inc. Slade Networks is not affiliated with or endorsed by Ubiquiti.
+          </div>
+        </div>
+      </div>
     </div>
   </footer>
 
   <script>
     (function () {
-      const nav = document.getElementById('siteNav');
-      const toggle = document.getElementById('navToggle');
+      /* ── Mobile nav toggle ── */
+      var nav = document.getElementById('siteNav');
+      var toggle = document.getElementById('navToggle');
       if (!nav || !toggle) return;
 
       function setOpen(isOpen){
@@ -110,6 +137,37 @@
       window.addEventListener('resize', function () {
         if (window.innerWidth > 820) setOpen(false);
       });
+
+      /* ── Topbar scroll shadow ── */
+      var topbar = document.getElementById('topbar');
+      if (topbar) {
+        var ticking = false;
+        window.addEventListener('scroll', function () {
+          if (!ticking) {
+            window.requestAnimationFrame(function () {
+              topbar.classList.toggle('scrolled', window.scrollY > 8);
+              ticking = false;
+            });
+            ticking = true;
+          }
+        }, { passive: true });
+      }
+
+      /* ── Scroll reveal (IntersectionObserver) ── */
+      var reveals = document.querySelectorAll('.reveal, .reveal-stagger');
+      if (reveals.length && 'IntersectionObserver' in window) {
+        var io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+              io.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+        reveals.forEach(function (el) { io.observe(el); });
+      } else {
+        reveals.forEach(function (el) { el.classList.add('visible'); });
+      }
     })();
   </script>
 

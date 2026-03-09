@@ -7,88 +7,8 @@ navActive: faq
 
 {% block pageStyles %}
   <style>
-    /* =========================================================
-       FAQ PAGE ONLY
-    ========================================================= */
-
-    .section{padding:10px 0 54px}
-
-    .ctaSection{padding:0 0 64px}
-
-    .faqGroup{
-      margin-top:32px;
-    }
-    .faqGroup:first-child{
-      margin-top:0;
-    }
-
-    .groupLabel{
-      font-size:11px;
-      font-weight:700;
-      letter-spacing:0.08em;
-      text-transform:uppercase;
-      color:rgba(15,18,26,.38);
-      margin:0 0 12px;
-      padding-left:2px;
-    }
-
-    .faq{
-      display:grid;
-      gap:12px;
-    }
-
-    details{
-      background:var(--glass);
-      border:1px solid var(--stroke);
-      border-radius:var(--radius);
-      box-shadow:var(--shadow);
-      padding:16px 18px;
-      transition: box-shadow .2s ease, border-color .2s ease;
-    }
-    details:hover{
-      border-color:rgba(37,99,235,.15);
-      box-shadow: 0 18px 44px rgba(15,18,26,.1);
-    }
-
-    summary{
-      cursor:pointer;
-      list-style:none;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:14px;
-      font-weight:650;
-      font-size:15px;
-      letter-spacing:-0.01em;
-    }
-    summary::-webkit-details-marker{display:none}
-
-    .chev{
-      width:30px;
-      height:30px;
-      border-radius:10px;
-      border:1px solid var(--stroke);
-      background:rgba(255,255,255,.88);
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      flex:0 0 auto;
-      color:rgba(15,18,26,.72);
-      font-size:16px;
-      line-height:1;
-      transform: translateY(-1px);
-      transition: transform .15s ease;
-    }
-    details[open] .chev{transform: rotate(180deg) translateY(1px)}
-
-    .answer{
-      margin-top:10px;
-      color:var(--muted);
-      font-size:14px;
-      line-height:1.65;
-      max-width:92ch;
-    }
-
+    .section { padding: 12px 0 60px }
+    .ctaSection { padding: 0 0 72px }
   </style>
 {% endblock %}
 
@@ -96,6 +16,10 @@ navActive: faq
   <main>
     <section class="hero">
       <div class="wrap">
+        <div class="heroBadge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+          Common questions answered
+        </div>
         <h1>FAQ</h1>
         <p class="subtext">
           Common questions about pricing, how projects work, and what to expect.
@@ -117,14 +41,14 @@ navActive: faq
     <section class="section">
       <div class="wrap">
 
-        <div class="faqGroup">
+        <div class="faqGroup reveal">
           <p class="groupLabel">Before you start</p>
           <div class="faq">
 
             <details>
               <summary>
                 How much does it cost?
-                <span class="chev" aria-hidden="true">⌄</span>
+                <span class="chev" aria-hidden="true">&#8964;</span>
               </summary>
               <div class="answer">
                 Pricing depends on the scope — the size of the space, what's being installed, how much cabling is involved, and what equipment is needed. There's no flat rate because no two projects are the same.
@@ -138,7 +62,7 @@ navActive: faq
             <details>
               <summary>
                 Do you serve my area?
-                <span class="chev" aria-hidden="true">⌄</span>
+                <span class="chev" aria-hidden="true">&#8964;</span>
               </summary>
               <div class="answer">
                 We serve the Finger Lakes and surrounding areas in upstate NY — including Penn Yan, Keuka Park, Hammondsport, Watkins Glen, Geneva, Canandaigua, Naples, Victor, and Auburn. If you're outside that range, reach out — travel is sometimes possible depending on the project size.
@@ -148,7 +72,7 @@ navActive: faq
             <details>
               <summary>
                 What happens during the free consultation?
-                <span class="chev" aria-hidden="true">⌄</span>
+                <span class="chev" aria-hidden="true">&#8964;</span>
               </summary>
               <div class="answer">
                 We walk through the space, talk through what isn't working and what you want to improve, and put together a simple plan — what equipment is needed, where it goes, and what everything will cost. For Wi-Fi and cameras, we can map the layout to model coverage before anything is installed. You'll have a clear recommendation and quote before any work begins.
@@ -158,7 +82,7 @@ navActive: faq
             <details>
               <summary>
                 Do I need to buy equipment before we talk?
-                <span class="chev" aria-hidden="true">⌄</span>
+                <span class="chev" aria-hidden="true">&#8964;</span>
               </summary>
               <div class="answer">
                 No. Equipment can be sourced as part of the project. If you already have gear on site, we'll look at it and use it where it makes sense.
@@ -168,14 +92,14 @@ navActive: faq
           </div>
         </div>
 
-        <div class="faqGroup">
+        <div class="faqGroup reveal">
           <p class="groupLabel">The install</p>
           <div class="faq">
 
             <details>
               <summary>
                 Can you fix an existing setup, or is this only for new installs?
-                <span class="chev" aria-hidden="true">⌄</span>
+                <span class="chev" aria-hidden="true">&#8964;</span>
               </summary>
               <div class="answer">
                 Both. Some projects are new installs; others are upgrades or fixes — poor Wi-Fi coverage, unreliable cameras, a messy rack. We'll identify what's causing the problem and make a clear plan to fix it.
@@ -185,7 +109,7 @@ navActive: faq
             <details>
               <summary>
                 How long does a typical project take?
-                <span class="chev" aria-hidden="true">⌄</span>
+                <span class="chev" aria-hidden="true">&#8964;</span>
               </summary>
               <div class="answer">
                 It depends on the size of the space and what's being installed. Some jobs are a single visit; others take a few days. You'll get a realistic timeline during the consultation before anything starts.
@@ -195,7 +119,7 @@ navActive: faq
             <details>
               <summary>
                 What equipment do you use?
-                <span class="chev" aria-hidden="true">⌄</span>
+                <span class="chev" aria-hidden="true">&#8964;</span>
               </summary>
               <div class="answer">
                 Most installs use UniFi by Ubiquiti. It brings Wi-Fi, cameras, switching, and phone systems into a single dashboard — fewer apps to manage, one consistent system, and simpler support over time. It's proven hardware that's designed to be updated and maintained for years.
@@ -205,14 +129,14 @@ navActive: faq
           </div>
         </div>
 
-        <div class="faqGroup">
+        <div class="faqGroup reveal">
           <p class="groupLabel">After the install</p>
           <div class="faq">
 
             <details>
               <summary>
                 Will I keep full access to my own system?
-                <span class="chev" aria-hidden="true">⌄</span>
+                <span class="chev" aria-hidden="true">&#8964;</span>
               </summary>
               <div class="answer">
                 Yes. You get admin access and a full walkthrough at handoff. Nothing is locked away or hidden.
@@ -222,7 +146,7 @@ navActive: faq
             <details>
               <summary>
                 Do I have to sign up for ongoing support?
-                <span class="chev" aria-hidden="true">⌄</span>
+                <span class="chev" aria-hidden="true">&#8964;</span>
               </summary>
               <div class="answer">
                 No. Most projects are one-time installs with a clean handoff. Ongoing remote administration is available for clients who want monitoring, proactive updates, and faster troubleshooting — but it's entirely optional.
@@ -232,10 +156,10 @@ navActive: faq
             <details>
               <summary>
                 How do I get help after the job is done?
-                <span class="chev" aria-hidden="true">⌄</span>
+                <span class="chev" aria-hidden="true">&#8964;</span>
               </summary>
               <div class="answer">
-                Email <a href="mailto:support@sladenetworks.com" style="text-decoration:underline; text-decoration-color:rgba(15,18,26,.25);">support@sladenetworks.com</a>. If remote support is set up on your system, many issues can be handled quickly without a site visit.
+                Email <a href="mailto:support@sladenetworks.com">support@sladenetworks.com</a>. If remote support is set up on your system, many issues can be handled quickly without a site visit.
               </div>
             </details>
 
@@ -245,7 +169,7 @@ navActive: faq
       </div>
     </section>
 
-    <section class="ctaSection">
+    <section class="ctaSection reveal">
       <div class="wrap">
         <div class="ctaInner">
           <div>

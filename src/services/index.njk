@@ -7,24 +7,10 @@ navActive: services
 
 {% block pageStyles %}
   <style>
-    /* =========================================================
-       SERVICES PAGE ONLY
-    ========================================================= */
+    .section { padding: 24px 0 56px }
+    .supportSection { padding: 0 0 56px }
 
-    /* Sections */
-    .section { padding: 22px 0 48px }
-    .supportSection { padding: 0 0 48px }
-
-    .sectionLabel {
-      margin: 0 0 14px;
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: .08em;
-      text-transform: uppercase;
-      color: var(--muted);
-    }
-
-    /* Primary cards (3 core services) */
+    /* Primary service cards */
     .primaryGrid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -32,195 +18,175 @@ navActive: services
     }
 
     .primaryCard {
-      background: var(--glass);
-      border: 1px solid var(--stroke);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      padding: 20px;
+      background: var(--white);
+      border: 1px solid var(--gray-200);
+      border-radius: var(--r-xl);
+      box-shadow: var(--shadow-sm);
+      padding: 24px;
       display: flex;
       flex-direction: column;
-      transition: transform .2s ease, box-shadow .2s ease;
+      transition: transform .3s var(--ease), box-shadow .3s var(--ease), border-color .3s var(--ease);
     }
     .primaryCard:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 20px 48px rgba(15,18,26,.12);
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-xl);
+      border-color: var(--primary-100);
     }
 
     .primaryCard h3 {
-      margin: 0 0 6px;
-      font-size: 17px;
+      margin: 0 0 8px;
+      font-size: 18px;
+      font-weight: 700;
       letter-spacing: -0.02em;
+      color: var(--gray-900);
     }
 
     .primaryCard p {
       margin: 0;
-      color: var(--muted);
+      color: var(--gray-500);
       font-size: 14px;
-      line-height: 1.6;
+      line-height: 1.65;
       flex: 1;
     }
 
-    .media {
-      margin-top: 16px;
+    .primaryCard .media {
+      margin-top: 20px;
       display: flex;
       align-items: center;
       justify-content: center;
       min-height: 80px;
     }
 
-    .media img {
-      width: 58%;
-      max-width: 210px;
+    .primaryCard .media img {
+      width: 55%;
+      max-width: 200px;
       height: auto;
       display: block;
       object-fit: contain;
+      transition: transform .3s var(--ease);
     }
 
-    /* Section divider */
+    .primaryCard:hover .media img {
+      transform: scale(1.05);
+    }
+
+    /* Divider */
     .divider {
       border: none;
-      border-top: 1px solid var(--stroke);
-      margin: 32px 0 24px;
+      border-top: 1px solid var(--gray-200);
+      margin: 36px 0 28px;
     }
 
-    /* Secondary cards (supporting work) */
+    /* Secondary service cards */
     .secondaryGrid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 12px;
+      gap: 14px;
     }
 
     .secondaryCard {
-      background: var(--glass);
-      border: 1px solid var(--stroke);
-      border-radius: 14px;
-      box-shadow: 0 4px 16px rgba(15,18,26,.05);
-      padding: 16px 18px;
-      transition: transform .2s ease, box-shadow .2s ease;
+      background: var(--white);
+      border: 1px solid var(--gray-200);
+      border-radius: var(--r-lg);
+      box-shadow: var(--shadow-xs);
+      padding: 20px;
+      transition: transform .3s var(--ease), box-shadow .3s var(--ease), border-color .3s var(--ease);
     }
     .secondaryCard:hover {
       transform: translateY(-2px);
-      box-shadow: 0 18px 44px rgba(15,18,26,.1);
+      box-shadow: var(--shadow-lg);
+      border-color: var(--primary-100);
     }
 
     .secondaryCard h3 {
-      margin: 0 0 4px;
+      margin: 0 0 6px;
       font-size: 15px;
+      font-weight: 700;
       letter-spacing: -0.02em;
+      color: var(--gray-900);
     }
 
     .secondaryCard p {
       margin: 0;
-      color: var(--muted);
+      color: var(--gray-500);
       font-size: 13.5px;
-      line-height: 1.55;
+      line-height: 1.6;
     }
 
     /* Pricing note */
     .pricingNote {
-      margin-top: 20px;
-      padding: 14px 18px;
-      background: rgba(255,255,255,.7);
-      border: 1px solid var(--stroke);
-      border-radius: 14px;
-      font-size: 13.5px;
-      color: var(--muted);
-      line-height: 1.55;
+      margin-top: 24px;
+      padding: 18px 22px;
+      background: var(--gray-50);
+      border: 1px solid var(--gray-200);
+      border-radius: var(--r-lg);
+      font-size: 14px;
+      color: var(--gray-500);
+      line-height: 1.6;
     }
+    .pricingNote strong { color: var(--gray-900) }
+    .pricingNote a { color: var(--primary); font-weight: 600 }
 
-    .pricingNote strong { color: var(--ink) }
-    .pricingNote a { color: var(--accent) }
-
-    /* Ongoing support card */
+    /* Support card */
     .supportCard {
-      background: rgba(37,99,235,.04);
-      border: 1px solid rgba(37,99,235,.18);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      padding: 24px;
+      background: linear-gradient(135deg, rgba(37,99,235,.03) 0%, rgba(37,99,235,.06) 100%);
+      border: 1px solid var(--primary-200);
+      border-radius: var(--r-xl);
+      box-shadow: var(--shadow-sm);
+      padding: 32px;
     }
 
     .supportBadge {
       display: inline-flex;
       align-items: center;
-      background: rgba(37,99,235,.10);
-      color: #2563EB;
+      background: var(--primary-100);
+      color: var(--primary);
       font-size: 11px;
       font-weight: 700;
       letter-spacing: .07em;
       text-transform: uppercase;
-      border-radius: 8px;
-      padding: 4px 9px;
-      margin-bottom: 12px;
+      border-radius: var(--r-sm);
+      padding: 5px 10px;
+      margin-bottom: 14px;
     }
 
     .supportCard h2 {
-      margin: 0 0 8px;
-      font-size: 20px;
+      margin: 0 0 10px;
+      font-size: 22px;
       letter-spacing: -0.02em;
     }
 
     .supportCard > p {
       margin: 0;
-      color: var(--muted);
-      font-size: 14.5px;
-      line-height: 1.6;
+      color: var(--gray-500);
+      font-size: 15px;
+      line-height: 1.65;
       max-width: 82ch;
     }
-
-    .supportCard > p + p { margin-top: 8px }
-
-    .benefitList {
-      list-style: none;
-      padding: 0;
-      margin: 16px 0 0;
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 7px 18px;
-    }
-
-    .benefitList li {
-      font-size: 13.5px;
-      color: var(--muted);
-      display: flex;
-      align-items: center;
-      gap: 7px;
-    }
-
-    .benefitList li::before {
-      content: "✓";
-      color: #2563EB;
-      font-weight: 700;
-      font-size: 12px;
-      flex: 0 0 auto;
-    }
+    .supportCard > p + p { margin-top: 10px }
 
     .supportFooter {
-      margin-top: 18px;
+      margin-top: 22px;
       display: flex;
       align-items: center;
-      gap: 14px;
+      gap: 16px;
       flex-wrap: wrap;
     }
 
     .supportFooter .processLink {
-      font-size: 13.5px;
-      color: var(--accent);
+      font-size: 14px;
+      color: var(--primary);
       font-weight: 600;
     }
 
-    /* Bottom CTA */
-    .ctaSection { padding: 0 0 64px }
+    .ctaSection { padding: 0 0 72px }
 
-    /* Responsive */
     @media(max-width:980px) {
       .primaryGrid { grid-template-columns: 1fr 1fr }
       .secondaryGrid { grid-template-columns: 1fr 1fr }
-      .benefitList { grid-template-columns: 1fr 1fr }
     }
     @media(max-width:700px) {
       .primaryGrid { grid-template-columns: 1fr }
-      .benefitList { grid-template-columns: 1fr }
     }
     @media(max-width:480px) {
       .secondaryGrid { grid-template-columns: 1fr }
@@ -232,6 +198,10 @@ navActive: services
   <main>
     <section class="hero">
       <div class="wrap">
+        <div class="heroBadge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v4m0 14v4M4.22 4.22l2.83 2.83m9.9 9.9 2.83 2.83M1 12h4m14 0h4M4.22 19.78l2.83-2.83m9.9-9.9 2.83-2.83"/></svg>
+          Full-service installs
+        </div>
         <h1>Services</h1>
         <p class="subtext">
           UniFi installation and ongoing support for homes and small businesses — from the hardware to the handoff, with continued support when you need it.
@@ -242,7 +212,7 @@ navActive: services
     <section class="section">
       <div class="wrap">
         <p class="sectionLabel">Core services</p>
-        <div class="primaryGrid">
+        <div class="primaryGrid reveal-stagger">
 
           <article class="primaryCard">
             <h3>Wi-Fi</h3>
@@ -261,7 +231,7 @@ navActive: services
           </article>
 
           <article class="primaryCard">
-            <h3>VoIP phones</h3>
+            <h3>VoIP Phones</h3>
             <p>Business calling on UniFi Talk — clean cutover, number porting handled, and tested end-to-end. Calls don't drop, phones just work.</p>
             <div class="media">
               <img src="/assets/utp-g3-touch-enterprise-1.png" alt="UniFi Talk phone">
@@ -273,7 +243,7 @@ navActive: services
         <hr class="divider">
 
         <p class="sectionLabel">Supporting work</p>
-        <div class="secondaryGrid">
+        <div class="secondaryGrid reveal-stagger">
 
           <article class="secondaryCard">
             <h3>Structured cabling</h3>
@@ -307,13 +277,13 @@ navActive: services
 
         </div>
 
-        <div class="pricingNote">
-          <strong>Transparent pricing.</strong> Every job starts with a free on-site consultation and a written, itemized quote before any work begins — no vague estimates, no surprise add-ons at the end. <a href="/process/">See how the process works →</a>
+        <div class="pricingNote reveal">
+          <strong>Transparent pricing.</strong> Every job starts with a free on-site consultation and a written, itemized quote before any work begins — no vague estimates, no surprise add-ons at the end. <a href="/process/">See how the process works &rarr;</a>
         </div>
       </div>
     </section>
 
-    <section class="supportSection">
+    <section class="supportSection reveal">
       <div class="wrap">
         <div class="supportCard">
           <div class="supportBadge">Recommended add-on</div>
@@ -330,13 +300,13 @@ navActive: services
           </ul>
           <div class="supportFooter">
             <a class="btn primary" href="/contact/">Ask about support plans</a>
-            <a class="processLink" href="/process/">How the full process works →</a>
+            <a class="processLink" href="/process/">How the full process works &rarr;</a>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="ctaSection">
+    <section class="ctaSection reveal">
       <div class="wrap">
         <div class="ctaInner">
           <div>

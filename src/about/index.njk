@@ -7,110 +7,114 @@ navActive: about
 
 {% block pageStyles %}
   <style>
-    .aboutGrid{
-      display:grid;
+    .aboutGrid {
+      display: grid;
       grid-template-columns: 1.1fr .9fr;
-      gap:18px;
-      align-items:start;
-      margin-top:14px;
+      gap: 20px;
+      align-items: start;
+      margin-top: 16px;
     }
 
-    .aboutCard{
-      background:var(--glass);
-      border:1px solid var(--stroke);
-      border-radius:var(--radius);
-      box-shadow:var(--shadow);
-      padding:22px;
+    .aboutCard {
+      background: var(--white);
+      border: 1px solid var(--gray-200);
+      border-radius: var(--r-xl);
+      box-shadow: var(--shadow-sm);
+      padding: 28px;
     }
 
-    .aboutCard h2{
-      margin:0 0 8px;
-      font-size:18px;
-      letter-spacing:-0.02em;
+    .aboutCard h2 {
+      margin: 0 0 10px;
+      font-size: 20px;
+      letter-spacing: -0.02em;
     }
 
-    .aboutCard p{
-      margin:0;
-      color:var(--muted);
-      font-size:14px;
-      line-height:1.65;
-      max-width:92ch;
+    .aboutCard p {
+      margin: 0;
+      color: var(--gray-500);
+      font-size: 14.5px;
+      line-height: 1.7;
+      max-width: 92ch;
     }
-    .aboutCard p + p{ margin-top:10px; }
+    .aboutCard p + p { margin-top: 12px; }
 
-    .founderRow{
-      display:grid;
+    .founderRow {
+      display: grid;
       grid-template-columns: 140px 1fr;
-      gap:16px;
-      align-items:start;
-      margin-top:12px;
+      gap: 20px;
+      align-items: start;
+      margin-top: 14px;
     }
 
-    .headshot{
-      width:140px;
-      height:140px;
-      border-radius:18px;
-      overflow:hidden;
-      border:1px solid var(--stroke);
-      background:rgba(255,255,255,.92);
-      box-shadow:var(--shadow);
+    .headshot {
+      width: 140px;
+      height: 140px;
+      border-radius: var(--r-xl);
+      overflow: hidden;
+      border: 1px solid var(--gray-200);
+      background: var(--gray-50);
+      box-shadow: var(--shadow-md);
     }
 
-    .headshot img{
-      width:100%;
-      height:100%;
-      object-fit:cover;
-      display:block;
+    .headshot img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
     }
 
-    .founderMeta{
-      margin:0;
-      color:var(--muted);
-      font-size:13.5px;
-      line-height:1.6;
+    .founderMeta {
+      margin: 0;
+      color: var(--gray-500);
+      font-size: 14px;
+      line-height: 1.65;
     }
 
-    .pillRow{
-      margin-top:12px;
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
+    .pillRow {
+      margin-top: 16px;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
     }
 
-    .pill{
-      display:inline-flex;
-      align-items:center;
-      gap:10px;
-      padding:8px 12px;
-      border-radius:999px;
-      border:1px solid var(--stroke);
-      background:rgba(255,255,255,.88);
-      color:var(--muted);
-      font-size:13px;
-      line-height:1;
-      white-space:nowrap;
-      transition: border-color .15s ease, background .15s ease;
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 14px;
+      border-radius: var(--r-full);
+      border: 1px solid var(--gray-200);
+      background: var(--gray-50);
+      color: var(--gray-600);
+      font-size: 13px;
+      font-weight: 500;
+      line-height: 1;
+      white-space: nowrap;
+      transition: border-color .2s var(--ease), background .2s var(--ease);
     }
-    .pill:hover{
-      border-color:rgba(37,99,235,.2);
-      background:rgba(37,99,235,.03);
+    .pill:hover {
+      border-color: var(--primary-200);
+      background: var(--primary-50);
+      color: var(--primary);
     }
 
-    .valuesGrid{
-      margin-top:14px;
-      display:grid;
+    .valuesGrid {
+      margin-top: 18px;
+      display: grid;
       grid-template-columns: 1fr 1fr;
-      gap:14px;
+      gap: 14px;
     }
 
-    @media(max-width:980px){
-      .aboutGrid{ grid-template-columns: 1fr; }
+    .ctaSection { padding: 0 0 72px }
+
+    @media(max-width:980px) {
+      .aboutGrid { grid-template-columns: 1fr; }
     }
 
-    @media(max-width:700px){
-      .founderRow{ grid-template-columns: 100px 1fr; }
-      .headshot{ width:100px; height:100px; border-radius:16px; }
-      .valuesGrid{ grid-template-columns:1fr; }
+    @media(max-width:700px) {
+      .founderRow { grid-template-columns: 100px 1fr; }
+      .headshot { width: 100px; height: 100px; border-radius: var(--r-lg); }
+      .valuesGrid { grid-template-columns: 1fr; }
     }
   </style>
 {% endblock %}
@@ -119,6 +123,10 @@ navActive: about
   <main>
     <section class="hero">
       <div class="wrap">
+        <div class="heroBadge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          Owner-operated
+        </div>
         <h1>About Slade Networks</h1>
         <p class="subtext">
           We're a small, owner-operated networking company in the Finger Lakes. Every install is handled personally by Andrew — no subcontractors, no shortcuts, and no systems handed off without a proper walkthrough.
@@ -135,8 +143,7 @@ navActive: about
       <div class="wrap">
         <div class="aboutGrid">
 
-          <!-- Company -->
-          <div class="aboutCard">
+          <div class="aboutCard reveal">
             <h2>Our approach</h2>
             <p>
               Slade Networks designs, installs, and supports modern network infrastructure for homes and small businesses across the Finger Lakes.
@@ -148,7 +155,7 @@ navActive: about
               proper planning, clean cabling and mounting, correct RF design, and predictable configs with sensible security defaults.
             </p>
 
-            <div class="valuesGrid">
+            <div class="valuesGrid reveal-stagger">
               <div class="infoCard">
                 <h3>Built to last</h3>
                 <p>Stable configs, clean physical installs, and sane update practices to reduce surprises.</p>
@@ -163,13 +170,12 @@ navActive: about
               </div>
               <div class="infoCard">
                 <h3>Local and responsive</h3>
-                <p>Finger Lakes–based, with clear communication and responsive scheduling throughout every project.</p>
+                <p>Finger Lakes-based, with clear communication and responsive scheduling throughout every project.</p>
               </div>
             </div>
           </div>
 
-          <!-- Founder -->
-          <div class="aboutCard">
+          <div class="aboutCard reveal">
             <h2>Andrew Slade</h2>
 
             <div class="founderRow">
@@ -178,8 +184,8 @@ navActive: about
               </div>
 
               <div>
-                <p style="margin:0; font-weight:650; letter-spacing:-0.01em;">Founder</p>
-                <p class="founderMeta" style="margin-top:6px;">
+                <p style="margin:0; font-weight:700; letter-spacing:-0.01em; color:var(--gray-900);">Founder</p>
+                <p class="founderMeta" style="margin-top:8px;">
                   Andrew founded Slade Networks to bring dependable, professionally installed networking to homes and small businesses in the Finger Lakes.
                   He is completing a Bachelor's degree in Computer Science at St. Bonaventure University and holds the Cisco CCNA certification.
                   His focus is practical, real-world networking: consistent performance, straightforward management, and designs that scale from a home to a small business environment.
@@ -188,7 +194,7 @@ navActive: about
             </div>
 
             <div class="pillRow" aria-label="Credentials">
-              <span class="pill">Computer Science — St. Bonaventure University</span>
+              <span class="pill">Computer Science &mdash; St. Bonaventure University</span>
               <span class="pill">Cisco CCNA</span>
               <span class="pill">UniFi deployments</span>
             </div>
@@ -198,7 +204,7 @@ navActive: about
       </div>
     </section>
 
-    <section class="ctaSection">
+    <section class="ctaSection reveal">
       <div class="wrap">
         <div class="ctaInner">
           <div>
