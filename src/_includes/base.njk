@@ -6,10 +6,73 @@
   <title>{{ title }}</title>
   <meta name="description" content="{{ description }}" />
   <meta name="theme-color" content="#2563eb" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="/assets/styles.css">
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://sladenetworks.com{{ page.url }}" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Slade Networks" />
+  <meta property="og:title" content="{{ title }}" />
+  <meta property="og:description" content="{{ description }}" />
+  <meta property="og:url" content="https://sladenetworks.com{{ page.url }}" />
+  <meta property="og:image" content="https://sladenetworks.com/assets/website-logo.png" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="{{ title }}" />
+  <meta name="twitter:description" content="{{ description }}" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon-apple.png" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" />
+
+  <link rel="stylesheet" href="/assets/styles.css" />
   {% block pageStyles %}{% endblock %}
+
+  <!-- LocalBusiness structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Slade Networks",
+    "description": "Professional UniFi network installation and ongoing support for homes and small businesses in the Finger Lakes, NY.",
+    "url": "https://sladenetworks.com",
+    "telephone": "(XXX) XXX-XXXX",
+    "email": "info@sladenetworks.com",
+    "image": "https://sladenetworks.com/assets/website-logo.png",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Penn Yan",
+      "addressRegion": "NY",
+      "addressCountry": "US"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 42.6612,
+      "longitude": -77.0538
+    },
+    "areaServed": [
+      "Penn Yan, NY",
+      "Keuka Park, NY",
+      "Hammondsport, NY",
+      "Watkins Glen, NY",
+      "Geneva, NY",
+      "Canandaigua, NY",
+      "Naples, NY",
+      "Victor, NY",
+      "Auburn, NY"
+    ],
+    "founder": {
+      "@type": "Person",
+      "name": "Andrew Slade"
+    },
+    "hasCredential": "Cisco CCNA"
+  }
+  </script>
 </head>
 
 <body>
@@ -35,7 +98,6 @@
         <nav class="navlinks" aria-label="Site navigation" id="navLinks">
           <a href="/" {% if navActive == "home" %}class="active"{% endif %}>Home</a>
           <a href="/services/" {% if navActive == "services" %}class="active"{% endif %}>Services</a>
-          <a href="/process/" {% if navActive == "process" %}class="active"{% endif %}>The Process</a>
           <a href="/faq/" {% if navActive == "faq" %}class="active"{% endif %}>FAQ</a>
           <a href="/about/" {% if navActive == "about" %}class="active"{% endif %}>About</a>
           <a href="/contact/" {% if navActive == "contact" %}class="active"{% endif %}>Contact</a>
@@ -57,7 +119,7 @@
 
         <div class="footerBrand">
           <img src="/assets/website-logo.png" alt="Slade Networks" style="height:40px; filter: brightness(0) invert(1); opacity:.8;">
-          <p>UniFi network installation and support for homes and small businesses in the Finger Lakes.</p>
+          <p>Professional UniFi installation and ongoing support for homes and small businesses across the Finger Lakes.</p>
         </div>
 
         <div class="footerCol">
@@ -81,15 +143,32 @@
           <h4>Connect</h4>
           <div style="display:flex; gap:8px; margin-bottom:12px;">
             <a class="socialBtn" href="https://www.linkedin.com/company/slade-networks" target="_blank" rel="noopener" aria-label="LinkedIn">
-              <img class="socialIconImg" src="/assets/LI-In-Bug.png" alt="">
+              <svg class="socialIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+                <rect x="2" y="9" width="4" height="12"/>
+                <circle cx="4" cy="4" r="2"/>
+              </svg>
             </a>
             <a class="socialBtn" href="https://www.facebook.com/sladenetworks" target="_blank" rel="noopener" aria-label="Facebook">
-              <img class="socialIconImg" src="/assets/Facebook_Logo_Primary.png" alt="">
+              <svg class="socialIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+              </svg>
             </a>
             <a class="socialBtn" href="https://www.instagram.com/sladenetworks/" target="_blank" rel="noopener" aria-label="Instagram">
-              <img class="socialIconImg" src="/assets/Instagram_Glyph_Gradient.png" alt="">
+              <svg class="socialIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+              </svg>
             </a>
           </div>
+          <!-- PLACEHOLDER: replace with real number when available -->
+          <span class="footerPhone">
+            <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.13 12.7 19.79 19.79 0 0 1 1.06 4.1 2 2 0 0 1 3.03 1.9h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21 16.92z"/>
+            </svg>
+            (XXX) XXX-XXXX
+          </span>
           <a href="mailto:info@sladenetworks.com" class="footerEmail">
             <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M4 6h16v12H4z"/>
