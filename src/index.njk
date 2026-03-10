@@ -139,61 +139,6 @@ navActive: home
       margin-top: 22px;
     }
 
-    /* ── Before / after ── */
-    .beforeAfterWrap {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 20px;
-      margin-top: 28px;
-      align-items: stretch;
-    }
-
-    .beforeAfterCard {
-      border-radius: var(--r-xl);
-      overflow: hidden;
-      border: 1px solid var(--gray-200);
-      box-shadow: var(--shadow-md);
-      position: relative;
-      background: var(--gray-50);
-      transition: box-shadow .3s var(--ease);
-    }
-
-    .beforeAfterCard:hover {
-      box-shadow: var(--shadow-xl);
-    }
-
-    .beforeAfterCard img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-      aspect-ratio: 4/3;
-    }
-
-    .beforeAfterLabel {
-      position: absolute;
-      top: 14px;
-      left: 14px;
-      padding: 5px 12px;
-      border-radius: var(--r-full);
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: .05em;
-      text-transform: uppercase;
-      backdrop-filter: blur(6px);
-      -webkit-backdrop-filter: blur(6px);
-    }
-
-    .beforeAfterLabel.before {
-      background: rgba(15,23,42,.65);
-      color: var(--white);
-    }
-
-    .beforeAfterLabel.after {
-      background: rgba(37,99,235,.85);
-      color: var(--white);
-    }
-
     /* ── Meet Andrew ── */
     .meetSection { padding: 0 0 72px }
 
@@ -282,9 +227,6 @@ navActive: home
       flex-shrink: 0;
     }
 
-    /* ── Testimonial raised ── */
-    .testimonialSection { padding: 0 0 0 }
-
     @media(max-width:980px) {
       .processSteps { grid-template-columns: 1fr 1fr }
       .meetGrid { grid-template-columns: 1fr }
@@ -295,7 +237,6 @@ navActive: home
     @media(max-width:700px) {
       .servicesPreview { grid-template-columns: 1fr }
       .processSteps { grid-template-columns: 1fr }
-      .beforeAfterWrap { grid-template-columns: 1fr }
     }
   </style>
 {% endblock %}
@@ -409,28 +350,6 @@ navActive: home
       </div>
     </section>
 
-    {# ── BEFORE / AFTER ── #}
-    <section class="section sectionAlt reveal">
-      <div class="wrap">
-        <p class="sectionLabel">The difference it makes</p>
-        <h2 class="sectionTitle">Before and After</h2>
-        <p class="sectionIntro">
-          A disorganized closet becomes a clean, labeled, and serviceable rack. Every install is done right.
-        </p>
-
-        <div class="beforeAfterWrap reveal-stagger">
-          <div class="beforeAfterCard">
-            <img src="/assets/IMG_0056.jpeg" alt="Messy, disorganized network closet before professional installation" loading="lazy">
-            <span class="beforeAfterLabel before">Before</span>
-          </div>
-          <div class="beforeAfterCard">
-            <img src="/assets/IMG_0431.jpeg" alt="Clean, organized network rack after Slade Networks installation" loading="lazy">
-            <span class="beforeAfterLabel after">After</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
     {# ── HOW IT WORKS ── #}
     <section class="section reveal">
       <div class="wrap">
@@ -470,14 +389,12 @@ navActive: home
     </section>
 
     {# ── TESTIMONIAL ── #}
-    <section class="testimonialSection reveal" style="padding: 0 0 72px">
+    <section class="testimonialBand reveal">
       <div class="wrap">
         <p class="sectionLabel">What clients say</p>
-        <div class="testimonialCard">
-          <span class="quoteMark" aria-hidden="true">&ldquo;</span>
-          <p class="quoteText">His professionalism and calm, practical problem-solving ability were consistently impressive. His work has had a meaningful impact on the Museum's operations and visitor experience.</p>
-          <p class="quoteAttrib">&mdash; The Finger Lakes Boating Museum</p>
-        </div>
+        <span class="quoteMark" aria-hidden="true">&ldquo;</span>
+        <p class="quoteText">His professionalism and calm, practical problem-solving ability were consistently impressive. His work has had a meaningful impact on the Museum's operations and visitor experience.</p>
+        <p class="quoteAttrib">&mdash; The Finger Lakes Boating Museum</p>
       </div>
     </section>
 
