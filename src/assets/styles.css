@@ -110,16 +110,14 @@ img { display: block; max-width: 100% }
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(255,255,255,.82);
-  backdrop-filter: blur(20px) saturate(180%);
-  -webkit-backdrop-filter: blur(20px) saturate(180%);
-  border-bottom: 1px solid rgba(226,232,240,.6);
+  background: var(--gray-900);
+  border-bottom: 1px solid rgba(255,255,255,.08);
   transition: box-shadow .3s var(--ease), border-color .3s var(--ease);
 }
 
 .topbar.scrolled {
-  box-shadow: 0 1px 3px rgba(15,23,42,.06), 0 4px 12px rgba(15,23,42,.04);
-  border-color: rgba(226,232,240,.9);
+  box-shadow: 0 1px 3px rgba(0,0,0,.2), 0 4px 12px rgba(0,0,0,.15);
+  border-color: rgba(255,255,255,.1);
 }
 
 .nav {
@@ -140,6 +138,7 @@ img { display: block; max-width: 100% }
   height: 52px;
   width: auto;
   display: block;
+  filter: brightness(0) invert(1);
 }
 
 .navlinks {
@@ -148,7 +147,7 @@ img { display: block; max-width: 100% }
   gap: 2px;
   font-size: 14px;
   font-weight: 500;
-  color: var(--gray-600);
+  color: var(--gray-400);
 }
 
 .navlinks a {
@@ -158,13 +157,13 @@ img { display: block; max-width: 100% }
   position: relative;
 }
 .navlinks a:hover {
-  color: var(--gray-900);
-  background: var(--gray-50);
+  color: var(--white);
+  background: rgba(255,255,255,.08);
 }
 .navlinks a.active {
-  color: var(--primary);
+  color: var(--white);
   font-weight: 600;
-  background: var(--primary-50);
+  background: rgba(255,255,255,.1);
 }
 
 .cta { display: flex; gap: 10px }
@@ -174,17 +173,17 @@ img { display: block; max-width: 100% }
   width: 44px;
   height: 44px;
   border-radius: var(--r-md);
-  border: 1px solid var(--gray-200);
-  background: var(--white);
+  border: 1px solid rgba(255,255,255,.15);
+  background: rgba(255,255,255,.06);
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  color: var(--gray-700);
+  color: var(--gray-300);
   transition: background .15s var(--ease), border-color .15s var(--ease);
 }
 .navToggle:hover {
-  background: var(--gray-50);
-  border-color: var(--gray-300);
+  background: rgba(255,255,255,.12);
+  border-color: rgba(255,255,255,.25);
 }
 .navToggle svg { width: 20px; height: 20px; display: block }
 
@@ -224,9 +223,9 @@ img { display: block; max-width: 100% }
     top: calc(100% + 8px);
     padding: 8px;
     border-radius: var(--r-lg);
-    border: 1px solid var(--gray-200);
-    background: var(--white);
-    box-shadow: var(--shadow-2xl);
+    border: 1px solid rgba(255,255,255,.1);
+    background: var(--gray-800);
+    box-shadow: 0 8px 32px rgba(0,0,0,.4);
     flex-direction: column;
     gap: 2px;
     z-index: 60;
@@ -246,7 +245,7 @@ img { display: block; max-width: 100% }
     width: 100%;
     font-size: 15px;
   }
-  .navlinks a:hover { background: var(--gray-50) }
+  .navlinks a:hover { background: rgba(255,255,255,.08) }
 }
 
 
@@ -770,7 +769,7 @@ h2 {
 
 .footer {
   margin-top: 0;
-  padding: 56px 0 44px;
+  padding: 36px 0 28px;
   background: var(--gray-900);
   color: var(--gray-400);
 }
@@ -809,8 +808,8 @@ h2 {
 .footerCol a:not(.socialBtn):hover { color: var(--white) }
 
 .footerBottom {
-  margin-top: 40px;
-  padding-top: 24px;
+  margin-top: 28px;
+  padding-top: 16px;
   border-top: 1px solid rgba(255,255,255,.08);
   display: flex;
   align-items: center;
