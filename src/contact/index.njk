@@ -12,7 +12,7 @@ navActive: contact
       grid-template-columns: 1.1fr .9fr;
       gap: 20px;
       margin-top: 24px;
-      align-items: start;
+      align-items: stretch;
     }
 
     .contactCard {
@@ -29,6 +29,12 @@ navActive: contact
       letter-spacing: -0.02em;
     }
 
+    /* Info card equal-height layout */
+    .infoCard {
+      display: flex;
+      flex-direction: column;
+    }
+
     /* Form */
     .fields { display: grid; gap: 14px }
 
@@ -36,6 +42,157 @@ navActive: contact
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 14px;
+    }
+
+    /* Match native select to custom multi-select style */
+    .fields select {
+      border: 1.5px solid var(--gray-200);
+      font-size: 15px;
+      height: 44px;
+      padding: 0 14px;
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%239ca3af' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 14px center;
+      padding-right: 40px;
+      cursor: pointer;
+    }
+    .fields select:hover { border-color: var(--primary); }
+
+    /* Town/city label row with info button */
+    .labelRow {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 6px;
+    }
+    .labelRow label { margin: 0; }
+
+    .infoBtn {
+      width: 17px; height: 17px;
+      border-radius: 50%;
+      border: 1.5px solid var(--gray-300);
+      background: none;
+      color: var(--gray-400);
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      padding: 0;
+      flex: 0 0 auto;
+      transition: border-color .15s, color .15s;
+      line-height: 1;
+    }
+    .infoBtn:hover { border-color: var(--primary); color: var(--primary); }
+
+    .locationWrap { position: relative; }
+
+    .serviceAreaPopover {
+      display: none;
+      position: absolute;
+      top: calc(100% + 6px);
+      left: 0;
+      z-index: 60;
+      background: var(--white);
+      border: 1px solid var(--gray-200);
+      border-radius: var(--r-md);
+      box-shadow: 0 6px 20px rgba(0,0,0,.1);
+      padding: 12px 14px;
+      font-size: 13px;
+      color: var(--gray-600);
+      line-height: 1.55;
+      width: 260px;
+    }
+    .serviceAreaPopover.open { display: block; }
+    .serviceAreaPopover strong { color: var(--gray-900); display: block; margin-bottom: 4px; font-size: 12px; text-transform: uppercase; letter-spacing: .06em; }
+
+
+    /* Custom multi-select */
+    .multiSelect { position: relative; }
+
+    .multiSelectBtn {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      padding: 0 14px;
+      height: 44px;
+      background: var(--white);
+      border: 1.5px solid var(--gray-200);
+      border-radius: var(--r-md);
+      font-size: 15px;
+      font-family: inherit;
+      color: var(--gray-900);
+      cursor: pointer;
+      text-align: left;
+      transition: border-color .15s;
+    }
+
+    .multiSelectBtn:hover,
+    .multiSelectBtn:focus { border-color: var(--primary); outline: none; }
+
+    .multiSelectBtn[aria-expanded="true"] {
+      border-color: var(--primary);
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+
+    .multiSelectLabel { flex: 1; color: var(--gray-400); }
+    .multiSelectLabel.hasValue { color: var(--gray-900); }
+
+    .multiSelectChevron {
+      flex: 0 0 auto;
+      color: var(--gray-400);
+      transition: transform .15s;
+    }
+    .multiSelectBtn[aria-expanded="true"] .multiSelectChevron { transform: rotate(180deg); }
+
+    .multiSelectDropdown {
+      display: none;
+      position: absolute;
+      left: 0; right: 0; top: 100%;
+      background: var(--white);
+      border: 1.5px solid var(--primary);
+      border-top: none;
+      border-bottom-left-radius: var(--r-md);
+      border-bottom-right-radius: var(--r-md);
+      box-shadow: 0 8px 24px rgba(0,0,0,.1);
+      z-index: 50;
+      padding: 4px 0;
+    }
+    .multiSelectDropdown.open { display: block; }
+
+    .multiSelectOption {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 9px 14px;
+      cursor: pointer;
+      font-size: 14px;
+      color: var(--gray-700);
+      transition: background .1s;
+      user-select: none;
+    }
+    .multiSelectOption:hover { background: var(--primary-50); }
+    .multiSelectOption input[type="checkbox"] {
+      width: 15px; height: 15px;
+      accent-color: var(--primary);
+      flex: 0 0 auto; margin: 0; cursor: pointer;
+    }
+    .multiSelectOption:has(input:checked) { color: var(--primary); font-weight: 500; }
+
+    /* Privacy note */
+    .privacyNote {
+      font-size: 12px;
+      color: var(--gray-400);
+      margin: 0;
+      line-height: 1.5;
+    }
+
+    .privacyNote svg {
+      display: inline;
+      vertical-align: middle;
+      margin-right: 4px;
+      flex: 0 0 auto;
     }
 
     /* Success notice */
@@ -130,15 +287,8 @@ navActive: contact
       background-size: 10px;
     }
 
-    .areaNote {
-      margin-top: 18px;
-      font-size: 13px;
-      color: var(--gray-400);
-      line-height: 1.55;
-    }
-
     @media(max-width:980px) {
-      .grid { grid-template-columns: 1fr }
+      .grid { grid-template-columns: 1fr; align-items: start; }
     }
 
     @media(max-width:700px) {
@@ -160,7 +310,7 @@ navActive: contact
 
         <div class="grid">
 
-          <div class="contactCard reveal">
+          <div class="contactCard">
             <h2>Request a free consultation</h2>
 
             <form id="contactForm" action="https://formspree.io/f/maqdblqe" method="POST">
@@ -174,6 +324,7 @@ navActive: contact
               </div>
 
               <div class="fields">
+
                 <div class="row2">
                   <div>
                     <label for="name">Name</label>
@@ -187,56 +338,78 @@ navActive: contact
 
                 <div class="row2">
                   <div>
-                    <label for="who">Home or business</label>
+                    <label for="who">Business or home?</label>
                     <select id="who" name="home_or_business">
-                      <option value="Home">Home</option>
                       <option value="Business">Business</option>
+                      <option value="Home">Home</option>
                     </select>
                   </div>
                   <div>
-                    <label for="location">Town / area</label>
-                    <input id="location" name="town_area" autocomplete="address-level2" placeholder="e.g. Penn Yan" />
+                    <div class="labelRow">
+                      <label for="location">Town / city</label>
+                      <button type="button" class="infoBtn" id="serviceAreaBtn" aria-label="View service area">
+                        <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="8" x2="12" y2="8"/><line x1="12" y1="12" x2="12" y2="18"/></svg>
+                      </button>
+                    </div>
+                    <div class="locationWrap">
+                      <input id="location" name="town_city" autocomplete="address-level2" placeholder="e.g. Penn Yan" />
+                      <div class="serviceAreaPopover" id="serviceAreaPopover">
+                        <strong>Service area</strong>
+                        Penn Yan, Geneva, Canandaigua, Seneca Falls, Watkins Glen, Hammondsport, Dundee, Benton, and surrounding Finger Lakes communities.
+                      </div>
+                    </div>
                   </div>
                 </div>
 
                 <div>
-                  <label for="service">What help is needed?</label>
-                  <select id="service" name="service_needed">
-                    <option value="Wi-Fi">Wi-Fi (coverage / redesign / new install)</option>
-                    <option value="Cameras">Cameras + NVR</option>
-                    <option value="VoIP">VoIP (UniFi Talk)</option>
-                    <option value="Cabling">Structured cabling</option>
-                    <option value="Gateway/Switching">Gateway / switching</option>
-                    <option value="Rack">Rack build / cleanup</option>
-                    <option value="LTE/5G">LTE/5G backup internet</option>
-                    <option value="Support Plan">Ongoing Support Plan</option>
-                    <option value="Other">Other</option>
-                  </select>
+                  <label for="phone">Phone <span style="font-weight:400; color:var(--gray-400)">(optional)</span></label>
+                  <input id="phone" name="phone" type="tel" autocomplete="tel" placeholder="(xxx) xxx-xxxx" />
                 </div>
 
                 <div>
-                  <label for="timeline">Timeline</label>
-                  <input id="timeline" name="timeline" placeholder="e.g. this month / next month / flexible" />
+                  <label for="serviceBtn">Services desired <span style="font-weight:400; color:var(--gray-400)">(select all that apply)</span></label>
+                  <div class="multiSelect">
+                    <button type="button" id="serviceBtn" class="multiSelectBtn" aria-haspopup="listbox" aria-expanded="false">
+                      <span class="multiSelectLabel" id="serviceLabel">— Select services —</span>
+                      <svg class="multiSelectChevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                    </button>
+                    <div class="multiSelectDropdown" id="serviceDropdown">
+                      <label class="multiSelectOption"><input type="checkbox" name="services" value="Wi-Fi coverage / redesign"><span>Wi-Fi coverage / redesign</span></label>
+                      <label class="multiSelectOption"><input type="checkbox" name="services" value="Cameras + NVR"><span>Cameras + NVR</span></label>
+                      <label class="multiSelectOption"><input type="checkbox" name="services" value="VoIP (UniFi Talk)"><span>VoIP (UniFi Talk)</span></label>
+                      <label class="multiSelectOption"><input type="checkbox" name="services" value="Structured cabling"><span>Structured cabling</span></label>
+                      <label class="multiSelectOption"><input type="checkbox" name="services" value="Gateway / switching"><span>Gateway / switching</span></label>
+                      <label class="multiSelectOption"><input type="checkbox" name="services" value="Rack build / cleanup"><span>Rack build / cleanup</span></label>
+                      <label class="multiSelectOption"><input type="checkbox" name="services" value="LTE/5G backup internet"><span>LTE/5G backup internet</span></label>
+                      <label class="multiSelectOption"><input type="checkbox" name="services" value="Ongoing support plan"><span>Ongoing support plan</span></label>
+                      <label class="multiSelectOption"><input type="checkbox" name="services" value="Not sure / other"><span>Not sure / other</span></label>
+                    </div>
+                  </div>
                 </div>
 
                 <div>
                   <label for="message">Project details</label>
-                  <textarea id="message" name="project_details" placeholder="Briefly describe what's going on and what the goal is."></textarea>
+                  <textarea id="message" name="project_details" placeholder="Describe what's going on and what you'd like to achieve — e.g. dead zones in parts of the house, setting up a new office, adding cameras to a second building. Any detail helps."></textarea>
                 </div>
 
-                <div style="display:flex; gap:10px; flex-wrap:wrap;">
-                  <button class="btn primary" type="submit">Send request</button>
-                  <a class="btn" href="mailto:info@sladenetworks.com?subject=Slade%20Networks%20Consultation">Email instead</a>
+                <p class="privacyNote">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                  Your information is used only to respond to your inquiry and is never sold or shared with third parties.
+                </p>
+
+                <div>
+                  <button class="btn primary" type="submit">Request your free consultation</button>
                 </div>
 
                 <div id="sentNotice" class="notice" role="status" aria-live="polite">
                   Sent — we'll be in touch within one business day. If you don't hear back, email <a href="mailto:info@sladenetworks.com">info@sladenetworks.com</a> directly.
                 </div>
+
               </div>
             </form>
           </div>
 
-          <div class="contactCard reveal">
+          <div class="contactCard infoCard">
             <h2>Reach us directly</h2>
 
             <div class="contactBlock">
@@ -268,7 +441,6 @@ navActive: contact
               <li>No pressure, no obligation</li>
             </ul>
 
-            <p class="areaNote">Serving homes and small businesses across the Finger Lakes region in upstate NY.</p>
           </div>
 
         </div>
@@ -284,6 +456,57 @@ navActive: contact
       if (params.get("sent") === "1") {
         var notice = document.getElementById("sentNotice");
         if (notice) notice.classList.add("show");
+      }
+
+      // Service area popover
+      var serviceAreaBtn = document.getElementById("serviceAreaBtn");
+      var serviceAreaPopover = document.getElementById("serviceAreaPopover");
+      if (serviceAreaBtn && serviceAreaPopover) {
+        serviceAreaBtn.addEventListener("click", function(e) {
+          e.stopPropagation();
+          serviceAreaPopover.classList.toggle("open");
+        });
+        document.addEventListener("click", function(e) {
+          if (!serviceAreaBtn.contains(e.target)) serviceAreaPopover.classList.remove("open");
+        });
+        document.addEventListener("keydown", function(e) { if (e.key === "Escape") serviceAreaPopover.classList.remove("open"); });
+      }
+
+      // Custom multi-select
+      var serviceBtn = document.getElementById("serviceBtn");
+      var serviceDropdown = document.getElementById("serviceDropdown");
+      var serviceLabel = document.getElementById("serviceLabel");
+      if (serviceBtn && serviceDropdown) {
+        var cbs = serviceDropdown.querySelectorAll('input[type="checkbox"]');
+
+        function updateServiceLabel() {
+          var checked = Array.from(cbs).filter(function(c) { return c.checked; });
+          if (checked.length === 0) {
+            serviceLabel.textContent = "— Select services —";
+            serviceLabel.classList.remove("hasValue");
+          } else if (checked.length === 1) {
+            serviceLabel.textContent = checked[0].value;
+            serviceLabel.classList.add("hasValue");
+          } else {
+            serviceLabel.textContent = checked.length + " services selected";
+            serviceLabel.classList.add("hasValue");
+          }
+        }
+
+        function openService() { serviceDropdown.classList.add("open"); serviceBtn.setAttribute("aria-expanded","true"); }
+        function closeService() { serviceDropdown.classList.remove("open"); serviceBtn.setAttribute("aria-expanded","false"); }
+
+        serviceBtn.addEventListener("click", function(e) {
+          e.stopPropagation();
+          serviceDropdown.classList.contains("open") ? closeService() : openService();
+        });
+
+        cbs.forEach(function(cb) { cb.addEventListener("change", updateServiceLabel); });
+
+        document.addEventListener("click", function(e) {
+          if (!serviceBtn.closest(".multiSelect").contains(e.target)) closeService();
+        });
+        document.addEventListener("keydown", function(e) { if (e.key === "Escape") closeService(); });
       }
 
       var form = document.getElementById("contactForm");
