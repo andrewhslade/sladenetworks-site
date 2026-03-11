@@ -1,6 +1,6 @@
 ---
 title: "About — Slade Networks"
-description: "Meet Andrew Slade — the person behind every Slade Networks install. Owner-operated UniFi networking for homes and businesses in the Finger Lakes, NY."
+description: "Slade Networks designs and installs UniFi network infrastructure for homes and businesses across the Finger Lakes, NY. Learn about our standards, approach, and founder."
 navActive: about
 ---
 {% extends "base.njk" %}
@@ -9,9 +9,9 @@ navActive: about
   <style>
     .aboutGrid {
       display: grid;
-      grid-template-columns: 1.1fr .9fr;
+      grid-template-columns: 1fr 1fr;
       gap: 20px;
-      align-items: start;
+      align-items: stretch;
       margin-top: 16px;
     }
 
@@ -21,6 +21,8 @@ navActive: about
       border-radius: var(--r-xl);
       box-shadow: var(--shadow-sm);
       padding: 28px;
+      display: flex;
+      flex-direction: column;
     }
 
     .aboutCard h2 {
@@ -34,26 +36,26 @@ navActive: about
       color: var(--gray-500);
       font-size: 14.5px;
       line-height: 1.7;
-      max-width: 92ch;
     }
     .aboutCard p + p { margin-top: 12px; }
 
-    .founderRow {
-      display: grid;
-      grid-template-columns: 140px 1fr;
-      gap: 20px;
-      align-items: start;
+    /* Founder card */
+    .founderHeader {
+      display: flex;
+      align-items: center;
+      gap: 16px;
       margin-top: 14px;
     }
 
     .headshot {
-      width: 140px;
-      height: 140px;
-      border-radius: var(--r-xl);
+      width: 72px;
+      height: 72px;
+      border-radius: var(--r-lg);
       overflow: hidden;
       border: 1px solid var(--gray-200);
       background: var(--gray-50);
       box-shadow: var(--shadow-md);
+      flex-shrink: 0;
     }
 
     .headshot img {
@@ -63,12 +65,13 @@ navActive: about
       display: block;
     }
 
-    .founderMeta {
-      margin: 0;
+    .founderBio {
+      margin-top: 16px;
       color: var(--gray-500);
       font-size: 14px;
-      line-height: 1.65;
+      line-height: 1.7;
     }
+    .founderBio + .founderBio { margin-top: 10px; }
 
     .pillRow {
       margin-top: 16px;
@@ -98,125 +101,188 @@ navActive: about
       color: var(--primary);
     }
 
-    .valuesGrid {
+    /* Standards cards */
+    .standardsGrid {
       margin-top: 18px;
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 1fr;
       gap: 14px;
+      flex: 1;
+      align-content: start;
     }
 
-    .ctaSection { padding: 0 0 72px }
+    .standardCard {
+      padding: 16px 18px;
+      border-radius: var(--r-lg);
+      border: 1px solid var(--gray-200);
+      background: var(--gray-50);
+    }
 
-    @media(max-width:980px) {
+    .standardCard h3 {
+      margin: 0 0 6px;
+      font-size: 14.5px;
+      font-weight: 600;
+      color: var(--gray-900);
+      letter-spacing: -0.01em;
+    }
+
+    .standardCard p {
+      margin: 0;
+      color: var(--gray-500);
+      font-size: 13.5px;
+      line-height: 1.6;
+    }
+
+    /* Divider between sections */
+    .aboutDivider {
+      border: none;
+      border-top: 1px solid var(--gray-200);
+      margin: 32px 0;
+    }
+
+    /* Process teaser strip */
+    .processBanner {
+      background: var(--white);
+      border: 1px solid var(--gray-200);
+      border-radius: var(--r-xl);
+      box-shadow: var(--shadow-sm);
+      padding: 24px 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      margin-top: 16px;
+    }
+
+    .processBanner p {
+      margin: 0;
+      color: var(--gray-500);
+      font-size: 14.5px;
+      line-height: 1.6;
+      max-width: 56ch;
+    }
+
+    .processBanner strong {
+      display: block;
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--gray-900);
+      letter-spacing: -0.02em;
+      margin-bottom: 4px;
+    }
+
+    .hero { padding-bottom: 40px; }
+    .aboutSection { padding: 24px 0 0; }
+    .ctaSection { padding: 24px 0 72px; }
+
+    @media(max-width: 980px) {
       .aboutGrid { grid-template-columns: 1fr; }
+      .processBanner { flex-direction: column; align-items: flex-start; }
     }
 
-    @media(max-width:700px) {
-      .founderRow { grid-template-columns: 100px 1fr; }
-      .headshot { width: 100px; height: 100px; border-radius: var(--r-lg); }
-      .valuesGrid { grid-template-columns: 1fr; }
+    @media(max-width: 700px) {
+      .aboutSection { padding: 32px 0 0; }
     }
   </style>
 {% endblock %}
 
 {% block content %}
   <main>
+
+    <!-- Hero -->
     <section class="hero">
       <div class="wrap">
         <div class="heroBadge">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-          Owner-operated
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          Finger Lakes, NY
         </div>
-        <h1>The Person Behind the Work</h1>
+        <h1>Professional Networks.<br>Personal Accountability.</h1>
         <p class="subtext">
-          Slade Networks is a one-person operation. Every consultation, installation, and support call is handled directly by Andrew — no subcontractors, no middlemen, and no system left behind without a proper walkthrough.
+          Slade Networks designs, installs, and supports network infrastructure for homes and businesses across the Finger Lakes — using commercial-grade equipment, a consistent process, and a standard that holds long after the install is done.
         </p>
-
         <div class="heroButtons">
           <a class="btn primary" href="/contact/">Get a free consultation</a>
-          <a class="btn" href="/services/">View services</a>
+          <a class="btn" href="/process/">See how a project works</a>
         </div>
       </div>
     </section>
 
-    <section class="section">
+    <!-- Founder + Standards -->
+    <section class="aboutSection">
       <div class="wrap">
-        <div class="aboutGrid">
+        <div class="aboutGrid reveal-stagger">
 
-          <div class="aboutCard">
-            <h2>How we work</h2>
-            <p>
-              We design, install, and support network infrastructure for homes and small businesses across the Finger Lakes.
-              Most projects use UniFi — a single platform for routing, switching, Wi-Fi, cameras, and VoIP — so everything runs through one dashboard and is straightforward to maintain.
-            </p>
-            <p>
-              Whether it's a new build or a fix for poor coverage, unreliable cameras, or tangled wiring, the approach is the same:
-              thorough planning, clean installation, proper RF design, and a system that's documented and easy to manage long after we leave.
-            </p>
-
-            <div class="valuesGrid reveal-stagger">
-              <div class="infoCard">
-                <h3>Built to last</h3>
-                <p>Stable configurations, clean physical installs, and disciplined update practices so nothing breaks unexpectedly.</p>
-              </div>
-              <div class="infoCard">
-                <h3>Easy to maintain</h3>
-                <p>Clear labeling, organized cabling, and documentation so future changes and troubleshooting stay simple.</p>
-              </div>
-              <div class="infoCard">
-                <h3>Secure by default</h3>
-                <p>Network segmentation, proper access controls, and practical hardening — no unnecessary complexity.</p>
-              </div>
-              <div class="infoCard">
-                <h3>Local and available</h3>
-                <p>Based in Penn Yan, with responsive communication and flexible scheduling throughout every project.</p>
-              </div>
-            </div>
-          </div>
-
+          <!-- Founder -->
           <div class="aboutCard">
             <h2>Andrew Slade</h2>
-
-            <div class="founderRow">
+            <div class="founderHeader">
               <div class="headshot">
                 <img src="/assets/Headshot.jpg" alt="Andrew Slade, founder of Slade Networks" loading="lazy">
               </div>
-
-              <div>
-                <p style="margin:0; font-weight:700; letter-spacing:-0.01em; color:var(--gray-900);">Founder</p>
-                <p class="founderMeta" style="margin-top:8px;">
-                  Andrew started Slade Networks because he saw too many homes and businesses in the Finger Lakes stuck with unreliable networks and no one local to call.
-                  He holds a Cisco CCNA certification and is completing his Computer Science degree at St. Bonaventure University.
-                  His focus is practical, real-world networking — consistent performance, clean installs, and systems that work the same way on day 300 as they did on day one.
-                </p>
-              </div>
+              <p style="margin:0; font-weight:700; letter-spacing:-0.01em; color:var(--gray-900); font-size:14px;">Founder</p>
             </div>
-
+            <p class="founderBio">
+              Andrew founded Slade Networks after seeing too many homes and businesses in the Finger Lakes stuck with unreliable networks and no qualified local option to turn to.
+            </p>
+            <p class="founderBio">
+              He graduated from St. Bonaventure University with a degree in Computer Science and holds a Cisco CCNA certification. His focus has always been practical, real-world networking — the kind that performs on day 300 the same way it did on day one.
+            </p>
             <div class="pillRow" aria-label="Credentials">
-              <span class="pill">Computer Science &mdash; St. Bonaventure University</span>
+              <span class="pill">B.S. Computer Science — St. Bonaventure University</span>
               <span class="pill">Cisco CCNA</span>
-              <span class="pill">UniFi deployments</span>
+              <span class="pill">UniFi specialist</span>
+            </div>
+          </div>
+
+          <!-- Standards -->
+          <div class="aboutCard">
+            <h2>What every project is held to</h2>
+            <p>These aren't aspirational — they're the baseline for every job, from a single access point to a full commercial install.</p>
+
+            <div class="standardsGrid reveal-stagger">
+              <div class="standardCard">
+                <h3>Commercial gear, sourced direct</h3>
+                <p>Equipment is purchased straight from Ubiquiti — no gray-market hardware, no inflated reseller pricing. You get the same commercial-grade UniFi gear used in enterprise deployments.</p>
+              </div>
+              <div class="standardCard">
+                <h3>Written quote before any work begins</h3>
+                <p>A detailed plan and fixed cost upfront. No scope changes happen without your approval, and no surprise line items appear on the final invoice.</p>
+              </div>
+              <div class="standardCard">
+                <h3>Full admin access is yours, always</h3>
+                <p>Your network belongs to you. Every project is documented, labeled, and handed off with complete admin credentials — no ongoing dependency on Slade Networks to make changes.</p>
+              </div>
             </div>
           </div>
 
         </div>
+
+        <!-- Process teaser -->
+        <div class="processBanner reveal">
+          <div>
+            <strong>Not sure what to expect?</strong>
+            <p>Every project follows the same clear process — free on-site visit, written quote, clean install, and a full walkthrough before we leave. No obligation at any step.</p>
+          </div>
+          <a class="btn" href="/process/" style="flex-shrink:0;">See the process</a>
+        </div>
+
       </div>
     </section>
 
+    <!-- CTA -->
     <section class="ctaSection reveal">
       <div class="wrap">
         <div class="ctaInner">
           <div>
-            <h2>Want to work with us?</h2>
-            <p>Tell us what you're dealing with and we'll respond with clear next steps — no sales pitch, just a plan.</p>
+            <h2>Ready to talk about your network?</h2>
+            <p>Describe what you're dealing with and you'll get a clear response — no sales pitch, just honest next steps.</p>
           </div>
-
           <div class="ctaButtons">
             <a class="btn primary" href="/contact/">Start a conversation</a>
-            <a class="btn" href="mailto:info@sladenetworks.com">Email us directly</a>
           </div>
         </div>
       </div>
     </section>
+
   </main>
 {% endblock %}
