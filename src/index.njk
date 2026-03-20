@@ -139,15 +139,13 @@ navActive: home
       margin-top: 22px;
     }
 
-    /* ── Meet Andrew ── */
+    /* ── Meet Andrew (compact) ── */
     .meetSection { padding: 0 0 72px }
 
-    .meetGrid {
-      display: grid;
-      grid-template-columns: 1fr 1.6fr;
-      gap: 20px;
-      margin-top: 28px;
-      align-items: start;
+    .meetCompact {
+      display: flex;
+      align-items: center;
+      gap: 32px;
     }
 
     .meetPhoto {
@@ -155,7 +153,9 @@ navActive: home
       overflow: hidden;
       border: 1px solid var(--gray-200);
       box-shadow: var(--shadow-md);
-      aspect-ratio: 3/4;
+      width: 180px;
+      height: 180px;
+      flex-shrink: 0;
       background: var(--gray-50);
     }
 
@@ -168,17 +168,7 @@ navActive: home
     }
 
     .meetContent {
-      background: var(--white);
-      border: 1px solid var(--gray-200);
-      border-radius: var(--r-xl);
-      box-shadow: var(--shadow-sm);
-      padding: 32px;
-    }
-
-    .meetContent h2 {
-      margin: 0 0 6px;
-      font-size: 24px;
-      letter-spacing: -0.025em;
+      flex: 1;
     }
 
     .meetRole {
@@ -187,7 +177,7 @@ navActive: home
       color: var(--primary);
       letter-spacing: .03em;
       text-transform: uppercase;
-      margin: 0 0 18px;
+      margin: 0 0 12px;
     }
 
     .meetContent p {
@@ -195,48 +185,51 @@ navActive: home
       font-size: 15px;
       color: var(--gray-500);
       line-height: 1.75;
-    }
-
-    .meetContent p + p { margin-top: 12px }
-
-    .meetPills {
-      margin-top: 22px;
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-    }
-
-    .meetPill {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 7px 14px;
-      border-radius: var(--r-full);
-      border: 1px solid var(--gray-200);
-      background: var(--gray-50);
-      color: var(--gray-600);
-      font-size: 13px;
-      font-weight: 500;
-      white-space: nowrap;
-    }
-
-    .meetPill svg {
-      width: 13px;
-      height: 13px;
-      color: var(--primary);
-      flex-shrink: 0;
+      max-width: 560px;
     }
 
     @media(max-width:980px) {
       .processSteps { grid-template-columns: 1fr 1fr }
-      .meetGrid { grid-template-columns: 1fr }
-      .meetPhoto { aspect-ratio: 16/9; max-height: 320px }
-      .meetPhoto img { object-position: center 20% }
+    }
+
+    @media(max-width:700px) {
+      .meetCompact { flex-direction: column; align-items: flex-start; gap: 20px }
+      .meetPhoto { width: 120px; height: 120px }
+    }
+
+    /* ── Service area (compact) ── */
+    .serviceAreaCompact {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+    }
+
+    .serviceAreaMapSmall {
+      width: 260px;
+      flex-shrink: 0;
+      border-radius: var(--r-xl);
+      overflow: hidden;
+      border: 1px solid var(--gray-200);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .serviceAreaMapSmall img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: contain;
+      background: var(--gray-50);
+    }
+
+    .serviceAreaText {
+      flex: 1;
     }
 
     @media(max-width:700px) {
       .servicesPreview { grid-template-columns: 1fr }
       .processSteps { grid-template-columns: 1fr }
+      .serviceAreaCompact { flex-direction: column; gap: 20px }
+      .serviceAreaMapSmall { width: 100%; max-width: 280px }
     }
   </style>
 {% endblock %}
@@ -245,7 +238,10 @@ navActive: home
   <main>
 
     {# ── HERO ── #}
-    <section class="hero">
+    <section class="hero heroDark">
+      <div class="heroBackground">
+        <img src="/assets/IMG_0431.jpeg" alt="" aria-hidden="true" loading="eager">
+      </div>
       <div class="wrap">
         <div class="heroBadge">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
@@ -295,7 +291,7 @@ navActive: home
         <p class="sectionLabel">What we install</p>
         <h2 class="sectionTitle">Wi-Fi, Cameras, and Phones — All in One System</h2>
         <p class="sectionIntro">
-          Every install runs on UniFi — one platform, one dashboard, no juggling vendors.
+          Every install runs on UniFi — enterprise-grade equipment at residential prices. One platform, one dashboard, no juggling vendors.
         </p>
 
         <div class="servicesPreview reveal-stagger">
@@ -328,6 +324,16 @@ navActive: home
           <a class="btn primary" href="/services/">See all services</a>
           <a class="seeAll" href="/services/">Cabling, switching, racks, failover, and more &rarr;</a>
         </div>
+      </div>
+    </section>
+
+    {# ── TESTIMONIAL ── #}
+    <section class="testimonialBand reveal">
+      <div class="wrap">
+        <p class="sectionLabel">What clients say</p>
+        <span class="quoteMark" aria-hidden="true">&ldquo;</span>
+        <p class="quoteText">His professionalism and calm, practical problem-solving ability were consistently impressive. His work has had a meaningful impact on the Museum's operations and visitor experience.</p>
+        <p class="quoteAttrib">&mdash; The Finger Lakes Boating Museum</p>
       </div>
     </section>
 
@@ -395,53 +401,21 @@ navActive: home
       </div>
     </section>
 
-    {# ── TESTIMONIAL ── #}
-    <section class="testimonialBand reveal">
-      <div class="wrap">
-        <p class="sectionLabel">What clients say</p>
-        <span class="quoteMark" aria-hidden="true">&ldquo;</span>
-        <p class="quoteText">His professionalism and calm, practical problem-solving ability were consistently impressive. His work has had a meaningful impact on the Museum's operations and visitor experience.</p>
-        <p class="quoteAttrib">&mdash; The Finger Lakes Boating Museum</p>
-      </div>
-    </section>
-
     {# ── MEET ANDREW ── #}
-    <section class="meetSection sectionAlt reveal" style="padding: 72px 0">
+    <section class="meetSection sectionAlt reveal" style="padding: 48px 0">
       <div class="wrap">
-        <p class="sectionLabel">Who you're working with</p>
-        <h2 class="sectionTitle">Meet Andrew</h2>
-
-        <div class="meetGrid">
+        <div class="meetCompact">
           <div class="meetPhoto reveal">
             <img src="/assets/Headshot.jpg" alt="Andrew Slade, founder of Slade Networks" loading="lazy">
           </div>
-
           <div class="meetContent reveal">
-            <h2>Andrew Slade</h2>
+            <p class="sectionLabel">Who you're working with</p>
+            <h2 class="sectionTitle" style="margin-bottom:6px">Andrew Slade</h2>
             <p class="meetRole">Founder &amp; Owner</p>
             <p>
-              Slade Networks is a one-person operation. Every consultation, installation, and support call is handled directly by Andrew — no subcontractors, no middlemen, and no system left behind without a proper walkthrough.
+              Every consultation, install, and support call is handled by one person — no subcontractors, no middlemen. CCNA certified, CS degree from St. Bonaventure, based in Penn Yan.
             </p>
-            <p>
-              Andrew started Slade Networks because too many homes and businesses in the Finger Lakes were stuck with unreliable networks and no one local to call. His focus is practical, real-world networking — consistent performance, clean installs, and systems that work the same on day 300 as they did on day one.
-            </p>
-
-            <div class="meetPills">
-              <span class="meetPill">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-                Cisco CCNA
-              </span>
-              <span class="meetPill">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
-                CS &mdash; St. Bonaventure University
-              </span>
-              <span class="meetPill">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                Based in Penn Yan, NY
-              </span>
-            </div>
-
-            <div style="margin-top:24px;">
+            <div style="margin-top:18px;">
               <a class="btn" href="/about/">More about Andrew &rarr;</a>
             </div>
           </div>
@@ -452,26 +426,14 @@ navActive: home
     {# ── SERVICE AREA ── #}
     <section class="section reveal">
       <div class="wrap">
-        <p class="sectionLabel">Service area</p>
-        <h2 class="sectionTitle">Serving Upstate New York</h2>
-        <p class="sectionIntro">On-site consultations and installations across the Finger Lakes and beyond.</p>
-
-        <div class="serviceAreaWrap">
-          <div class="serviceAreaSquare serviceAreaCard">
-            <h3>Based in Penn Yan — Wide Coverage</h3>
-            <p>
-              We serve homes and businesses across a wide swath of Upstate NY — from the greater Rochester area south through the Finger Lakes, down to Corning and Elmira, and east to Ithaca and Auburn.
-            </p>
-            <p>
-              That includes Penn Yan, Canandaigua, Geneva, Seneca Falls, Watkins Glen, Hammondsport, Naples, Hornell, Victor, and many towns in between.
-            </p>
-            <p>
-              Outside the map? Reach out — for the right project, distance isn't a dealbreaker.
-            </p>
-          </div>
-
-          <div class="serviceAreaSquare serviceAreaMap">
+        <div class="serviceAreaCompact">
+          <div class="serviceAreaMapSmall">
             <img src="/assets/Updated_service_area.jpg" alt="Slade Networks service area map covering the Finger Lakes and surrounding Upstate NY region" loading="lazy">
+          </div>
+          <div class="serviceAreaText">
+            <p class="sectionLabel">Service area</p>
+            <h2 class="sectionTitle">Based in Penn Yan, Serving the Finger Lakes</h2>
+            <p class="sectionIntro" style="margin-bottom:0">Rochester to Corning, Ithaca to Canandaigua — and everywhere in between. Outside the map? Reach out.</p>
           </div>
         </div>
       </div>

@@ -377,6 +377,84 @@ h2 {
 
 .hero .wrap { position: relative }
 
+/* ── Dark hero (background image variant) ── */
+.heroDark {
+  padding: 100px 0 80px;
+  overflow: hidden;
+}
+
+.heroDark::before {
+  background:
+    linear-gradient(135deg, rgba(0,0,0,.78) 0%, rgba(0,0,0,.55) 50%, rgba(0,0,0,.4) 100%),
+    radial-gradient(ellipse 50% 80% at 0% 50%, rgba(0,0,0,.3) 0%, transparent 100%);
+  z-index: 1;
+}
+
+.heroBackground {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.heroBackground img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 30%;
+  display: block;
+}
+
+.heroDark .wrap { z-index: 2 }
+
+.heroDark h1 {
+  color: var(--white);
+  text-shadow: 0 2px 20px rgba(0,0,0,.3);
+}
+
+.heroDark .subtext {
+  color: rgba(255,255,255,.82);
+}
+
+.heroDark .heroBadge {
+  background: rgba(255,255,255,.1);
+  border-color: rgba(255,255,255,.18);
+  color: rgba(255,255,255,.9);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.heroDark .heroBadge svg { color: var(--primary-light) }
+
+.heroDark .heroButtons .btn:not(.primary) {
+  background: transparent;
+  border-color: rgba(255,255,255,.3);
+  color: var(--white);
+  box-shadow: none;
+}
+.heroDark .heroButtons .btn:not(.primary):hover {
+  background: rgba(255,255,255,.1);
+  border-color: rgba(255,255,255,.5);
+  box-shadow: none;
+}
+
+.heroDark .heroButtons .btn.primary {
+  box-shadow: var(--shadow-blue-lg);
+}
+
+.heroDark .trustBar {
+  border-top-color: rgba(255,255,255,.12);
+}
+
+.heroDark .trustItem {
+  color: rgba(255,255,255,.7);
+}
+
+.heroDark .trustIcon {
+  background: rgba(255,255,255,.08);
+  border: 1px solid rgba(255,255,255,.1);
+  color: var(--primary-light);
+}
+
 .heroBadge {
   display: inline-flex;
   align-items: center;
@@ -439,13 +517,11 @@ h2 {
    ========================================================================== */
 
 .section {
-  padding: 72px 0;
+  padding: 56px 0;
 }
 
 .sectionAlt {
-  background: var(--gray-50);
-  border-top: 1px solid var(--gray-100);
-  border-bottom: 1px solid var(--gray-100);
+  background: var(--white);
 }
 
 
@@ -631,7 +707,7 @@ h2 {
    CTA SECTION
    ========================================================================== */
 
-.ctaSection { padding: 48px 0 80px }
+.ctaSection { padding: 40px 0 64px }
 
 .ctaInner {
   background: linear-gradient(135deg, var(--primary-50) 0%, rgba(219,234,254,.5) 100%);
@@ -711,7 +787,7 @@ h2 {
 /* Full-bleed testimonial band */
 .testimonialBand {
   background: #0f172a;
-  padding: 80px 0;
+  padding: 60px 0;
 }
 
 .testimonialBand .wrap {
@@ -1220,7 +1296,7 @@ details[open] .chev {
   .subtext { font-size: 16px }
   .sectionTitle { font-size: 24px }
   .hero { padding: 48px 0 32px }
-  .section { padding: 48px 0 }
+  .section { padding: 40px 0 }
   .wrap { padding: 0 18px }
 
   .scrollWrapper {
@@ -1254,6 +1330,17 @@ details[open] .chev {
   }
 
   .testimonialCard { padding: 24px }
+
+  .heroDark { padding: 64px 0 48px }
+
+  .heroDark::before {
+    background:
+      linear-gradient(180deg, rgba(0,0,0,.82) 0%, rgba(0,0,0,.6) 100%);
+  }
+
+  .heroBackground img {
+    object-position: center center;
+  }
 
   .trustBar {
     gap: 16px;
